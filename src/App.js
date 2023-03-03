@@ -6,7 +6,7 @@ function App() {
     const [chatGPTresponses, setChatGPTresponses] = useState([]); // This is where we will store all the chatGPT responses
 
     const submitPrompt = e => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && currentPrompt !== "") {
             setPrompts([...prompts, currentPrompt]);
             setChatGPTresponses([...chatGPTresponses, "This is some random response from GPT-3"]);
             setCurrentPrompt("");
