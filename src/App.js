@@ -1,26 +1,35 @@
 import {useState} from "react";
 import History from "./History";
-import CharacterCreationHandler from "./CharacterCreationHandler";
+import Handler from "./character_creation/Handler";
 
 function App() {
-    const [userResponses, setUserResponses] = useState([]); // This is where we will store all the user responses
+    const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
     const [chatGPTresponses, setChatGPTresponses] = useState(['This is the initial story']); // This is where we will store all the chatGPT responses
-    const [userName, setUserName] = useState(''); // This is where we will store the user name
-    const [userClass, setUserClass] = useState(''); // This is where we will store the user class
+    const [characterName, setCharacterName] = useState(''); // This is where we will store the character name
+    const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
+    const [characterAttributes, setCharacterAttributes] = useState({
+        strength: 1,
+        dexterity: 1,
+        constitution: 1,
+        intelligence: 1,
+        wisdom: 1,
+        charisma: 1,
+    }); // This is where we will store the user attributes
+    const [characterCreated, setCharacterCreated] = useState(false);
 
     const randomChatGPTresponse = [
-        `${userName} finds a potion`,
-        `${userName} finds a sword`,
-        `${userName} finds a shield`,
-        `${userName} finds a helmet`,
-        `${userName} finds a chestplate`,
-        `${userName} finds a pair of boots`,
-        `${userName} finds a pair of leggings`,
-        `${userName} finds a pair of gloves`,
-        `${userName} finds a pair of pants`,
-        `${userName} finds a pair of socks`,
-        `${userName} finds a pair of shoes`,
-        `${userName} finds a pair of sandals`,
+        `${characterName} finds a potion`,
+        `${characterName} finds a sword`,
+        `${characterName} finds a shield`,
+        `${characterName} finds a helmet`,
+        `${characterName} finds a chestplate`,
+        `${characterName} finds a pair of boots`,
+        `${characterName} finds a pair of leggings`,
+        `${characterName} finds a pair of gloves`,
+        `${characterName} finds a pair of pants`,
+        `${characterName} finds a pair of socks`,
+        `${characterName} finds a pair of shoes`,
+        `${characterName} finds a pair of sandals`,
     ]
 
     const submitPrompt = (userChoose) => {
@@ -28,8 +37,8 @@ function App() {
         setChatGPTresponses([...chatGPTresponses, randomChatGPTresponse[Math.floor(Math.random() * randomChatGPTresponse.length)]]);
     }
 
-    if (!userName || !userClass)
-        return <CharacterCreationHandler userClass={userClass} setUserClass={setUserClass} userName={userName} setUserName={setUserName} />
+    if (!characterCreated)
+        return <Handler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} />
 
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">

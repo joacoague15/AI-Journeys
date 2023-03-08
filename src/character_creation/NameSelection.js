@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const CharacterNameSelection = ({setUserName}) => {
+const NameSelection = ({setUserName}) => {
     const [inputValue, setInputValue] = useState('');
 
 
@@ -13,4 +13,4 @@ const CharacterNameSelection = ({setUserName}) => {
     )
 }
 
-export default CharacterNameSelection;
+export default NameSelection;
