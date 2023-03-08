@@ -1,4 +1,5 @@
 import {useState} from "react";
+import AttributesHelp from "./AttributesHelp";
 
 const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCreated}) => {
     const [points, setPoints] = useState(30);
@@ -142,9 +143,12 @@ const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCr
                         </button>
                     </li>
                 </ul>
+
                 <div style={{ margin: "auto", marginTop: 20 }}>
                     <button onClick={() => setCharacterCreated(true)} disabled={points > 0} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2, opacity: points > 0 ? 0.5 : 1 }}>Confirm</button>
                 </div>
+
+            <AttributesHelp />
         </div>
     );
 }
