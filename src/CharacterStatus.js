@@ -1,12 +1,10 @@
-import {useState} from "react";
-
-const CharacterStatus = () => {
-    const [health, setHealth] = useState(10);
+const CharacterStatus = ({characterStatuses}) => {
+    const { health, mana } = characterStatuses;
 
     if (health >= 8) {
         return (
-            <div style={{position: "absolute", top: 10, left: 10}}>
-                <div>
+            <div style={{position: "absolute", display: "flex", top: 10, left: 10}}>
+                <div style={{ margin: 15 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
                          className="bi bi-heart-fill"
                          viewBox="0 0 16 16">
@@ -14,6 +12,14 @@ const CharacterStatus = () => {
                               d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                     </svg>
                     <p style={{color: "white", fontSize: 28}}>{health}</p>
+                </div>
+                <div style={{ margin: 15 }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
+                         className="bi bi-magic" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z"/>
+                    </svg>
+                    <p style={{color: "white", fontSize: 28}}>{mana}</p>
                 </div>
             </div>
         )
@@ -30,6 +36,14 @@ const CharacterStatus = () => {
                     </svg>
                     <p style={{color: "white", fontSize: 28}}>{health}</p>
                 </div>
+                <div style={{ margin: 15 }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
+                         className="bi bi-magic" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z"/>
+                    </svg>
+                    <p style={{color: "white", fontSize: 28}}>{mana}</p>
+                </div>
             </div>
         )
     }
@@ -45,6 +59,14 @@ const CharacterStatus = () => {
                     </svg>
                     <p style={{color: "white", fontSize: 28}}>{health}</p>
                 </div>
+                <div style={{ margin: 15 }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
+                         className="bi bi-magic" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z"/>
+                    </svg>
+                    <p style={{color: "white", fontSize: 28}}>{mana}</p>
+                </div>
             </div>
         )
     }
@@ -58,6 +80,14 @@ const CharacterStatus = () => {
                               d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"/>
                     </svg>
                     <p style={{color: "white", fontSize: 28}}>{health}</p>
+                </div>
+                <div style={{ margin: 15 }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
+                         className="bi bi-magic" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z"/>
+                    </svg>
+                    <p style={{color: "white", fontSize: 28}}>{mana}</p>
                 </div>
             </div>
         )

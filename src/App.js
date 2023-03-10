@@ -16,6 +16,10 @@ function App() {
         wisdom: 1,
         charisma: 1,
     }); // This is where we will store the user attributes
+    const [characterStatuses, setCharacterStatuses] = useState({
+        health: 10,
+        mana: 0,
+    });
     const [characterCreated, setCharacterCreated] = useState(false);
 
     const randomChatGPTresponse = [
@@ -39,11 +43,11 @@ function App() {
     }
 
     if (!characterCreated)
-        return <Handler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} />
+        return <Handler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
 
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
-            <CharacterStatus />
+            <CharacterStatus characterStatuses={characterStatuses} />
 
             <div style={{ width: "50%", color: "white", textAlign: "center", marginTop: 10, fontSize: 32 }}>
                 <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>
