@@ -1,7 +1,7 @@
 import {useState} from "react";
 import AttributesHelp from "./AttributesHelp";
 
-const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCreated}) => {
+const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses}) => {
     const [points, setPoints] = useState(30);
 
     const handleAttributeChange = (attribute, value) => {
@@ -34,6 +34,16 @@ const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCr
                 break;
         }
     };
+
+    const handleConstitutionChange = (attributeValue, statValue) => {
+        handleAttributeChange('con', characterAttributes.constitution + attributeValue);
+        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + statValue });
+    }
+
+    const handleIntelligenceChange = (attributeValue, statValue) => {
+        handleAttributeChange('int', characterAttributes.intelligence + attributeValue);
+        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + statValue });
+    }
 
     return (
         <div style={{ color: "white", textAlign: "left", display: "flex", flexDirection: "column" }}>
@@ -79,14 +89,14 @@ const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCr
                         <button
                             style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
                             disabled={characterAttributes.constitution <= 1}
-                            onClick={() => handleAttributeChange('con', characterAttributes.constitution - 1)}
+                            onClick={() => handleConstitutionChange(-1, -1)}
                         >
                             -
                         </button>{' '}
                         <button
                             style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
                             disabled={characterAttributes.constitution >= 10 || points === 0}
-                            onClick={() => handleAttributeChange('con', characterAttributes.constitution + 1)}
+                            onClick={() => handleConstitutionChange(1, 1)}
                         >
                             +
                         </button>
@@ -96,14 +106,14 @@ const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCr
                         <button
                             style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
                             disabled={characterAttributes.intelligence <= 1}
-                            onClick={() => handleAttributeChange('int', characterAttributes.intelligence - 1)}
+                            onClick={() => handleIntelligenceChange(-1, -1)}
                         >
                             -
                         </button>{' '}
                         <button
                             style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
                             disabled={characterAttributes.intelligence >= 10 || points === 0}
-                            onClick={() => handleAttributeChange('int', characterAttributes.intelligence + 1)}
+                            onClick={() => handleIntelligenceChange(1, 1)}
                         >
                             +
                         </button>
