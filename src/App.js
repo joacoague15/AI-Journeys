@@ -1,6 +1,7 @@
 import {useState} from "react";
 import History from "./History";
 import Handler from "./character_creation/Handler";
+import CharacterStatus from "./CharacterStatus";
 
 function App() {
     const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
@@ -42,6 +43,8 @@ function App() {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
+            <CharacterStatus />
+
             <div style={{ width: "50%", color: "white", textAlign: "center", marginTop: 10, fontSize: 32 }}>
                 <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>
             </div>
