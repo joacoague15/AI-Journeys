@@ -48,6 +48,7 @@ function App() {
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
             <CharacterStatus characterStatuses={characterStatuses} />
+            <button style={{ color: "white", border: "2px solid white" }} onClick={() => setCharacterStatuses({...characterStatuses, health: characterStatuses.health - 1})}>-1 health</button>
 
             <div style={{ width: "50%", color: "white", textAlign: "center", marginTop: 10, fontSize: 32 }}>
                 <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>

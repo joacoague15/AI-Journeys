@@ -27,8 +27,8 @@ const CharacterStatus = ({characterStatuses}) => {
 
     if (health >= 6) {
         return (
-            <div style={{position: "absolute", top: 10, left: 10}}>
-                <div>
+            <div style={{position: "absolute", display: "flex", top: 10, left: 10}}>
+                <div style={{ margin: 15 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" className="bi
                         bi-heartbreak-fill" viewBox="0 0 16 16">
                         <path
@@ -50,8 +50,8 @@ const CharacterStatus = ({characterStatuses}) => {
 
     if (health >= 4) {
         return (
-            <div style={{position: "absolute", top: 10, left: 10}}>
-                <div>
+            <div style={{position: "absolute", display: "flex", top: 10, left: 10}}>
+                <div style={{ margin: 15 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
                          className="bi bi-heart-half" viewBox="0 0 16 16">
                         <path
@@ -72,8 +72,8 @@ const CharacterStatus = ({characterStatuses}) => {
     }
 
         return (
-            <div style={{position: "absolute", top: 10, left: 10}}>
-                <div>
+            <div style={{position: "absolute", display: "flex", top: 10, left: 10}}>
+                <div style={{ margin: 15 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
                          className="bi bi-activity" viewBox="0 0 16 16">
                         <path fillRule="evenodd"
