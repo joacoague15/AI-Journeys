@@ -19,9 +19,9 @@ const Inventory = () => {
     }
 
     return (
-        <div style={{ position: 'absolute', bottom: '1%', right: 30, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', height: '100%', }}>
+        <div style={{ position: 'absolute', bottom: '1%', right: 30, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', height: '100%', backgroundColor: 'transparent' }}>
             <h2 style={{ color: 'white', textAlign: 'center' }}>Inventory</h2>
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', backgroundColor: 'transparent' }}>
                 <div id="leftArm" style={squaresWeapons}></div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '33%' }}>
                     <div id="helmet" style={squaresInventory}><img src={Helmet} style={{ objectFit: 'cover', width: '98px', height: '98px' }} alt="" /></div>

@@ -1,7 +1,8 @@
 import { useState } from "react";
+import CharacterStatus from "../CharacterStatus";
 import AttributesHelp from "./AttributesHelp";
 
-const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses}) => {
+const Attributes = ({ characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses }) => {
     const [points, setPoints] = useState(30);
 
     const handleAttributeChange = (attribute, value) => {
@@ -70,156 +71,182 @@ const Attributes = ({characterAttributes, setCharacterAttributes, setCharacterCr
     }
 
     return (
-        <div style={{ color: "white", textAlign: "left", display: "flex", flexDirection: "column" }}>
+        <div style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column" }}>
+            <CharacterStatus characterStatuses={characterStatuses} />
             <h2 style={{ fontSize: 32, color: "white", textAlign: "center" }}>Attribute Allocation</h2>
             <p style={{ fontSize: 32 }}>You have {points} points to spend on attributes:</p>
-            <ul style={{ textAlign: "center" }}>
-                <li style={{ listStyle: "none" }}>
-                    Strength ( STR ): {characterAttributes.strength}{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.strength <= 1}
-                        onClick={() => handleAttributeChange('str', characterAttributes.strength - 1)}
-                    >
-                        -
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", listStyleType: "none", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.strength >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('str', characterAttributes.strength + 1)}
-                    >
-                        +
-                    </button>
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto' }}
-                        disabled={characterAttributes.strength >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('str', characterAttributes.strength + addAllAttributes(characterAttributes.strength))}
-                    >
-                        All
-                    </button>
-                </li>
-                <li style={{ listStyle: "none" }}>
-                    Dexterity ( DEX ): {characterAttributes.dexterity}{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.dexterity <= 1}
-                        onClick={() => handleAttributeChange('dex', characterAttributes.dexterity - 1)}
-                    >
-                        -
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.dexterity >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('dex', characterAttributes.dexterity + 1)}
-                    >
-                        +
-                    </button>
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto' }}
-                        disabled={characterAttributes.dexterity >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('dex', characterAttributes.dexterity + addAllAttributes(characterAttributes.dexterity))}
-                    >
-                        All
-                    </button>
-                </li>
-                <li style={{  listStyle: "none" }}>
-                    Constitution (CON): {characterAttributes.constitution}{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.constitution <= 1}
-                        onClick={() => handleConstitutionChange(-1, -1)}
-                    >
-                        -
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.constitution >= 10 || points === 0}
-                        onClick={() => handleConstitutionChange(1, 1)}
-                    >
-                        +
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.constitution >= 10 || points === 0}
-                        onClick={() => handleConstitutionChange(addAllAttributes(characterAttributes.constitution), addAllAttributes(characterAttributes.constitution))}
-                    >
-                        All
-                    </button>
-                </li>
-                <li style={{ listStyle: "none" }}>
-                    Intelligence (INT): {characterAttributes.intelligence}{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.intelligence <= 1}
-                        onClick={() => handleIntelligenceChange(-1, -1)}
-                    >
-                        -
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.intelligence >= 10 || points === 0}
-                        onClick={() => handleIntelligenceChange(1, 1)}
-                    >
-                        +
-                    </button>
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto' }}
-                        disabled={characterAttributes.intelligence >= 10 || points === 0}
-                        onClick={() => handleIntelligenceChange(addAllAttributes(characterAttributes.intelligence), addAllAttributes(characterAttributes.intelligence))}
-                    >
-                        All
-                    </button>
-                </li>
-                <li style={{ listStyle: "none" }}>
-                    Wisdom (WIS): {characterAttributes.wisdom}{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.wisdom <= 1}
-                        onClick={() => handleAttributeChange('wis', characterAttributes.wisdom - 1)}
-                    >
-                        -
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.wisdom >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('wis', characterAttributes.wisdom + 1)}
-                    >
-                        +
-                    </button>
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto' }}
-                        disabled={characterAttributes.wisdom >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('wis', characterAttributes.wisdom + addAllAttributes(characterAttributes.wisdom))}
-                    >
-                        All
-                    </button>
-                </li>
-                <li style={{ listStyle: "none" }}>
-                    Charisma (CHA): {characterAttributes.charisma}{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.charisma <= 1}
-                        onClick={() => handleAttributeChange('cha', characterAttributes.charisma - 1)}
-                    >
-                        -
-                    </button>{' '}
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25 }}
-                        disabled={characterAttributes.charisma >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('cha', characterAttributes.charisma + 1)}
-                    >
-                        +
-                    </button>
-                    <button
-                        style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto' }}
-                        disabled={characterAttributes.charisma >= 10 || points === 0}
-                        onClick={() => handleAttributeChange('cha', characterAttributes.charisma + addAllAttributes(characterAttributes.charisma))}
-                    >
-                        All
-                    </button>
-                </li>
-            </ul>
-
+            <div style={{ margin: 'auto', width: '60%' }}>
+                <ul style={{ textAlign: "left" }}>
+                    <li style={{ listStyle: "none" }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            Strength ( STR ): {characterAttributes.strength}{' '}
+                            <div>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.strength <= 1}
+                                    onClick={() => handleAttributeChange('str', characterAttributes.strength - 1)}
+                                >
+                                    -
+                                </button>{' '}
+                                <button
+                                    style={{ border: "1px solid white", color: "white", listStyleType: "none", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.strength >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('str', characterAttributes.strength + 1)}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.strength >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('str', characterAttributes.strength + addAllAttributes(characterAttributes.strength))}
+                                >
+                                    All
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li style={{ listStyle: "none" }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            Dexterity ( DEX ): {characterAttributes.dexterity}{' '}
+                            <div>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.dexterity <= 1}
+                                    onClick={() => handleAttributeChange('dex', characterAttributes.dexterity - 1)}
+                                >
+                                    -
+                                </button>{' '}
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.dexterity >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('dex', characterAttributes.dexterity + 1)}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.dexterity >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('dex', characterAttributes.dexterity + addAllAttributes(characterAttributes.dexterity))}
+                                >
+                                    All
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li style={{ listStyle: "none" }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            Constitution (CON): {characterAttributes.constitution}{' '}
+                            <div>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.constitution <= 1}
+                                    onClick={() => handleConstitutionChange(-1, -1)}
+                                >
+                                    -
+                                </button>{' '}
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.constitution >= 10 || points === 0}
+                                    onClick={() => handleConstitutionChange(1, 1)}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.constitution >= 10 || points === 0}
+                                    onClick={() => handleConstitutionChange(addAllAttributes(characterAttributes.constitution), addAllAttributes(characterAttributes.constitution))}
+                                >
+                                    All
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li style={{ listStyle: "none" }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            Intelligence (INT): {characterAttributes.intelligence}{' '}
+                            <div>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.intelligence <= 1}
+                                    onClick={() => handleIntelligenceChange(-1, -1)}
+                                >
+                                    -
+                                </button>{' '}
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.intelligence >= 10 || points === 0}
+                                    onClick={() => handleIntelligenceChange(1, 1)}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.intelligence >= 10 || points === 0}
+                                    onClick={() => handleIntelligenceChange(addAllAttributes(characterAttributes.intelligence), addAllAttributes(characterAttributes.intelligence))}
+                                >
+                                    All
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li style={{ listStyle: "none" }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            Wisdom (WIS): {characterAttributes.wisdom}{' '}
+                            <div>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.wisdom <= 1}
+                                    onClick={() => handleAttributeChange('wis', characterAttributes.wisdom - 1)}
+                                >
+                                    -
+                                </button>{' '}
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.wisdom >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('wis', characterAttributes.wisdom + 1)}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.wisdom >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('wis', characterAttributes.wisdom + addAllAttributes(characterAttributes.wisdom))}
+                                >
+                                    All
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li style={{ listStyle: "none" }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            Charisma (CHA): {characterAttributes.charisma}{' '}
+                            <div>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.charisma <= 1}
+                                    onClick={() => handleAttributeChange('cha', characterAttributes.charisma - 1)}
+                                >
+                                    -
+                                </button>{' '}
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.charisma >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('cha', characterAttributes.charisma + 1)}
+                                >
+                                    +
+                                </button>
+                                <button
+                                    style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', '&:hover': { cursor: 'pointer' } }}
+                                    disabled={characterAttributes.charisma >= 10 || points === 0}
+                                    onClick={() => handleAttributeChange('cha', characterAttributes.charisma + addAllAttributes(characterAttributes.charisma))}
+                                >
+                                    All
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div style={{ margin: "auto", marginTop: 20, display: 'flex', gap: '20px' }}>
                 <button onClick={() => setCharacterCreated(true)} disabled={points > 0} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2, opacity: points > 0 ? 0.5 : 1 }}>Confirm</button>
                 <button onClick={() => clearButton()} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2 }}>Clear</button>
