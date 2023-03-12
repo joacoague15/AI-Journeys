@@ -1,6 +1,9 @@
-import {useState} from "react";
-import History from "./History";
+import { useState, useEffect } from "react";
+import History from "./components/History";
 import Handler from "./character_creation/Handler";
+import Inventory from "./components/Inventory"
+import Puerta from "./images/puerta.jpg"
+import { resolverIDB } from "./IndexedDB/registerDB.js"
 import CharacterStatus from "./CharacterStatus";
 
 function App() {
@@ -37,6 +40,10 @@ function App() {
         `${characterName} finds a pair of sandals`,
     ]
 
+    useEffect(() => {
+        resolverIDB()
+    }, [])
+
     const submitPrompt = (userChoose) => {
         setUserResponses([...userResponses, userChoose]);
         setChatGPTresponses([...chatGPTresponses, randomChatGPTresponse[Math.floor(Math.random() * randomChatGPTresponse.length)]]);
@@ -45,23 +52,22 @@ function App() {
     if (!characterCreated)
         return <Handler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
 
-    return (
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
-            <CharacterStatus characterStatuses={characterStatuses} />
-            <button style={{ color: "white", border: "2px solid white" }} onClick={() => setCharacterStatuses({...characterStatuses, health: characterStatuses.health - 1})}>-1 health</button>
-
-            <div style={{ width: "50%", color: "white", textAlign: "center", marginTop: 10, fontSize: 32 }}>
-                <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>
-            </div>
-
-            <div>
-                <button style={{ margin: 20, fontSize: 48 }} onClick={() => submitPrompt('left')} type="button" className="btn btn-light">Left</button>
-                <button style={{ margin: 20, fontSize: 48 }} onClick={() => submitPrompt('center')} type="button" className="btn btn-light">Center</button>
-                <button style={{ margin: 20, fontSize: 48 }} onClick={() => submitPrompt('right')} type="button" className="btn btn-light">Right</button>
-            </div>
-
-            <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
+    return (<div style={{ height: '100vh', position: 'relative' }}>
+        <div style={{ width: "50%", color: "white", textAlign: "center", margin: 'auto', fontSize: 32, paddingTop: '20px' }}>
+            <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>
         </div>
+        <CharacterStatus characterStatuses={characterStatuses} />
+        <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
+        <div style={{ width: '33%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
+            <img src={Puerta} alt="" style={{ maxWidth: '450px', left: '50%', position: 'absolute', transform: 'translate(-50%)', zIndex: -1 }} />
+            <div style={{ bottom: 0, position: 'absolute', width: '100%', backgroundColor: 'transparent', display: 'flex', gap: '20px', justifyContent: 'center' }}>
+                <button style={{ fontSize: 48 }} onClick={() => submitPrompt('left')} type="button" className="btn btn-light">Left</button>
+                <button style={{ fontSize: 48 }} onClick={() => submitPrompt('center')} type="button" className="btn btn-light">Center</button>
+                <button style={{ fontSize: 48 }} onClick={() => submitPrompt('right')} type="button" className="btn btn-light">Right</button>
+            </div>
+        </div>
+        <Inventory />
+    </div>
     )
 }
 

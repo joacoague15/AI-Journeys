@@ -1,4 +1,12 @@
-const ClassSelection = ({userName, setUserClass}) => {
+//import { IDBTransactionUpdateCharacter } from "../IndexedDB/CRUD"
+
+const ClassSelection = ({ userName, setUserClass }) => {
+
+    /*const ClassChoice = (classChoice) => {
+        IDBTransactionUpdateCharacter({ Class: classChoice })
+        setUserClass(classChoice)
+    }*/
+
     return (
         <div>
             <h2 style={{ fontSize: 48, color: "white", marginBottom: 50 }}>Class of {userName}</h2>
