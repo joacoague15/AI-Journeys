@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CharacterStatus from "../CharacterStatus";
 import AttributesHelp from "./AttributesHelp";
 
 const Attributes = ({ characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses }) => {
@@ -72,7 +71,6 @@ const Attributes = ({ characterAttributes, setCharacterAttributes, setCharacterC
 
     return (
         <div style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column" }}>
-            <CharacterStatus characterStatuses={characterStatuses} />
             <h2 style={{ fontSize: 32, color: "white", textAlign: "center" }}>Attribute Allocation</h2>
             <p style={{ fontSize: 32 }}>You have {points} points to spend on attributes:</p>
             <div style={{ margin: 'auto', width: '60%' }}>

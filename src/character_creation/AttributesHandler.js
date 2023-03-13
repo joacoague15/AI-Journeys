@@ -1,8 +1,9 @@
 import ClassSelection from "./ClassSelection";
 import NameSelection from "./NameSelection";
 import Attributes from "./Attributes";
+import CharacterStatus from "../CharacterStatus";
 
-const Handler = ({userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses}) => {
+const AttributesHandler = ({userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses}) => {
 
     if (!userName) {
         return <NameSelection setUserName={setUserName} />
@@ -17,10 +18,11 @@ const Handler = ({userClass, setUserClass, userName, setUserName, characterAttri
     else {
         return (
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
+                <CharacterStatus characterStatuses={characterStatuses} />
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
         )
     }
 }
 
-export default Handler;
+export default AttributesHandler;
