@@ -6,6 +6,8 @@ import { resolverIDB } from "./IndexedDB/registerDB.js"
 import CharacterStatus from "./CharacterStatus";
 import SituationHandler from "./situations_system/SituationHandler";
 import Attributes from "./components/Attributes";
+import ExperienceIndicator from "./components/ExperienceIndicator";
+import Inventory from "./components/Inventory";
 
 function App() {
     const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
@@ -25,6 +27,7 @@ function App() {
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
     const [points, setPoints] = useState(5);
+    const [experience, setExperience] = useState(1);
 
     const randomChatGPTresponse = [
         `${characterName} finds a potion`,
@@ -60,11 +63,14 @@ function App() {
             </div>
             <CharacterStatus characterStatuses={characterStatuses} />
             <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
-            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} />
+            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} />
+            <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
+                <ExperienceIndicator experience={experience} />
+            </div>
             <div style={{ position: "absolute", bottom: 40, right: 40 }}>
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
             </div>
-            {/*<Inventory />*/}
+            <Inventory />
         </div>
     )
 }
