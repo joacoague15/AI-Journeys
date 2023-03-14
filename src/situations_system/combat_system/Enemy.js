@@ -4,7 +4,7 @@ import {useEffect} from "react";
 const Enemy = ({enemyHealth, enemyActualHealth, turn, setTurn, characterStatuses, setCharacterStatuses}) => {
 
     useEffect(() => {
-        if (turn === 'enemy') {
+        if (turn === 'enemy' && enemyActualHealth > 0) {
             setTimeout(() => {
                     setCharacterStatuses({...characterStatuses, health: characterStatuses.health - 1});
                     setTurn('player');
