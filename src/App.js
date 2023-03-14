@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import History from "./components/History";
 import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
-import Inventory from "./components/Inventory"
+// import Inventory from "./components/Inventory"
 import { resolverIDB } from "./IndexedDB/registerDB.js"
 import CharacterStatus from "./CharacterStatus";
 import SituationHandler from "./situations_system/SituationHandler";
+import Attributes from "./components/Attributes";
 
 function App() {
     const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
@@ -23,6 +24,7 @@ function App() {
     });
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
+    const [points, setPoints] = useState(5);
 
     const randomChatGPTresponse = [
         `${characterName} finds a potion`,
@@ -49,7 +51,7 @@ function App() {
     }
 
     if (!characterCreated)
-        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
+        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
@@ -59,7 +61,10 @@ function App() {
             <CharacterStatus characterStatuses={characterStatuses} />
             <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
             <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} />
-            <Inventory />
+            <div style={{ position: "absolute", bottom: 40, right: 40 }}>
+                <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
+            </div>
+            {/*<Inventory />*/}
         </div>
     )
 }
