@@ -24,11 +24,8 @@ const AttributesHelp = () => {
                     <div style={{ width: "50%", height: "50%", backgroundColor: "black", borderRadius: 10, padding: 20, border: "2px solid white" }}>
                         <h1 style={{ textAlign: "center", letterSpacing: 15 }}>Attributes</h1>
                         <p><b>Strength:</b> Your strength determines how much damage you can do with melee weapons.</p>
-                        <p><b>Dexterity:</b> Your dexterity determines how much damage you can do with ranged weapons.</p>
                         <p><b>Constitution:</b> Your constitution determines how much health you have.</p>
                         <p><b>Intelligence:</b> Your intelligence determines how much mana you have.</p>
-                        <p><b>Wisdom:</b> Your wisdom determines your ability to perceive hidden details, detect danger, and make good judgments </p>
-                        <p><b>Charisma:</b> Your charisma determines how you good can persuade others, negotiate effectively, and make a favorable impression on people you meet.</p>
                     </div>
                 </div>
             )}

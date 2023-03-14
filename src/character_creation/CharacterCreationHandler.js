@@ -3,7 +3,7 @@ import NameSelection from "./NameSelection";
 import Attributes from "./Attributes";
 import CharacterStatus from "../CharacterStatus";
 
-const AttributesHandler = ({userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses}) => {
+const CharacterCreationHandler = ({userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses}) => {
 
     if (!userName) {
         return <NameSelection setUserName={setUserName} />
@@ -25,4 +25,4 @@ const AttributesHandler = ({userClass, setUserClass, userName, setUserName, char
     }
 }
 
-export default AttributesHandler;
+export default CharacterCreationHandler;

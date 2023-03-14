@@ -19,10 +19,6 @@ const ClassSelection = ({ userName, setUserClass }) => {
                     <button style={{ margin: 20, fontSize: 48, backgroundColor: "black", border: "none" }} onClick={() => setUserClass('archer')} type="button" className="btn btn-light"><i style={{ color: "white", fontSize: 240, animationDuration: "5s" }} className="fa-solid fa-hat-wizard fa-fade"></i></button>
                     <h3 style={{ fontSize: 32, color: "white", marginBottom: 5, letterSpacing: 2 }}>Mage</h3>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", margin: 30 }}>
-                    <button style={{ margin: 20, fontSize: 48, backgroundColor: "black", border: "none" }} onClick={() => setUserClass('mage')} type="button" className="btn btn-light"><i style={{ color: "white", fontSize: 240, animationDuration: "4s" }} className="fa-solid fa-bullseye fa-flip"></i></button>
-                    <h3 style={{ fontSize: 32, color: "white", marginBottom: 5, letterSpacing: 2 }}>Archer</h3>
-                </div>
             </div>
         </div>
     )

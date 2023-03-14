@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import History from "./components/History";
-import AttributesHandler from "./character_creation/AttributesHandler";
+import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
 import Inventory from "./components/Inventory"
 import { resolverIDB } from "./IndexedDB/registerDB.js"
 import CharacterStatus from "./CharacterStatus";
@@ -13,14 +13,12 @@ function App() {
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
     const [characterAttributes, setCharacterAttributes] = useState({
         strength: 1,
-        dexterity: 1,
         constitution: 1,
         intelligence: 1,
-        wisdom: 1,
-        charisma: 1,
     }); // This is where we will store the user attributes
     const [characterStatuses, setCharacterStatuses] = useState({
         health: 10,
+        attack: 10,
         mana: 0,
     });
     const [characterCreated, setCharacterCreated] = useState(false);
@@ -51,7 +49,7 @@ function App() {
     }
 
     if (!characterCreated)
-        return <AttributesHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
+        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
