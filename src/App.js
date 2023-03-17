@@ -7,7 +7,6 @@ import CharacterStatus from "./CharacterStatus";
 import SituationHandler from "./situations_system/SituationHandler";
 import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
-import Inventory from "./components/Inventory";
 import DeadScreen from "./components/DeadScreen";
 
 function App() {
@@ -19,13 +18,13 @@ function App() {
         strength: 1,
         constitution: 1,
         intelligence: 1,
-    }); // This is where we will store the user attributes
+    });
     const [characterStatuses, setCharacterStatuses] = useState({
         health: 10,
         maxHealth: 10,
-        attack: 10,
+        attack: 1,
         mana: 0,
-        maxMana: 40,
+        maxMana: 0,
     });
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');

@@ -20,7 +20,8 @@ const Attributes = ({characterAttributes, setCharacterAttributes, characterStatu
 
     const handleStrengthChange = (attributeValue, statValue) => {
         handleAttributeChange('str', characterAttributes.strength + attributeValue);
-        setCharacterStatuses({ ...characterStatuses, attack: characterStatuses.attack + statValue });
+        if (!characterCreated)
+            setCharacterStatuses({ ...characterStatuses, attack: characterStatuses.attack + statValue });
     }
 
     const handleConstitutionChange = (attributeValue, statValue) => {

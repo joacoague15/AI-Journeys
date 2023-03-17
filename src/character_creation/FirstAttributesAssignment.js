@@ -15,7 +15,7 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
             maxHealth: 10,
             mana: 0,
             maxMana: 0,
-            attack: 10,
+            attack: 1,
         })
 
         setPoints(5)
