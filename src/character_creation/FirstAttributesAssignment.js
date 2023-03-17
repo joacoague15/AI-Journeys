@@ -12,7 +12,9 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
 
         setCharacterStatuses({
             health: 10,
+            maxHealth: 10,
             mana: 0,
+            maxMana: 0,
             attack: 10,
         })
 

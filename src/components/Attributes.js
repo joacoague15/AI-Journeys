@@ -25,12 +25,12 @@ const Attributes = ({characterAttributes, setCharacterAttributes, characterStatu
 
     const handleConstitutionChange = (attributeValue, statValue) => {
         handleAttributeChange('con', characterAttributes.constitution + attributeValue);
-        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + statValue });
+        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + statValue, maxHealth: characterStatuses.maxHealth + statValue });
     }
 
     const handleIntelligenceChange = (attributeValue, statValue) => {
         handleAttributeChange('int', characterAttributes.intelligence + attributeValue);
-        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + statValue });
+        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + statValue, maxMana: characterStatuses.maxMana + statValue });
     }
 
     return (

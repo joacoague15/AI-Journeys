@@ -8,6 +8,7 @@ import SituationHandler from "./situations_system/SituationHandler";
 import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import Inventory from "./components/Inventory";
+import DeadScreen from "./components/DeadScreen";
 
 function App() {
     const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
@@ -21,8 +22,10 @@ function App() {
     }); // This is where we will store the user attributes
     const [characterStatuses, setCharacterStatuses] = useState({
         health: 10,
+        maxHealth: 10,
         attack: 10,
         mana: 0,
+        maxMana: 0,
     });
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
@@ -56,12 +59,18 @@ function App() {
     if (!characterCreated)
         return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
 
+    if (characterStatuses.health <= 0) {
+        return <DeadScreen />
+    }
+
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             <div style={{ width: "50%", color: "white", textAlign: "center", margin: 'auto', fontSize: 32, paddingTop: '20px' }}>
                 <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>
             </div>
-            <CharacterStatus characterStatuses={characterStatuses} />
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
+                <CharacterStatus characterStatuses={characterStatuses} />
+            </div>
             <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
             <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} />
             <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
