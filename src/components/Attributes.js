@@ -25,96 +25,102 @@ const Attributes = ({characterAttributes, setCharacterAttributes, characterStatu
 
     const handleConstitutionChange = (attributeValue, statValue) => {
         handleAttributeChange('con', characterAttributes.constitution + attributeValue);
-        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + statValue, maxHealth: characterStatuses.maxHealth + statValue });
+        if (!characterCreated)
+            setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + statValue, maxHealth: characterStatuses.maxHealth + statValue });
+        else
+            setCharacterStatuses({ ...characterStatuses, maxHealth: characterStatuses.maxHealth + statValue });
     }
 
     const handleIntelligenceChange = (attributeValue, statValue) => {
         handleAttributeChange('int', characterAttributes.intelligence + attributeValue);
-        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + statValue, maxMana: characterStatuses.maxMana + statValue });
+        if (!characterCreated)
+            setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + statValue, maxMana: characterStatuses.maxMana + statValue });
+        else
+            setCharacterStatuses({ ...characterStatuses, maxMana: characterStatuses.maxMana + statValue });
     }
 
     return (
         <>
-            <ul style={{ textAlign: "left" }}>
+            <ul style={{ textAlign: "left", zIndex: 20 }}>
                 <li style={{ listStyle: "none" }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 24 }}>
                         <span style={{ color: "white" }}>Strength (STR): {characterAttributes.strength}</span>
                         <div>
                             {!characterCreated && <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
+                                style={{ border: "none", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
                                 disabled={characterAttributes.strength <= 1}
                                 onClick={() => handleStrengthChange(-1, -1)}
                             >
                                 -
                             </button>}
-                            <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
+                            {points > 0 && <button
+                                style={{ border: "none", color: "white", cursor: 'pointer' }}
                                 disabled={points === 0}
                                 onClick={() => handleStrengthChange(1, 1)}
                             >
                                 +
-                            </button>
-                            <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', cursor: 'pointer' }}
+                            </button>}
+                            {points > 0 && <button
+                                style={{ border: "none", color: "white", marginLeft: 5, cursor: 'pointer' }}
                                 onClick={() => handleStrengthChange(points, points)}
                             >
                                 All
-                            </button>
+                            </button>}
                         </div>
                     </div>
                 </li>
                 <li style={{ listStyle: "none" }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 24 }}>
                         <span style={{ color: "white" }}>Constitution (CON): {characterAttributes.constitution}{' '}</span>
                         <div>
                             {!characterCreated && <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
+                                style={{ border: "none", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
                                 disabled={characterAttributes.constitution <= 1}
                                 onClick={() => handleConstitutionChange(-1, -1)}
                             >
                                 -
                             </button>}
-                            <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
+                            {points > 0 && <button
+                                style={{ border: "none", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
                                 disabled={points === 0}
                                 onClick={() => handleConstitutionChange(1, 1)}
                             >
                                 +
-                            </button>
-                            <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', cursor: 'pointer' }}
+                            </button>}
+                            {points > 0 && <button
+                                style={{ border: "none", color: "white", marginLeft: 5, cursor: 'pointer' }}
                                 onClick={() => handleConstitutionChange(points, points)}
                             >
                                 All
-                            </button>
+                            </button>}
                         </div>
                     </div>
                 </li>
                 <li style={{ listStyle: "none" }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 24 }}>
                         <span style={{ color: "white" }}>Intelligence (INT): {characterAttributes.intelligence}{' '}</span>
                         <div>
                             {!characterCreated && <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25,  cursor: 'pointer' }}
+                                style={{ border: "none", color: "white", marginLeft: 5, width: 25,  cursor: 'pointer' }}
                                 disabled={characterAttributes.intelligence <= 1}
                                 onClick={() => handleIntelligenceChange(-1, -1)}
                             >
                                 -
                             </button>}
-                            <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
+                            {points > 0 && <button
+                                style={{ border: "none", color: "white", marginLeft: 5, width: 25, cursor: 'pointer' }}
                                 disabled={characterAttributes.intelligence >= 10 || points === 0}
                                 onClick={() => handleIntelligenceChange(1, 1)}
                             >
                                 +
-                            </button>
-                            <button
-                                style={{ border: "1px solid white", color: "white", marginLeft: 5, width: 'auto', cursor: 'pointer'}}
+                            </button>}
+                            {points > 0 && <button
+                                style={{ border: "none", color: "white", marginLeft: 5, width: 'auto', cursor: 'pointer'}}
                                 disabled={characterAttributes.intelligence >= 10 || points === 0}
                                 onClick={() => handleIntelligenceChange(points, points)}
                             >
                                 All
-                            </button>
+                            </button>}
                         </div>
                     </div>
                 </li>

@@ -25,7 +25,7 @@ function App() {
         maxHealth: 10,
         attack: 10,
         mana: 0,
-        maxMana: 0,
+        maxMana: 40,
     });
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
@@ -74,12 +74,12 @@ function App() {
             <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
             <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} />
             <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
-                <ExperienceIndicator experience={experience} />
+                <ExperienceIndicator experience={experience} setPoints={setPoints} />
             </div>
             <div style={{ position: "absolute", bottom: 40, right: 40 }}>
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
             </div>
-            <Inventory />
+            {/*<Inventory />*/}
         </div>
     )
 }
