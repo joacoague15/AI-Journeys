@@ -1,5 +1,5 @@
-import enemy from "../../images/enemy1.jpg";
 import {useEffect} from "react";
+import enemies from "../../HardCodedData";
 
 const Enemy = ({enemyHealth, enemyActualHealth, turn, setTurn, characterStatuses, setCharacterStatuses}) => {
 
@@ -20,7 +20,7 @@ const Enemy = ({enemyHealth, enemyActualHealth, turn, setTurn, characterStatuses
                      aria-valuenow={enemyActualHealth} aria-valuemin="0" aria-valuemax={enemyHealth}>
                 </div>
             </div>
-            <img src={enemy} alt="enemy" style={{ maxWidth: '450px', left: '50%', position: 'absolute', transform: 'translate(-50%)', zIndex: 1, filter: "grayscale(100%)" }} />
+            <img src={enemies.lowLevel[0].image} alt="enemy" style={{ maxWidth: '450px', left: '50%', position: 'absolute', transform: 'translate(-50%)', zIndex: 1, filter: "grayscale(100%)" }} />
         </>
     )
 }

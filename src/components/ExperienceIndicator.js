@@ -1,10 +1,8 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
-const ExperienceIndicator = ({experience, setPoints}) => {
+const ExperienceIndicator = ({experience, setPoints, currentLevel, setCurrentLevel}) => {
     const experienceOfEachLevel = 100;
     const level = Math.ceil(experience / 100);
-
-    const [currentLevel, setCurrentLevel] = useState(1);
 
     const experienceOfPreviousLevels = (level - 1) * experienceOfEachLevel;
     const experienceOfCurrentLevel = experience - experienceOfPreviousLevels;
@@ -12,7 +10,7 @@ const ExperienceIndicator = ({experience, setPoints}) => {
 
     useEffect(() => {
         if (currentLevel < level) {
-            setPoints(points => points + 2);
+            setPoints(points => points + (2 * (level - currentLevel)));
             setCurrentLevel(level);
         }
     }, [currentLevel, level, setPoints])
