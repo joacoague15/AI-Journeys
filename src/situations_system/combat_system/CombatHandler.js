@@ -4,21 +4,35 @@ import Player from "./Player";
 import enemies from "../../HardCodedData";
 
 const CombatHandler = ({characterStatuses, setCharacterStatuses, setSituation, experience, setExperience}) => {
-    const enemyTotalHealth = enemies.lowLevel[0].health;
-    const [enemyActualHealth, setEnemyActualHealth] = useState(enemyTotalHealth);
+
+    const [enemyName, setEnemyName] = useState("");
+    const [enemyTotalHealth, setEnemyTotalHealth] = useState(null);
+    const [enemyImage, setEnemyImage] = useState("");
+    const [enemyCurrentHealth, setEnemyCurrentHealth] = useState(enemyTotalHealth);
     const [turn, setTurn] = useState('player');
 
     useEffect(() => {
-        if (enemyActualHealth <= 0) {
+        if (enemyCurrentHealth <= 0 && enemyTotalHealth !== null) {
+            setEnemyTotalHealth(null);
             setExperience(experience + 50);
             setSituation('walking');
         }
-    }, [enemyActualHealth])
+    }, [enemyCurrentHealth])
+
+    useEffect(() => {
+        if (enemyTotalHealth === null) {
+            const randomEnemy = enemies.lowLevel[Math.floor(Math.random() * enemies.lowLevel.length)];
+            setEnemyName(randomEnemy.name);
+            setEnemyTotalHealth(randomEnemy.health);
+            setEnemyCurrentHealth(randomEnemy.health);
+            setEnemyImage(randomEnemy.image);
+        }
+    }, [enemyTotalHealth])
 
     return (
         <div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
-            <Enemy enemyActualHealth={enemyActualHealth} enemyHealth={enemyTotalHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
-            <Player enemyActualHealth={enemyActualHealth} setEnemyActualHealth={setEnemyActualHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
+            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} setEnemyTotalHealth={setEnemyTotalHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyImage={enemyImage} enemyName={enemyName} />
+            <Player enemyCurrentHealth={enemyCurrentHealth} setEnemyCurrentHealth={setEnemyCurrentHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
         </div>
     )
 }
