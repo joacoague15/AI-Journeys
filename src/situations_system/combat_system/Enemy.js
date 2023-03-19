@@ -9,7 +9,7 @@ const Enemy = ({ enemyHealth, enemyActualHealth, turn, setTurn, characterStatuse
                 setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - 1 });
                 setTurn('player');
             }
-                , 1000);
+                , 500);
         }
     }, [turn]);
 

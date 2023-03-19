@@ -12,8 +12,10 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
 
         setCharacterStatuses({
             health: 10,
+            maxHealth: 10,
             mana: 0,
-            attack: 10,
+            maxMana: 0,
+            attack: 1,
         })
 
         setPoints(5)
@@ -23,7 +25,7 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
         <div style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column" }}>
             <h2 style={{ fontSize: 32, color: "white", textAlign: "center" }}>Attribute Allocation</h2>
             <p style={{ fontSize: 32 }}>You have {points} points to spend on attributes:</p>
-            <div style={{ margin: 'auto', width: '60%' }}>
+            <div style={{ margin: 'auto', width: '100%' }}>
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
             </div>
             <div style={{ margin: "auto", marginTop: 20, display: 'flex', gap: '20px' }}>
