@@ -1,10 +1,9 @@
-import enemy from "../../images/enemy1.jpg";
 import { useEffect } from "react";
 
-const Enemy = ({ enemyHealth, enemyActualHealth, turn, setTurn, characterStatuses, setCharacterStatuses }) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterStatuses, setCharacterStatuses, enemyImage, enemyName }) => {
 
     useEffect(() => {
-        if (turn === 'enemy' && enemyActualHealth > 0) {
+        if (turn === 'enemy' && enemyCurrentHealth > 0) {
             setTimeout(() => {
                 setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - 1 });
                 setTurn('player');
@@ -15,12 +14,13 @@ const Enemy = ({ enemyHealth, enemyActualHealth, turn, setTurn, characterStatuse
 
     return (
         <>
-            <div className="progress" style={{ backgroundColor: "black", width: "50%", margin: "auto", position: "absolute", left: "50%", transform: 'translate(-50%)', bottom: '20%', zIndex: 10 }}>
-                <div style={{ width: ((enemyActualHealth * 100) / enemyHealth) + '%', backgroundColor: "white" }} className="progress-bar progress-bar-striped" role="progressbar"
-                    aria-valuenow={enemyActualHealth} aria-valuemin="0" aria-valuemax={enemyHealth}>
+            <h2 style={{ color: "white", fontSize: 24, textAlign: "center", marginBottom: 10, letterSpacing: 4 }}>{enemyName}</h2>
+            <img src={enemyImage} alt="enemy" style={{ maxWidth: '600px', display: "flex", textAlign: "center", margin: "auto", filter: "grayscale(100%)" }} />
+            <div className="progress" style={{ backgroundColor: "black", width: "600px", margin: "auto", display: "flex" }}>
+                <div style={{ width: ((enemyCurrentHealth * 100) / enemyTotalHealth) + '%', backgroundColor: "white" }} className="progress-bar progress-bar-striped" role="progressbar"
+                    aria-valuenow={enemyCurrentHealth} aria-valuemin="0" aria-valuemax={enemyTotalHealth}>
                 </div>
             </div>
-            <img src={enemy} alt="enemy" style={{ maxWidth: '65%', left: '50%', position: 'absolute', transform: 'translate(-50%)', zIndex: 1, filter: "grayscale(100%)" }} />
         </>
     )
 }

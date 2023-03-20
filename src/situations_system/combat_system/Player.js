@@ -1,12 +1,12 @@
-const Player = ({enemyActualHealth, setEnemyActualHealth, turn, setTurn, characterStatuses, setCharacterStatuses}) => {
+const Player = ({enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses}) => {
     const useMagic = () => {
-        setEnemyActualHealth(enemyActualHealth - 3);
+        setEnemyCurrentHealth(enemyCurrentHealth - 3);
         setCharacterStatuses({...characterStatuses, mana: characterStatuses.mana - 3});
         setTurn('enemy');
     }
 
     const attack = () => {
-        setEnemyActualHealth(enemyActualHealth - 1);
+        setEnemyCurrentHealth(enemyCurrentHealth - 1);
         setTurn('enemy');
     }
 

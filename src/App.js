@@ -29,6 +29,7 @@ function App() {
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
     const [points, setPoints] = useState(5);
+    const [currentLevel, setCurrentLevel] = useState(1);
     const [experience, setExperience] = useState(1);
 
     const randomChatGPTresponse = [
@@ -71,9 +72,9 @@ function App() {
                 <CharacterStatus characterStatuses={characterStatuses} />
             </div>
             <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
-            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} />
+            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} />
             <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
-                <ExperienceIndicator experience={experience} setPoints={setPoints} />
+                <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
             <div style={{ position: "absolute", bottom: 40, right: 40 }}>
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
