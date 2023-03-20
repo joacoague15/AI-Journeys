@@ -18,7 +18,7 @@ const Loot = ({ setSituation }) => {
 
     return (
         <><div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
-            <img src="https://image.lexica.art/full_jpg/0e8f0411-65cb-4839-be04-e34aae1fedf6" alt="lootchest" style={{ maxWidth: '75%', left: '50%', position: 'absolute', transform: 'translate(-50%)', zIndex: 1, borderRadius: '12px' }} onClick={() => getItem()} />
+            <img src="https://image.lexica.art/full_jpg/0e8f0411-65cb-4839-be04-e34aae1fedf6" alt="lootchest" style={{ maxWidth: '75%', left: '50%', position: 'absolute', transform: 'translate(-50%)', zIndex: 1, borderRadius: '12px', cursor: 'pointer' }} onClick={() => getItem()} />
             {modal && (<div style={{ backgroundColor: 'black', position: 'absolute', zIndex: 2, left: '50%', bottom: '40%', transform: 'translate(-50%)', textAlign: 'center', border: '1px white solid', padding: '30px' }}>
                 <p style={{ backgroundColor: 'transparent', color: 'white' }}>
                     Found: {loot.name}</p>
