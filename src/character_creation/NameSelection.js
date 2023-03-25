@@ -1,13 +1,7 @@
 import { useState } from "react";
-//import { IDBTransactionUpdateCharacter } from "../IndexedDB/CRUD";
 
 const NameSelection = ({ setUserName }) => {
     const [inputValue, setInputValue] = useState('');
-
-    /*const inputName = (inputValue) => {
-        setUserName(inputValue)
-        IDBTransactionUpdateCharacter({ Name: inputValue })
-    }*/
 
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", minHeight: "100vh" }} className="App">
