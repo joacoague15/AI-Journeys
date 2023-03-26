@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import History from "./components/History";
+import './assets/base.css'
 import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
 // import Inventory from "./components/Inventory"
 import { resolverIDB } from "./IndexedDB/registerDB.js"
@@ -9,6 +10,7 @@ import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Audi from "./footsteps.mp3"
+import Initial from "./Menu";
 
 function App() {
     const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
@@ -32,7 +34,7 @@ function App() {
     const [points, setPoints] = useState(5);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [experience, setExperience] = useState(1);
-
+    const [newGame, setNewGame] = useState(true)
     const randomChatGPTresponse = [
         `${characterName} finds a potion`,
         `${characterName} finds a sword`,
@@ -56,6 +58,8 @@ function App() {
         setUserResponses([...userResponses, userChoose]);
         setChatGPTresponses([...chatGPTresponses, randomChatGPTresponse[Math.floor(Math.random() * randomChatGPTresponse.length)]]);
     }
+
+    if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} />
 
     if (!characterCreated)
         return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />

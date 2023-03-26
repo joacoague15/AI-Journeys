@@ -42,8 +42,6 @@ export const IDBTransactionGetFirst = (collection) =>
             const transaction = db.transaction(collection, "readwrite")
             const store = transaction.objectStore(collection)
 
-            const request = store.openCursor()
-            console.log(request)
             store.getAll().onsuccess = ({ target }) => {
 
                 if (!target) return
@@ -54,6 +52,19 @@ export const IDBTransactionGetFirst = (collection) =>
                 resolve(item)
             }
 
+            transaction.onerror = error => {
+                reject(error)
+            }
+        }))
+
+export const IDBTransactionGetAll = (collection) =>
+    new Promise(resolverIDB)
+        .then(db => new Promise((resolve, reject) => {
+            const transaction = db.transaction(collection, "readwrite")
+            const store = transaction.objectStore(collection)
+            store.getAll().onsuccess = ({ target }) => {
+                resolve(target.result)
+            }
             transaction.onerror = error => {
                 reject(error)
             }
