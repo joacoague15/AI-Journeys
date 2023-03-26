@@ -73,8 +73,8 @@ function App() {
         if (characterStatuses.mana < characterStatuses.maxMana) setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 1 })
     }
 
-    const audio = document.querySelector('audio')
     const audioPlay = () => {
+        const audio = document.querySelector('audio')
         audio?.play()
     }
 

@@ -33,7 +33,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
         <div style={{ display: 'flex', height: '100vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className={!animation ? "animate__animated animate__fadeIn" : "animate__animated animate__fadeOut"}>
             <h1 style={{ color: 'white', textAlign: 'center', cursor: 'default' }}>Typing tales</h1>
             <h2 style={{ cursor: 'pointer', color: 'white' }} className="menu" onClick={() => newGameStart()}>New Game</h2>
-            {data.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white' }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
+            {data && data.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white' }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
         </div>
     )
 }
