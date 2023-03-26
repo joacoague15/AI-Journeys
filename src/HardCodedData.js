@@ -364,3 +364,36 @@ export const LootInventory = {
         src: "https://image.lexica.art/full_jpg/2359d023-64c5-4b04-bea7-8fd86f6b462a"
     }]
 }
+
+export const textExamples = {
+    walkingText: [
+        "Navigating through a dense forest, with thick underbrush and towering trees blocking the sunlight. The party must watch out for hidden pitfalls, quicksand, and other natural hazards.",
+        "Walking through a dark, winding cave system with only a few torches to light the way. The sound of dripping water echoes off the stone walls and the air is damp and musty.",
+        "Traversing a rocky mountain pass with steep cliffs and narrow paths. The wind is howling and the air is thin, making it difficult to breathe. One misstep could send the party plummeting to their doom.",
+        "Crossing a rickety rope bridge suspended over a deep, dark chasm. The bridge sways and creaks underfoot, and there are signs that it has been damaged by previous adventurers or creatures.",
+        "Walking along a narrow, winding path carved into the side of a sheer cliff face. The path is slick with rain and the party must be careful not to slip or be knocked off by gusts of wind.",
+        "Wading through a murky swamp with thick, sucking mud and dangerous creatures lurking just beneath the surface. The party must watch out for quicksand, leeches, and other hazards.",
+    ],
+    fightText: [
+        "A group of goblins ambushes the party as they travel through a narrow mountain pass. The goblins attack from above with rocks and arrows while others charge in with crude weapons.",
+        "The party stumbles upon a group of bandits who have taken up residence in an abandoned mine. The bandits are heavily armed and have set up traps and obstacles to protect their hideout.",
+        "A pack of wolves attacks the party as they make camp for the night. The wolves are hungry and desperate, and they won't give up until they've had a chance to feed.",
+        "The party is hired to take down a group of trolls that have been terrorizing a nearby village. The trolls are formidable opponents with thick hides and regenerative abilities.",
+        "The party discovers a hidden dungeon filled with undead creatures that are guarding a powerful artifact. The undead are relentless and difficult to kill, but the party must defeat them to claim the artifact.",
+        "A group of cultists is performing a dark ritual in an abandoned temple. The cultists are armed with cursed weapons and dark magic, and they will stop at nothing to complete their ritual.",
+        "The party is hired to protect a caravan of merchants as they travel through bandit-infested territory. The bandits are well-organized and well-armed, and they will stop at nothing to get their hands on the valuable goods being transported.",
+        "The party encounters a powerful wizard who is using his magic to summon and control hordes of monstrous creatures. The wizard is a formidable foe with a wide range of spells at his disposal.",
+        "The party is hired to take down a powerful dragon that has been terrorizing a nearby village. The dragon is a fearsome opponent with powerful breath attacks and a thick hide.",
+    ],
+    lootText: [
+        "A small chest containing a few gold coins and a few pieces of jewelry.",
+        "A large chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A small chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A large chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A small chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A large chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A small chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A large chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+        "A small chest containing a few gold coins, a few pieces of jewelry, and a few potions.",
+    ]
+}
