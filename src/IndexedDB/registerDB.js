@@ -1,12 +1,21 @@
-import { onUpgradedNeeded } from './eventHandlers.js'
+import { onUpgradeNeeded } from './eventHandlers.js'
+
+const indexedDB = window.indexedDB
 
 export const resolverIDB = (resolve, reject) => {
-    const conexion = window.indexedDB.open('profile', 1)
-    conexion.onsuccess = event => {
-        resolve = conexion.result
+    let db
+    const DBOpenRequest = indexedDB.open('profile', 1)
+
+    DBOpenRequest.onsuccess = () => {
+        db = DBOpenRequest.result
+        resolve(db)
     }
-    conexion.onerror = error => {
-        reject = error
+
+    DBOpenRequest.onupgradeneeded = () => onUpgradeNeeded(DBOpenRequest.result)
+
+
+    DBOpenRequest.onerror = error => {
+        reject(error)
     }
-    conexion.onupgradeneeded = onUpgradedNeeded
+
 }

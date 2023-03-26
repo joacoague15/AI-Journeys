@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import History from "./components/History";
+import './assets/base.css'
 import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
 // import Inventory from "./components/Inventory"
 import { resolverIDB } from "./IndexedDB/registerDB.js"
@@ -8,6 +9,8 @@ import SituationHandler from "./situations_system/SituationHandler";
 import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
+import Audi from "./footsteps.mp3"
+import Initial from "./Menu";
 
 function App() {
     const [userResponses, setUserResponses] = useState([]); // This is where we will store all the character responses
@@ -31,7 +34,7 @@ function App() {
     const [points, setPoints] = useState(5);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [experience, setExperience] = useState(1);
-
+    const [newGame, setNewGame] = useState(true)
     const randomChatGPTresponse = [
         `${characterName} finds a potion`,
         `${characterName} finds a sword`,
@@ -48,13 +51,15 @@ function App() {
     ]
 
     useEffect(() => {
-        resolverIDB()
+        new Promise(resolverIDB)
     }, [])
 
     const submitPrompt = (userChoose) => {
         setUserResponses([...userResponses, userChoose]);
         setChatGPTresponses([...chatGPTresponses, randomChatGPTresponse[Math.floor(Math.random() * randomChatGPTresponse.length)]]);
     }
+
+    if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} />
 
     if (!characterCreated)
         return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
@@ -63,8 +68,19 @@ function App() {
         return <DeadScreen />
     }
 
+    const healPerRoom = () => {
+        if (characterStatuses.health < characterStatuses.maxHealth) setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + 1 })
+        if (characterStatuses.mana < characterStatuses.maxMana) setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 1 })
+    }
+
+    const audioPlay = () => {
+        const audio = document.querySelector('audio')
+        audio?.play()
+    }
+
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
+            <audio src={Audi} preload='true'></audio>
             <div style={{ width: "50%", color: "white", textAlign: "center", margin: 'auto', fontSize: 32, paddingTop: '20px' }}>
                 <p style={{ borderRadius: 1 }}>{chatGPTresponses[chatGPTresponses.length - 1]}</p>
             </div>
@@ -72,7 +88,7 @@ function App() {
                 <CharacterStatus characterStatuses={characterStatuses} />
             </div>
             <History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />
-            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} />
+            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} audioPlay={audioPlay} healPerRoom={healPerRoom} />
             <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
