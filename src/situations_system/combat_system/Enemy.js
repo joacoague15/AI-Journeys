@@ -1,15 +1,16 @@
 import { useEffect } from "react";
-import {timeoutBetweenAttacks} from "../../constants";
+import {enemyAttackDuration} from "../../constants";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterStatuses, setCharacterStatuses, enemyImage, enemyName, isEnemyHit, isEnemySpelled}) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterStatuses, setCharacterStatuses, enemyImage, enemyName, isEnemyHit, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
+            setIsEnemyAttacking(true);
             setTimeout(() => {
                 setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - 1 });
+                setIsEnemyAttacking(false);
                 setTurn('player');
-            }
-                , timeoutBetweenAttacks);
+            }, enemyAttackDuration);
         }
     }, [turn]);
 
@@ -18,6 +19,8 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterS
             return 'animate__shakeX';
         else if (isEnemySpelled)
             return 'animate__flash';
+        else if (isEnemyAttacking)
+            return 'animate__bounce';
         return '';
     }
 
