@@ -1,12 +1,22 @@
-const Player = ({enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses}) => {
+import {timeoutBetweenAttacks} from "../../constants";
+
+const Player = ({enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, setIsEnemyHit, setIsEnemySpelled}) => {
     const useMagic = () => {
         setEnemyCurrentHealth(enemyCurrentHealth - 3);
         setCharacterStatuses({...characterStatuses, mana: characterStatuses.mana - 3});
+        setIsEnemySpelled(true);
+        setTimeout(() => {
+            setIsEnemySpelled(false);
+        }, timeoutBetweenAttacks);
         setTurn('enemy');
     }
 
     const attack = () => {
         setEnemyCurrentHealth(enemyCurrentHealth - 1);
+        setIsEnemyHit(true);
+        setTimeout(() => {
+            setIsEnemyHit(false);
+        }, timeoutBetweenAttacks);
         setTurn('enemy');
     }
 

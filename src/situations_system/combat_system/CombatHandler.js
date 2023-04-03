@@ -11,6 +11,11 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
     const [enemyCurrentHealth, setEnemyCurrentHealth] = useState(enemyTotalHealth);
     const [turn, setTurn] = useState('player');
 
+    // Animation states
+    const [isEnemyHit, setIsEnemyHit] = useState(false);
+    const [isEnemySpelled, setIsEnemySpelled] = useState(false);
+    const [isEnemyAttacking, setIsEnemyAttacking] = useState(false);
+
     useEffect(() => {
         if (enemyCurrentHealth <= 0 && enemyTotalHealth !== null) {
             setEnemyTotalHealth(null);
@@ -31,8 +36,8 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
 
     return (
         <div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
-            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} setEnemyTotalHealth={setEnemyTotalHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyImage={enemyImage} enemyName={enemyName} />
-            <Player enemyCurrentHealth={enemyCurrentHealth} setEnemyCurrentHealth={setEnemyCurrentHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
+            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} setEnemyTotalHealth={setEnemyTotalHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyImage={enemyImage} enemyName={enemyName} isEnemyHit={isEnemyHit} isEnemySpelled={isEnemySpelled}  />
+            <Player enemyCurrentHealth={enemyCurrentHealth} setEnemyCurrentHealth={setEnemyCurrentHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} setIsEnemyHit={setIsEnemyHit} setIsEnemySpelled={setIsEnemySpelled} />
         </div>
     )
 }

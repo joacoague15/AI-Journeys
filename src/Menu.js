@@ -6,7 +6,7 @@ import heroCompany from './assets/company.gif'
 const Initial = ({ setCharacterCreated, setNewGame }) => {
     const [data, setData] = useState()
     const [animation, setAnimation] = useState(false)
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState(false)
     const indexedDB = async () => {
         setData(await IDBTransactionGetAll('character'))
     }
