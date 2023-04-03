@@ -54,7 +54,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
                 </div>
             </div>}
             <img src={heroCompany} alt="heroes-company" style={{ width: '50%', height: '50%', marginBottom: 20 }} />
-            <h2 style={{ cursor: 'pointer', color: 'white' }} className="menu" onClick={data && data.length !== 0 ? () => setModal(true) : () => newGameStart()}>New Game</h2>
+            <h2 style={{ cursor: 'pointer', color: 'white' }} className="menu" onClick={data && data?.length !== 0 ? () => setModal(true) : () => newGameStart()}>New Game</h2>
             {data && data.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white' }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
         </div>
     )
