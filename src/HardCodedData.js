@@ -1,75 +1,78 @@
+import goblin from "./assets/gifs/goblin.gif";
+import orc from "./assets/gifs/orc.gif";
+
 export const Enemies = {
     lowLevel: [
         {
             name: "Goblin",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086495903310958622/joacoague_Goblin_0bf9b7f2-c018-47ca-92da-5432102887b5.png?width=910&height=910",
+            image: goblin,
             health: 2,
             attack: 1,
             experienceEnemyGives: 15,
         },
         {
             name: "Orc",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496022915711027/joacoague_Orc_41b3686e-379a-4e92-b777-c3ba461fa352.png?width=910&height=910",
+            image: orc,
             health: 3,
             attack: 1,
             experienceEnemyGives: 20,
         },
-        {
-            name: "Troll",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496032067686480/joacoague_Troll_ff26ca4e-869e-40c6-b0fb-491288676c62.png?width=910&height=910",
-            health: 4,
-            attack: 1,
-            experienceEnemyGives: 25,
-        },
-        {
-            name: "Ogre",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496245763293285/joacoague_Ogre_4dbbb01b-e027-41c9-94b9-fa670028b48c.png?width=910&height=910",
-            health: 5,
-            attack: 2,
-            experienceEnemyGives: 30,
-        },
-        {
-            name: "Skeleton",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496590480552027/joacoague_skeleton_warrior_c5acd43c-fb86-4156-9800-840924487945.png?width=910&height=910",
-            health: 3,
-            attack: 2,
-            experienceEnemyGives: 35,
-        },
-        {
-            name: "Zombie",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496361882603570/joacoague_Zombie_75759d5f-8b46-412d-9b30-3b407ae44aa1.png?width=910&height=910",
-            health: 4,
-            attack: 2,
-            experienceEnemyGives: 40,
-        },
-        {
-            name: "Cultist",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496397685174333/joacoague_Cultist_e9a1088b-d8c3-47d8-a6b2-d00bc01f6b9f.png?width=910&height=910",
-            health: 5,
-            attack: 2,
-            experienceEnemyGives: 45,
-        },
-        {
-            name: "Gnoll",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496698546802699/joacoague_Gnoll_4fdbcb7c-9f85-4711-b4ab-e42997c51a98.png?width=910&height=910",
-            health: 6,
-            attack: 2,
-            experienceEnemyGives: 50,
-        },
-        {
-            name: "Gargoyle",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496725826551959/joacoague_Gargoyle_7eb8740e-cde5-46c3-9f7b-1adcefa44fa1.png?width=910&height=910",
-            health: 7,
-            attack: 2,
-            experienceEnemyGives: 60,
-        },
-        {
-            name: "Worg",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496926259744829/joacoague_Worg_127cec4b-c24e-489c-8406-a2cbac4e6ed1.png?width=910&height=910",
-            health: 8,
-            attack: 2,
-            experienceEnemyGives: 70,
-        }
+        // {
+        //     name: "Troll",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496032067686480/joacoague_Troll_ff26ca4e-869e-40c6-b0fb-491288676c62.png?width=910&height=910",
+        //     health: 4,
+        //     attack: 1,
+        //     experienceEnemyGives: 25,
+        // },
+        // {
+        //     name: "Ogre",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496245763293285/joacoague_Ogre_4dbbb01b-e027-41c9-94b9-fa670028b48c.png?width=910&height=910",
+        //     health: 5,
+        //     attack: 2,
+        //     experienceEnemyGives: 30,
+        // },
+        // {
+        //     name: "Skeleton",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496590480552027/joacoague_skeleton_warrior_c5acd43c-fb86-4156-9800-840924487945.png?width=910&height=910",
+        //     health: 3,
+        //     attack: 2,
+        //     experienceEnemyGives: 35,
+        // },
+        // {
+        //     name: "Zombie",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496361882603570/joacoague_Zombie_75759d5f-8b46-412d-9b30-3b407ae44aa1.png?width=910&height=910",
+        //     health: 4,
+        //     attack: 2,
+        //     experienceEnemyGives: 40,
+        // },
+        // {
+        //     name: "Cultist",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496397685174333/joacoague_Cultist_e9a1088b-d8c3-47d8-a6b2-d00bc01f6b9f.png?width=910&height=910",
+        //     health: 5,
+        //     attack: 2,
+        //     experienceEnemyGives: 45,
+        // },
+        // {
+        //     name: "Gnoll",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496698546802699/joacoague_Gnoll_4fdbcb7c-9f85-4711-b4ab-e42997c51a98.png?width=910&height=910",
+        //     health: 6,
+        //     attack: 2,
+        //     experienceEnemyGives: 50,
+        // },
+        // {
+        //     name: "Gargoyle",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496725826551959/joacoague_Gargoyle_7eb8740e-cde5-46c3-9f7b-1adcefa44fa1.png?width=910&height=910",
+        //     health: 7,
+        //     attack: 2,
+        //     experienceEnemyGives: 60,
+        // },
+        // {
+        //     name: "Worg",
+        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496926259744829/joacoague_Worg_127cec4b-c24e-489c-8406-a2cbac4e6ed1.png?width=910&height=910",
+        //     health: 8,
+        //     attack: 2,
+        //     experienceEnemyGives: 70,
+        // }
     ],
     mediumLevel: [
         {

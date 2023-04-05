@@ -1,8 +1,8 @@
 import { IDBTransactionAddCharacter } from "../IndexedDB/CRUD"
 import ImageWithHover from "../components/ImageWithHover";
 
-import warriorImg from "../assets/warrior.gif";
-import mageImg from "../assets/mage.gif";
+import warriorImg from "../assets/gifs/warrior.gif";
+import mageImg from "../assets/gifs/mage.gif";
 import {useState} from "react";
 
 const ClassSelection = ({ userName, setUserClass }) => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { IDBTransactionGetAll, IDBTransactionGetFirst } from "./IndexedDB/CRUD"
 import 'animate.css';
-import heroCompany from './assets/company.gif'
+import heroCompany from './assets/gifs/company.gif'
 
 const Initial = ({ setCharacterCreated, setNewGame }) => {
     const [data, setData] = useState()
