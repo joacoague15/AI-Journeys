@@ -1,5 +1,14 @@
 import goblin from "./assets/gifs/goblin.gif";
 import orc from "./assets/gifs/orc.gif";
+import troll from "./assets/gifs/troll.gif";
+import ogre from "./assets/gifs/ogre.gif";
+import skeleton from "./assets/gifs/skeleton.gif";
+import zombie from "./assets/gifs/zombie.gif";
+import cultist from "./assets/gifs/cultist.gif";
+import gnoll from "./assets/gifs/gnoll.gif";
+import gargoyle from "./assets/gifs/gargoyle.gif";
+import worg from "./assets/gifs/worg.gif";
+
 
 export const Enemies = {
     lowLevel: [
@@ -17,62 +26,62 @@ export const Enemies = {
             attack: 1,
             experienceEnemyGives: 20,
         },
-        // {
-        //     name: "Troll",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496032067686480/joacoague_Troll_ff26ca4e-869e-40c6-b0fb-491288676c62.png?width=910&height=910",
-        //     health: 4,
-        //     attack: 1,
-        //     experienceEnemyGives: 25,
-        // },
-        // {
-        //     name: "Ogre",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496245763293285/joacoague_Ogre_4dbbb01b-e027-41c9-94b9-fa670028b48c.png?width=910&height=910",
-        //     health: 5,
-        //     attack: 2,
-        //     experienceEnemyGives: 30,
-        // },
-        // {
-        //     name: "Skeleton",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496590480552027/joacoague_skeleton_warrior_c5acd43c-fb86-4156-9800-840924487945.png?width=910&height=910",
-        //     health: 3,
-        //     attack: 2,
-        //     experienceEnemyGives: 35,
-        // },
-        // {
-        //     name: "Zombie",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496361882603570/joacoague_Zombie_75759d5f-8b46-412d-9b30-3b407ae44aa1.png?width=910&height=910",
-        //     health: 4,
-        //     attack: 2,
-        //     experienceEnemyGives: 40,
-        // },
-        // {
-        //     name: "Cultist",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496397685174333/joacoague_Cultist_e9a1088b-d8c3-47d8-a6b2-d00bc01f6b9f.png?width=910&height=910",
-        //     health: 5,
-        //     attack: 2,
-        //     experienceEnemyGives: 45,
-        // },
-        // {
-        //     name: "Gnoll",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496698546802699/joacoague_Gnoll_4fdbcb7c-9f85-4711-b4ab-e42997c51a98.png?width=910&height=910",
-        //     health: 6,
-        //     attack: 2,
-        //     experienceEnemyGives: 50,
-        // },
-        // {
-        //     name: "Gargoyle",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496725826551959/joacoague_Gargoyle_7eb8740e-cde5-46c3-9f7b-1adcefa44fa1.png?width=910&height=910",
-        //     health: 7,
-        //     attack: 2,
-        //     experienceEnemyGives: 60,
-        // },
-        // {
-        //     name: "Worg",
-        //     image: "https://media.discordapp.net/attachments/703709686238543946/1086496926259744829/joacoague_Worg_127cec4b-c24e-489c-8406-a2cbac4e6ed1.png?width=910&height=910",
-        //     health: 8,
-        //     attack: 2,
-        //     experienceEnemyGives: 70,
-        // }
+        {
+            name: "Troll",
+            image: "https://media.discordapp.net/attachments/703709686238543946/1086496032067686480/joacoague_Troll_ff26ca4e-869e-40c6-b0fb-491288676c62.png?width=910&height=910",
+            health: 4,
+            attack: 1,
+            experienceEnemyGives: 25,
+        },
+        {
+            name: "Ogre",
+            image: ogre,
+            health: 5,
+            attack: 2,
+            experienceEnemyGives: 30,
+        },
+        {
+            name: "Skeleton",
+            image: skeleton,
+            health: 3,
+            attack: 2,
+            experienceEnemyGives: 35,
+        },
+        {
+            name: "Zombie",
+            image: zombie,
+            health: 4,
+            attack: 2,
+            experienceEnemyGives: 40,
+        },
+        {
+            name: "Cultist",
+            image: cultist,
+            health: 5,
+            attack: 2,
+            experienceEnemyGives: 45,
+        },
+        {
+            name: "Gnoll",
+            image: gnoll,
+            health: 6,
+            attack: 2,
+            experienceEnemyGives: 50,
+        },
+        {
+            name: "Gargoyle",
+            image: gargoyle,
+            health: 7,
+            attack: 2,
+            experienceEnemyGives: 60,
+        },
+        {
+            name: "Worg",
+            image: worg,
+            health: 8,
+            attack: 2,
+            experienceEnemyGives: 70,
+        }
     ],
     mediumLevel: [
         {
