@@ -5,7 +5,7 @@ const CharacterStatus = ({characterStatuses}) => {
 
     if (percentageHealth >= 80) {
         return (
-            <div style={{position: "absolute", display: "flex", top: 10, left: 10}}>
+            <div className="animate__animated animate__flipInX" style={{position: "absolute", display: "flex", top: 10, left: 10}}>
                 <div style={{ margin: 15 }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white"
                          className="bi bi-heart-fill"

@@ -28,7 +28,7 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
     }
 
     return (
-        <div style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column" }}>
+        <div className="animate__animated animate__flipInX" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column" }}>
             <h2 style={{ fontSize: 32, color: "white", textAlign: "center" }}>Attribute Allocation</h2>
             <p style={{ fontSize: 32 }}>You have {points} points to spend on attributes:</p>
             <div style={{ margin: 'auto', width: '100%' }}>
