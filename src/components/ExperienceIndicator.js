@@ -17,7 +17,7 @@ const ExperienceIndicator = ({experience, setPoints, currentLevel, setCurrentLev
 
     return (
         <>
-            <span className="animate__animated animate__backInDown" style={{ color: "white", fontSize: 28, margin: "auto" }}>Level {level}</span>
+            <span style={{ color: "white", fontSize: 28, margin: "auto" }}>Level {level}</span>
             <div className="progress" style={{ backgroundColor: "black", width: "100%", marginTop: 10 }}>
                 <div style={{ width: percentageOfCurrentLevel + "%", backgroundColor: "white" }} className="progress-bar progress-bar-striped" role="progressbar"
                      aria-valuenow={Math.ceil(experience / level)} aria-valuemin="0" aria-valuemax={experienceOfEachLevel}>
