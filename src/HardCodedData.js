@@ -28,7 +28,7 @@ export const Enemies = {
         },
         {
             name: "Troll",
-            image: "https://media.discordapp.net/attachments/703709686238543946/1086496032067686480/joacoague_Troll_ff26ca4e-869e-40c6-b0fb-491288676c62.png?width=910&height=910",
+            image: troll,
             health: 4,
             attack: 1,
             experienceEnemyGives: 25,
