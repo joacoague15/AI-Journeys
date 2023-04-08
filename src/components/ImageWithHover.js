@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { hover } from "../constants";
 
 const ImageWithHover = ({ src, alt }) => {
     const [isHovering, setIsHovering] = useState(false);
@@ -11,6 +12,7 @@ const ImageWithHover = ({ src, alt }) => {
             }}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
+            onMouseOver={() => hover.play()}
         >
             <img
                 src={src}

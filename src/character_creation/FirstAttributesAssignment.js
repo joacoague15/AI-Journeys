@@ -1,6 +1,7 @@
 import AttributesHelp from "./AttributesHelp";
 import Attributes from "../components/Attributes";
 import { IDBTransactionAddAttributes } from "../IndexedDB/CRUD";
+import { hover } from "../constants";
 
 const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated }) => {
 
@@ -23,7 +24,13 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
     }
 
     const addAttributesIndexedDB = () => {
-        IDBTransactionAddAttributes(characterAttributes)
+        IDBTransactionAddAttributes({
+            strength: { ...characterAttributes }.strength,
+            constitution: { ...characterAttributes }.constitution,
+            maxConstitution: { ...characterAttributes }.constitution,
+            intelligence: { ...characterAttributes }.intelligence,
+            maxIntelligence: { ...characterAttributes }.intelligence
+        })
         setCharacterCreated(true)
     }
 
@@ -35,8 +42,8 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
             </div>
             <div style={{ margin: "auto", marginTop: 20, display: 'flex', gap: '20px' }}>
-                <button onClick={() => addAttributesIndexedDB()} disabled={points > 0} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2, opacity: points > 0 ? 0.5 : 1 }}>Confirm</button>
-                <button onClick={() => clearButton()} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2 }}>Clear</button>
+                <button onClick={() => addAttributesIndexedDB()} onMouseOver={() => hover.play()} disabled={points > 0} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2, opacity: points > 0 ? 0.5 : 1 }}>Confirm</button>
+                <button onClick={() => clearButton()} onMouseOver={() => hover.play()} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2 }}>Clear</button>
             </div>
             <AttributesHelp />
         </div>

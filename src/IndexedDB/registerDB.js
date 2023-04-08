@@ -13,7 +13,6 @@ export const resolverIDB = (resolve, reject) => {
 
     DBOpenRequest.onupgradeneeded = () => onUpgradeNeeded(DBOpenRequest.result)
 
-
     DBOpenRequest.onerror = error => {
         reject(error)
     }

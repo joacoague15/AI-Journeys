@@ -69,3 +69,7 @@ export const IDBTransactionGetAll = (collection) =>
                 reject(error)
             }
         }))
+
+export const IDBDeleteDB = () => {
+    indexedDB.deleteDatabase("profile");
+}

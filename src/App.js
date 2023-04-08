@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import History from "./components/History";
+//import History from "./components/History";
 import './assets/base.css'
 import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
 // import Inventory from "./components/Inventory"
@@ -9,7 +9,6 @@ import SituationHandler from "./situations_system/SituationHandler";
 import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
-import Audi from "./footsteps.mp3"
 import Initial from "./Menu";
 import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
@@ -50,10 +49,17 @@ function App() {
             setChatGPTresponse(textExamples.lootText[Math.floor(Math.random() * textExamples.lootText.length)]);
     }, [situation])
 
+    const audioPlayGameSound = () => {
+        const audio = document.getElementById('backSound')
+        setTimeout(() => {
+            audio?.play()
+        }, 1)
+    }
+
     if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} />
 
     if (!characterCreated)
-        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
+        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
 
     if (characterStatuses.health <= 0) {
         return <DeadScreen />
@@ -65,13 +71,15 @@ function App() {
     }
 
     const audioPlay = () => {
-        const audio = document.querySelector('audio')
-        audio?.play()
+        const audio = document.getElementById('soundEffect')
+        console.log(audio)
+        setTimeout(() => {
+            audio?.play()
+        }, 1)
     }
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
-            <audio src={Audi} preload='true'></audio>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} />
             </div>
