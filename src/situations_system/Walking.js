@@ -1,10 +1,11 @@
+import { footstep } from "../constants";
 import door from "../images/puerta.jpg";
 
-const Walking = ({ setSituation, audioPlay, healPerRoom }) => {
+const Walking = ({ setSituation, healPerRoom }) => {
 
     const situationHandler = (place) => {
         healPerRoom()
-        audioPlay()
+        footstep.play()
         setSituation(place)
     }
 

@@ -21,6 +21,5 @@ export const hover = new Howl({
 export const footstep = new Howl({
     src: [footsteps],
     html5: true,
-    loop: true,
-    volume: 1,
+    volume: 0.7,
 })

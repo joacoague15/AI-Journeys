@@ -70,14 +70,6 @@ function App() {
         if (characterStatuses.mana < characterStatuses.maxMana) setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 1 })
     }
 
-    const audioPlay = () => {
-        const audio = document.getElementById('soundEffect')
-        console.log(audio)
-        setTimeout(() => {
-            audio?.play()
-        }, 1)
-    }
-
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
@@ -85,7 +77,7 @@ function App() {
             </div>
             <StoryText chatGPTresponse={chatGPTresponse} />
             {/*<History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />*/}
-            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} audioPlay={audioPlay} healPerRoom={healPerRoom} />
+            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} />
             <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
