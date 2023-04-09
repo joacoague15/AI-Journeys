@@ -1,5 +1,5 @@
 import songInicio from "./assets/sounds/songInicio.mp3"
-import footsteps from "./footsteps.mp3"
+import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
 import spell from "./assets/sounds/spell.wav"
