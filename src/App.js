@@ -9,7 +9,7 @@ import SituationHandler from "./situations_system/SituationHandler";
 import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
-import Audi from "./footsteps.mp3"
+import Audi from "./footsteps.mp3";
 import Initial from "./Menu";
 import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
