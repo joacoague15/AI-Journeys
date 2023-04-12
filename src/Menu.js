@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react"
-import { IDBTransactionGetAll, IDBTransactionGetFirst } from "./IndexedDB/CRUD"
+import { IDBDeleteDB, IDBTransactionGetAll } from "./IndexedDB/CRUD"
+import { hover, sound } from "./constants";
 import 'animate.css';
 import madameVideo from "./assets/videos/madame.mp4";
 
-const Initial2 = ({ setCharacterCreated, setNewGame }) => {
+const Initial = ({ setCharacterCreated, setNewGame }) => {
     const [data, setData] = useState()
     const [animation, setAnimation] = useState(false)
     const [modal, setModal] = useState(false)
+    const [initialModal, setInitialModal] = useState(true)
+
     const indexedDB = async () => {
-        setData(await IDBTransactionGetAll('character'))
+        setData(await IDBTransactionGetAll('attributes'))
     }
 
     const continueGame = () => {
@@ -19,24 +22,19 @@ const Initial2 = ({ setCharacterCreated, setNewGame }) => {
         }, 2000)
     }
 
-    const deleteIndexedDB = async () => {
-        const existingDevice = await IDBTransactionGetFirst("character")
-        if (existingDevice && existingDevice.length !== 0) {
-            return new Promise((res, rej) => {
-                indexedDB.deleteDatabase("profile")
-            })
-        }
+    const welcomeModal = () => {
+        sound.play()
+        setInitialModal(false)
     }
 
     const newGameStart = () => {
-        deleteIndexedDB()
+        IDBDeleteDB()
         setAnimation(true)
         setTimeout(() => {
             setNewGame(false)
             setCharacterCreated(false)
         }, 2000)
     }
-
 
     useEffect(() => {
         indexedDB()
@@ -64,8 +62,17 @@ const Initial2 = ({ setCharacterCreated, setNewGame }) => {
                     {data && data?.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
                 </div>
             </div>
+            {initialModal &&
+                <div style={{ borderRadius: '10px', border: 'white 1px solid', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', padding: '50px' }}>
+                    <h1 style={{ color: "white", textAlign: 'center' }}>Welcome to Typing Tales!</h1>
+                    <p style={{ color: "white", textAlign: 'center' }}>This is an adventure game that will take you through a world full of surprises and challenges. With Typing Tales, you'll have the opportunity to explore a variety of exciting stories, and best of all, each playthrough will be different.<br />
+                        The game has been designed with advanced artificial intelligence, which means that the path you choose and the decisions you make will affect the final outcome. You'll need to make wise choices and pay attention to details in order to advance in the game.<br />
+                        In Typing Tales, you'll have the freedom to choose your own path. You'll be able to explore different locations, interact with fascinating characters, and discover hidden objects that will help you progress.<br />
+                        This game is perfect for those seeking an exciting and unique gaming experience. Get ready to immerse yourself in a world full of adventure and challenges, and discover the secrets that Typing Tales has in store for you!</p>
+                    <button style={{ borderRadius: '10px', border: 'white 1px solid', color: 'white', position: 'absolute', left: '50%', transform: 'translate(-50%)', fontSize: '20px' }} onMouseOver={() => hover.play()} onClick={() => welcomeModal()}>Continue</button>
+                </div>}
         </div>
     )
 }
 
-export default Initial2;
+export default Initial

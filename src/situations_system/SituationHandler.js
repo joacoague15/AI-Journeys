@@ -2,9 +2,9 @@ import CombatHandler from "./combat_system/CombatHandler";
 import Walking from "./Walking";
 import Loot from "./Loot"
 
-const SituationHandler = ({ situation, setSituation, characterStatuses, setCharacterStatuses, experience, setExperience, currentLevel, audioPlay, healPerRoom }) => {
+const SituationHandler = ({ situation, setSituation, characterStatuses, setCharacterStatuses, experience, setExperience, currentLevel, healPerRoom }) => {
 
-    if (situation === 'walking') return <Walking setSituation={setSituation} audioPlay={audioPlay} setCharacterStatuses={setCharacterStatuses} characterStatuses={characterStatuses} healPerRoom={healPerRoom} />
+    if (situation === 'walking') return <Walking setSituation={setSituation} setCharacterStatuses={setCharacterStatuses} characterStatuses={characterStatuses} healPerRoom={healPerRoom} />
 
     if (situation === 'loot') return <Loot setSituation={setSituation} />
 
