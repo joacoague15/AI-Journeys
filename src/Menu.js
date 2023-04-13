@@ -3,6 +3,7 @@ import { IDBDeleteDB, IDBTransactionGetAll } from "./IndexedDB/CRUD"
 import { hover, sound } from "./constants";
 import 'animate.css';
 import madameVideo from "./assets/videos/madame.mp4";
+import AudioController from "./components/AudioController";
 
 const Initial = ({ setCharacterCreated, setNewGame }) => {
     const [data, setData] = useState()
@@ -40,8 +41,9 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
         indexedDB()
     }, [])
 
-    return (
+    return (<>
         <div style={{ display: 'flex', height: '100vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className={!animation ? "animate__animated animate__fadeIn" : "animate__animated animate__fadeOut"}>
+            <AudioController />
             <h1 className="animate__animated animate__slideInDown" style={{ color: 'white', textAlign: 'center', cursor: 'default', letterSpacing: 20 }}>TYPING TALES</h1>
             {modal && <div style={{ position: 'absolute', border: '1px white solid', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '20%', height: '20%', zIndex: 1 }} >
                 <p style={{ color: 'white', textAlign: 'center' }}>Your previous run will be deleted</p>
@@ -58,8 +60,8 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
                     </video>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", flex: 1, marginLeft: 50, margin: "auto" }}>
-                    <h2 style={{ display: "flex", cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onClick={data && data?.length !== 0 ? () => setModal(true) : () => newGameStart()}>New Game</h2>
-                    {data && data?.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
+                    <h2 style={{ display: "flex", cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onMouseOver={() => hover.play()} onClick={data && data?.length !== 0 ? () => setModal(true) : () => newGameStart()}>New Game</h2>
+                    {data && data?.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} onMouseOver={() => hover.play()} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
                 </div>
             </div>
             {initialModal &&
@@ -72,6 +74,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
                     <button style={{ borderRadius: '10px', border: 'white 1px solid', color: 'white', position: 'absolute', left: '50%', transform: 'translate(-50%)', fontSize: '20px' }} onMouseOver={() => hover.play()} onClick={() => welcomeModal()}>Continue</button>
                 </div>}
         </div>
+    </>
     )
 }
 

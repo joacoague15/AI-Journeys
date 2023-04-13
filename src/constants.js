@@ -7,11 +7,12 @@ import { Howl } from 'howler';
 
 export const playerAttackDuration = 500;
 export const enemyAttackDuration = 1000;
+
 export const sound = new Howl({
     src: [songInicio],
     html5: true,
     loop: true,
-    volume: 1,
+    volume: 0.5,
 })
 
 export const hover = new Howl({

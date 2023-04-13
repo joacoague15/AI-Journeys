@@ -9,3 +9,33 @@
 .menu:hover{
     color: #212529!important;
 }
+
+.option{
+    border-radius: 50%!important;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+
+.audio{
+    margin: auto; 
+    cursor: pointer
+}
+
+.audio:hover .range {
+    width: 100px;
+}
+
+.option:hover{
+    transform: rotate(45deg);
+}
+
+@keyframes option {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}

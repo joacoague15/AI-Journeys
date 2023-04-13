@@ -12,6 +12,7 @@ import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
+import { sound } from "./constants";
 
 function App() {
     const [chatGPTresponse, setChatGPTresponse] = useState(''); // This is where we will store all the chatGPT responses
@@ -75,6 +76,7 @@ function App() {
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} />
             </div>
+            {sound.play()}
             <StoryText chatGPTresponse={chatGPTresponse} />
             {/*<History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />*/}
             <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} />
