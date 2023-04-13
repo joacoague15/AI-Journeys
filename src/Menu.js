@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { IDBDeleteDB, IDBTransactionGetAll } from "./IndexedDB/CRUD"
-import { hover, sound } from "./constants";
+import { hover, sound, welcome } from "./constants";
 import 'animate.css';
 import madameVideo from "./assets/videos/madame.mp4";
 
@@ -23,6 +23,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
     }
 
     const welcomeModal = () => {
+        welcome.play()
         sound.play()
         setInitialModal(false)
     }
@@ -58,7 +59,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
                     </video>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", flex: 1, marginLeft: 50, margin: "auto" }}>
-                    <h2 style={{ display: "flex", cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onClick={data && data?.length !== 0 ? () => setModal(true) : () => newGameStart()}>New Game</h2>
+                    <h2 style={{ display: "flex", cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} onMouseOver={() => hover.play()} className="menu" onClick={data && data?.length !== 0 ? () => setModal(true) : () => newGameStart() }>New Game</h2>
                     {data && data?.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
                 </div>
             </div>

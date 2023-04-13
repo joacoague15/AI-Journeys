@@ -17,6 +17,7 @@ function App() {
     const [chatGPTresponse, setChatGPTresponse] = useState(''); // This is where we will store all the chatGPT responses
     const [characterName, setCharacterName] = useState(''); // This is where we will store the character name
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
+    const [characterRace, setCharacterRace] = useState(''); // This is where we will store the character race
     const [characterAttributes, setCharacterAttributes] = useState({
         strength: 1,
         constitution: 1,

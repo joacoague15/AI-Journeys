@@ -2,11 +2,13 @@ import { IDBTransactionAddCharacter } from "../IndexedDB/CRUD"
 
 import warriorClassImg from "../assets/images/warrior_class.jpg";
 import wizardClassImg from "../assets/images/wizard_class.png";
+import paladinClassImg from "../assets/images/paladin_class.jpg";
 import {useState} from "react";
 
 const ClassSelection = ({ userName, setUserClass }) => {
     const [isWarriorHovering, setIsWarriorHovering] = useState(false);
     const [isWizardHovering, setIsWizardHovering] = useState(false);
+    const [isPaladinHovering, setIsPaladinHovering] = useState(false);
 
     const indexedDBInput = (classChoice) => {
         IDBTransactionAddCharacter({ Name: userName, Class: classChoice })
@@ -26,6 +28,9 @@ const ClassSelection = ({ userName, setUserClass }) => {
                             style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('warrior')} type="button" className="btn btn-light"><img style={{ width: 300, border: "2px solid white", filter: isWarriorHovering ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={warriorClassImg} alt="warrior-img" /></button>
                     <button onMouseEnter={() => setIsWizardHovering(true)}
                             onMouseLeave={() => setIsWizardHovering(false)} style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('archer')} type="button" className="btn btn-light"><img style={{ width: 300, border: "2px solid white", filter: isWizardHovering ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={wizardClassImg} alt="mage-img" /></button>
+                    <button onMouseEnter={() => setIsPaladinHovering(true)}
+                            onMouseLeave={() => setIsPaladinHovering(false)}
+                            style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('paladin')} type="button" className="btn btn-light"><img style={{ width: 300, border: "2px solid white", filter: isPaladinHovering ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={paladinClassImg} alt="paladin-img" /></button>
             </div>
     )
 }

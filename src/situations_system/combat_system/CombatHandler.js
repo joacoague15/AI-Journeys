@@ -7,7 +7,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
 
     const [enemyName, setEnemyName] = useState("");
     const [enemyTotalHealth, setEnemyTotalHealth] = useState(null);
-    const [enemyImage, setEnemyImage] = useState("");
+    const [enemyVideo, setEnemyVideo] = useState("");
     const [enemyCurrentHealth, setEnemyCurrentHealth] = useState(enemyTotalHealth);
     const [turn, setTurn] = useState('player');
 
@@ -30,13 +30,13 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setEnemyName(randomEnemy.name);
             setEnemyTotalHealth(randomEnemy.health);
             setEnemyCurrentHealth(randomEnemy.health);
-            setEnemyImage(randomEnemy.image);
+            setEnemyVideo(randomEnemy.video);
         }
     }, [enemyTotalHealth])
 
     return (
-        <div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
-            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} setEnemyTotalHealth={setEnemyTotalHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyImage={enemyImage} enemyName={enemyName} isEnemyHit={isEnemyHit} isEnemySpelled={isEnemySpelled} isEnemyAttacking={isEnemyAttacking} setIsEnemyAttacking={setIsEnemyAttacking} />
+        <div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '90%' }}>
+            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} setEnemyTotalHealth={setEnemyTotalHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyVideo={enemyVideo} enemyName={enemyName} isEnemyHit={isEnemyHit} isEnemySpelled={isEnemySpelled} isEnemyAttacking={isEnemyAttacking} setIsEnemyAttacking={setIsEnemyAttacking} />
             <Player enemyCurrentHealth={enemyCurrentHealth} setEnemyCurrentHealth={setEnemyCurrentHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} isEnemyHit={isEnemyHit} setIsEnemyHit={setIsEnemyHit} isEnemySpelled={isEnemySpelled} setIsEnemySpelled={setIsEnemySpelled} setIsEnemyAttacking={setIsEnemyAttacking} />
         </div>
     )

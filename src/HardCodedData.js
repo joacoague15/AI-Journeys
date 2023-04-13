@@ -1,87 +1,82 @@
-import goblin from "./assets/gifs/goblin.gif";
-import orc from "./assets/gifs/orc.gif";
-import troll from "./assets/gifs/troll.gif";
-import ogre from "./assets/gifs/ogre.gif";
-import skeleton from "./assets/gifs/skeleton.gif";
-import zombie from "./assets/gifs/zombie.gif";
-import cultist from "./assets/gifs/cultist.gif";
-import gnoll from "./assets/gifs/gnoll.gif";
-import gargoyle from "./assets/gifs/gargoyle.gif";
-import worg from "./assets/gifs/worg.gif";
+import goblin from "./assets/videos/goblin.mp4";
+import orc from "./assets/videos/orc.mp4";
+import troll from "./assets/videos/troll.mp4";
+import ogre from "./assets/videos/ogre.mp4";
+import cultist from "./assets/videos/cultist.mp4";
 
 
 export const Enemies = {
     lowLevel: [
         {
             name: "Goblin",
-            image: goblin,
+            video: goblin,
             health: 2,
             attack: 1,
             experienceEnemyGives: 15,
         },
         {
             name: "Orc",
-            image: orc,
+            video: orc,
             health: 3,
             attack: 1,
             experienceEnemyGives: 20,
         },
         {
             name: "Troll",
-            image: troll,
+            video: troll,
             health: 4,
             attack: 1,
             experienceEnemyGives: 25,
         },
         {
             name: "Ogre",
-            image: ogre,
+            video: ogre,
             health: 5,
             attack: 2,
             experienceEnemyGives: 30,
         },
-        {
-            name: "Skeleton",
-            image: skeleton,
-            health: 3,
-            attack: 2,
-            experienceEnemyGives: 35,
-        },
-        {
-            name: "Zombie",
-            image: zombie,
-            health: 4,
-            attack: 2,
-            experienceEnemyGives: 40,
-        },
+        // {
+        //     name: "Skeleton",
+        //     image: skeleton,
+        //     health: 3,
+        //     attack: 2,
+        //     experienceEnemyGives: 35,
+        // },
+        // {
+        //     name: "Zombie",
+        //     image: zombie,
+        //     health: 4,
+        //     attack: 2,
+        //     experienceEnemyGives: 40,
+        // },
         {
             name: "Cultist",
-            image: cultist,
+            video: cultist,
             health: 5,
             attack: 2,
             experienceEnemyGives: 45,
         },
-        {
-            name: "Gnoll",
-            image: gnoll,
-            health: 6,
-            attack: 2,
-            experienceEnemyGives: 50,
-        },
-        {
-            name: "Gargoyle",
-            image: gargoyle,
-            health: 7,
-            attack: 2,
-            experienceEnemyGives: 60,
-        },
-        {
-            name: "Worg",
-            image: worg,
-            health: 8,
-            attack: 2,
-            experienceEnemyGives: 70,
-        }
+        // {
+        //     name: "Gnoll",
+        //     image: gnoll,
+        //     health: 6,
+        //     attack: 2,
+        //     experienceEnemyGives: 50,
+        // },
+        // {
+        //     name: "Gargoyle",
+        //     image: gargoyle,
+        //     health: 7,
+        //     attack: 2,
+        //     experienceEnemyGives: 60,
+        // },
+        // {
+        //     name: "Worg",
+        //     image: worg,
+        //     health: 8,
+        //     attack: 2,
+        //     experienceEnemyGives: 70,
+        // }
     ],
     mediumLevel: [
         {
