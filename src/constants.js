@@ -1,3 +1,4 @@
+import welcomeVoice from "./assets/sounds/welcomeToMyPlace.wav"
 import songInicio from "./assets/sounds/songInicio.mp3"
 import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
@@ -7,6 +8,13 @@ import { Howl } from 'howler';
 
 export const playerAttackDuration = 500;
 export const enemyAttackDuration = 1000;
+
+export const welcome = new Howl({
+    src: [welcomeVoice],
+    html5: true,
+    loop: false,
+    volume: 1,
+})
 
 export const sound = new Howl({
     src: [songInicio],

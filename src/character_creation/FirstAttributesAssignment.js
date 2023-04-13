@@ -35,14 +35,13 @@ const FirstAttributesAssignment = ({ characterAttributes, setCharacterAttributes
     }
 
     return (
-        <div className="animate__animated animate__flipInX" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column" }}>
+        <div className="animate__animated animate__fadeIn" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column", border: "2px solid white", padding: 10, marginTop: 10 }}>
             <h2 style={{ fontSize: 32, color: "white", textAlign: "center" }}>Attribute Allocation</h2>
             <p style={{ fontSize: 32 }}>You have {points} points to spend on attributes:</p>
             <div style={{ margin: 'auto', width: '100%' }}>
                 <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
             </div>
             <div style={{ margin: "auto", marginTop: 20, display: 'flex', gap: '20px' }}>
-                <button onClick={() => addAttributesIndexedDB()} onMouseOver={() => hover.play()} disabled={points > 0} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2, opacity: points > 0 ? 0.5 : 1 }}>Confirm</button>
                 <button onClick={() => clearButton()} onMouseOver={() => hover.play()} style={{ border: "1px solid white", color: "white", textAlign: "center", fontSize: 36, padding: 10, borderRadius: 2 }}>Clear</button>
             </div>
             <AttributesHelp />

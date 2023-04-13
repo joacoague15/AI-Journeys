@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import {enemyAttackDuration} from "../../constants";
-import {Enemies} from "../../HardCodedData";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterStatuses, setCharacterStatuses, enemyImage, enemyName, isEnemyHit, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, enemyName, isEnemyHit, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
@@ -26,15 +25,22 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterS
     }
 
     return (
-        <>
-            <h2 style={{ color: "white", fontSize: 24, textAlign: "center", marginBottom: 10, letterSpacing: 4 }}>{enemyName}</h2>
-            <img className={`animate__animated ${handleAnimation()}`} src={enemyImage} alt="enemy" style={{ maxWidth: "900px", borderRadius: 5, display: "flex", textAlign: "center", margin: "auto" }} />
-            <div className="progress" style={{ backgroundColor: "black", width: "600px", margin: "auto", display: "flex" }}>
-                <div style={{ width: ((enemyCurrentHealth * 100) / enemyTotalHealth) + '%', backgroundColor: "white" }} className="progress-bar progress-bar-striped" role="progressbar"
-                    aria-valuenow={enemyCurrentHealth} aria-valuemin="0" aria-valuemax={enemyTotalHealth}>
+        <div style={{ position: "relative", width: "100%", textAlign: "center" }}>
+            <h2 style={{ color: "white", fontSize: 32, textAlign: "center", marginBottom: 10, letterSpacing: 10 }}>{enemyName}</h2>
+            <div style={{ display: "inline-block", position: "relative" }}>
+                <video className={`animate__animated ${handleAnimation()}`} style={{ width: "100%", borderRadius: 5 }} src={enemyVideo} autoPlay muted={true} loop={true}>
+                    Tu navegador no admite el elemento <code>video</code>.
+                </video>
+                <div className="progress" style={{
+                    position: "absolute", bottom: 0, backgroundColor: "black", width: "100%",
+                    borderRadius: "0 0 5px 5px"
+                }}>
+                    <div style={{ width: ((enemyCurrentHealth * 100) / enemyTotalHealth) + '%', backgroundColor: "white" }} className="progress-bar progress-bar-striped" role="progressbar"
+                         aria-valuenow={enemyCurrentHealth} aria-valuemin="0" aria-valuemax={enemyTotalHealth}>
+                    </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
