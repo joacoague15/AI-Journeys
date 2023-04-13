@@ -1,8 +1,15 @@
 import CombatHandler from "./combat_system/CombatHandler";
 import Walking from "./Walking";
 import Loot from "./Loot"
+import { useEffect } from "react";
+import { cave, sound } from "../constants";
 
 const SituationHandler = ({ situation, setSituation, characterStatuses, setCharacterStatuses, experience, setExperience, currentLevel, healPerRoom }) => {
+
+    useEffect(() => {
+        sound.stop()
+        cave.play()
+    }, [])
 
     if (situation === 'walking') return <Walking setSituation={setSituation} setCharacterStatuses={setCharacterStatuses} characterStatuses={characterStatuses} healPerRoom={healPerRoom} />
 

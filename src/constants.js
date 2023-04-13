@@ -4,6 +4,7 @@ import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
 import spell from "./assets/sounds/spell.wav"
+import darkCave from "./assets/sounds/darkCave.mp3"
 import { Howl } from 'howler';
 
 export const playerAttackDuration = 500;
@@ -21,6 +22,13 @@ export const sound = new Howl({
     html5: true,
     loop: true,
     volume: 0.5,
+})
+
+export const cave = new Howl({
+    src: [darkCave],
+    html5: true,
+    loop: true,
+    volume: 0.5
 })
 
 export const hover = new Howl({

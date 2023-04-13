@@ -14,17 +14,12 @@
     border-radius: 50%!important;
     cursor: pointer;
     transition: 0.5s;
+    z-index: 10;
 }
-
-
 
 .audio{
-    margin: auto; 
+    background-color: transparent;
     cursor: pointer
-}
-
-.audio:hover .range {
-    width: 100px;
 }
 
 .option:hover{
