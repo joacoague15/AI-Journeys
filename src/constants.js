@@ -4,7 +4,11 @@ import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
 import spell from "./assets/sounds/spell.wav"
+import warrior_selected from "./assets/sounds/warrior_selected.wav"
+import wizard_selected from "./assets/sounds/wizard_selected.wav"
+import paladin_selected from "./assets/sounds/paladin_selected.wav"
 import darkCave from "./assets/sounds/darkCave.mp3"
+
 import { Howl } from 'howler';
 
 export const playerAttackDuration = 500;
@@ -28,7 +32,28 @@ export const cave = new Howl({
     src: [darkCave],
     html5: true,
     loop: true,
-    volume: 0.5
+    volume: 0.1
+})
+
+export const warriorSelected = new Howl({
+    src: [warrior_selected],
+    html5: true,
+    loop: false,
+    volume: 0.3,
+})
+
+export const wizardSelected = new Howl({
+    src: [wizard_selected],
+    html5: true,
+    loop: false,
+    volume: 0.3,
+})
+
+export const paladinSelected = new Howl({
+    src: [paladin_selected],
+    html5: true,
+    loop: false,
+    volume: 0.3,
 })
 
 export const hover = new Howl({
@@ -54,3 +79,5 @@ export const attackSpell = new Howl({
     html5: true,
     volume: 0.7,
 })
+
+export const all = [hover, attackSpell, attackSword, footstep, paladinSelected, warriorSelected, wizardSelected]

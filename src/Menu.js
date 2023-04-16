@@ -5,11 +5,10 @@ import 'animate.css';
 import madameVideo from "./assets/videos/madame.mp4";
 import AudioController from "./components/AudioController";
 
-const Initial = ({ setCharacterCreated, setNewGame }) => {
+const Initial = ({ setCharacterCreated, setNewGame, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal, setInitialModal }) => {
     const [data, setData] = useState()
     const [animation, setAnimation] = useState(false)
     const [modal, setModal] = useState(false)
-    const [initialModal, setInitialModal] = useState(true)
 
     const indexedDB = async () => {
         setData(await IDBTransactionGetAll('attributes'))
@@ -44,7 +43,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
 
     return (<>
         <div style={{ display: 'flex', height: '100vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className={!animation ? "animate__animated animate__fadeIn" : "animate__animated animate__fadeOut"}>
-            <AudioController />
+            <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
             <h1 className="animate__animated animate__slideInDown" style={{ color: 'white', textAlign: 'center', cursor: 'default', letterSpacing: 20 }}>TYPING TALES</h1>
             {modal && <div style={{ position: 'absolute', border: '1px white solid', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '20%', height: '20%', zIndex: 1 }} >
                 <p style={{ color: 'white', textAlign: 'center' }}>Your previous run will be deleted</p>
@@ -62,7 +61,7 @@ const Initial = ({ setCharacterCreated, setNewGame }) => {
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", flex: 1, marginLeft: 50, margin: "auto" }}>
                     <h2 style={{ display: "flex", cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} onMouseOver={() => hover.play()} className="menu" onClick={data && data?.length !== 0 ? () => setModal(true) : () => newGameStart()}>New Game</h2>
-                    {data && data?.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
+                    {data && data?.length !== 0 ? <h2 style={{ cursor: 'pointer', color: 'white', fontSize: 72, margin: 50 }} onMouseOver={() => hover.play()} className="menu" onClick={() => continueGame()}>Continue</h2> : <h2 style={{ cursor: 'default' }}>Continue</h2>}
                 </div>
             </div>
             {initialModal &&

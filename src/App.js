@@ -12,7 +12,8 @@ import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
-import { sound } from "./constants";
+import { all, cave, sound } from "./constants";
+import AudioController from "./components/AudioController";
 
 function App() {
     const [chatGPTresponse, setChatGPTresponse] = useState(''); // This is where we will store all the chatGPT responses
@@ -37,7 +38,40 @@ function App() {
     const [currentLevel, setCurrentLevel] = useState(1);
     const [experience, setExperience] = useState(1);
     const [newGame, setNewGame] = useState(true)
+    const [muted, setMuted] = useState(false)
+    const [FXmuted, setFXMuted] = useState(false)
+    const [initialModal, setInitialModal] = useState(true)
+    const [changeSound, setChangeSound] = useState(false)
+    const changeRangeVolume = (e) => {
+        sound.volume(e.target.value / 100)
+        cave.volume(e.target.value / 100)
+        sound.mute(false)
+        cave.mute(false)
+        if (e.target.value === '0') {
+            return setMuted(true)
+        }
+        setMuted(false)
+    }
 
+    const mutedFX = () => {
+        all.forEach(x => {
+            x.mute(!FXmuted)
+        });
+        setFXMuted(!FXmuted)
+    }
+
+    const changeVolume = () => {
+        if (muted) {
+            if (!changeSound) sound.mute(false)
+            else cave.mute(false)
+        }
+        else {
+            if (!changeSound) sound.mute(true)
+            else cave.mute(true)
+        }
+
+        setMuted(!muted)
+    }
     useEffect(() => {
         new Promise(resolverIDB)
     }, [])
@@ -58,10 +92,10 @@ function App() {
         }, 1)
     }
 
-    if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} />
+    if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} setInitialModal={setInitialModal} initialModal={initialModal} />
 
     if (!characterCreated)
-        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
+        return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
 
     if (characterStatuses.health <= 0) {
         return <DeadScreen />
@@ -74,14 +108,15 @@ function App() {
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
+            <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} />
             </div>
             {sound.play()}
             <StoryText chatGPTresponse={chatGPTresponse} />
             {/*<History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />*/}
-            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} />
-            <div style={{ position: "absolute", top: 40, right: 40, width: "20%" }}>
+            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} />
+            <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
             <div style={{ position: "absolute", bottom: 40, right: 40 }}>

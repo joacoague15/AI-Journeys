@@ -1,35 +1,106 @@
-.animate__animated.animate__fadeIn{
+.animate__animated.animate__fadeIn {
     --animate-duration: 3s;
 }
 
-.animate__animated.animate__fadeOut{
+.animate__animated.animate__fadeOut {
     --animate-duration: 2s;
 }
 
-.menu:hover{
-    color: #212529!important;
+.menu:hover {
+    color: #212529 !important;
 }
 
-.option{
-    border-radius: 50%!important;
+.optionConfig {
+    border-radius: 50% !important;
     cursor: pointer;
     transition: 0.5s;
     z-index: 10;
 }
 
-.audio{
-    background-color: transparent;
-    cursor: pointer
+.range {
+    z-index: -1;
+    opacity: 0;
+    position: absolute;
+    right: 0%;
+    transition: all 0.5s ease-in-out;
 }
 
-.option:hover{
+.allOptions:hover .backgroundSound {
+    opacity: 1 !important;
+}
+
+.allOptions:hover .groupFX{
+    opacity: 1 !important;
+}
+
+.allOptions:hover .optionConfig {
     transform: rotate(45deg);
+}
+
+.audio {
+    z-index: 1;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.backgroundSound:hover .range {
+    opacity: 1;
+    right: 120%;
+}
+
+.FXSound {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1;
+}
+
+.groupFX{
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.backgroundSound {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.optionAudio {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    align-items: flex-end;
+}
+
+.barFXSoundOn{
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translate(0%,-50%);
+    background-color: white;
+    width: 50px;
+    height: 5px;
+    border-radius: 20px;
+}
+
+.barFXSoundOff{
+    opacity: 0;
+    z-index: -1;
 }
 
 @keyframes option {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(45deg);
     }
