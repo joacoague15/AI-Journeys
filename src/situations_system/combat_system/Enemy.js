@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import {enemyAttackDuration} from "../../constants";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, enemyName, isEnemyHit, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, enemyName, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
@@ -21,6 +21,8 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
             return 'animate__flash';
         else if (isEnemyAttacking)
             return 'animate__bounce';
+        else if (enemyDodge)
+            return 'animate__swing';
         return '';
     }
 

@@ -41,10 +41,6 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses }) => {
                     </svg>
                     <p style={{ color: "white", fontSize: 28 }}>{mana} / {maxMana}</p>
                 </div>
-                <div style={{ margin: 15 }}>
-                    <i style={{ color: "white", fontSize: 50 }} className="fa-solid fa-khanda"></i>
-                    <p style={{ color: "white", fontSize: 28 }}>{attack}</p>
-                </div>
             </div>
         )
     }

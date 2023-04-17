@@ -1,11 +1,11 @@
 import warriorClassImg from "../assets/images/warrior_class.jpg";
 import wizardClassImg from "../assets/images/wizard_class.png";
 import paladinClassImg from "../assets/images/paladin_class.jpg";
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import {
     wizardPresentingHimself,
     paladinPresentingHimself,
-    warriorPresentingHerself, classPresentation
+    warriorPresentingHerself
 } from "../constants";
 import { hover } from "../constants";
 
@@ -17,11 +17,6 @@ const ClassSelection = ({ setUserClass }) => {
     const [isWarriorSelected, setIsWarriorSelected] = useState(false);
     const [isWizardSelected, setIsWizardSelected] = useState(false);
     const [isPaladinSelected, setIsPaladinSelected] = useState(false);
-
-    useEffect(() => {
-        classPresentation.play();
-    }, [])
-
 
     const selectClass = (classSelection) => {
         if (classSelection === 'warrior') {
@@ -54,9 +49,9 @@ const ClassSelection = ({ setUserClass }) => {
             <button onMouseEnter={() => setIsWarriorHovering(true)}
                 onMouseLeave={() => setIsWarriorHovering(false)}
                 style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('warrior')} type="button" className="btn btn-light"><img onMouseOver={() => { hover.play() }} style={{ width: 300, border: "2px solid white", filter: isWarriorHovering || isWarriorSelected ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={warriorClassImg} alt="warrior-img" /></button>
-            <button onMouseEnter={() => setIsWizardHovering(true)}
+            <button disabled={true} onMouseEnter={() => setIsWizardHovering(true)}
                 onMouseLeave={() => setIsWizardHovering(false)} style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('wizard')} type="button" className="btn btn-light"><img onMouseOver={() => { hover.play() }} style={{ width: 300, border: "2px solid white", filter: isWizardHovering || isWizardSelected ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={wizardClassImg} alt="mage-img" /></button>
-            <button onMouseEnter={() => setIsPaladinHovering(true)}
+            <button disabled={true} onMouseEnter={() => setIsPaladinHovering(true)}
                 onMouseLeave={() => setIsPaladinHovering(false)}
                 style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('paladin')} type="button" className="btn btn-light"><img onMouseOver={() => { hover.play() }} style={{ width: 300, border: "2px solid white", filter: isPaladinHovering || isPaladinSelected ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={paladinClassImg} alt="paladin-img" /></button>
         </div>
