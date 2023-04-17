@@ -112,7 +112,6 @@ function App() {
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} />
             </div>
-            {sound.play()}
             <StoryText chatGPTresponse={chatGPTresponse} />
             {/*<History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />*/}
             <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} />

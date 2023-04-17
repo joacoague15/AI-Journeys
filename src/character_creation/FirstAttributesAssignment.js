@@ -1,9 +1,8 @@
 import AttributesHelp from "./AttributesHelp";
 import Attributes from "../components/Attributes";
-import { IDBTransactionAddAttributes } from "../IndexedDB/CRUD";
-import {useEffect} from "react";
+import { useEffect } from "react";
 
-const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacterAttributes }) => {
+const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacterAttributes, addAttributesIndexedDB }) => {
 
     useEffect(() => {
         if (userClass === 'warrior') {
@@ -29,15 +28,6 @@ const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacte
         }
     }, [userClass]);
 
-    const addAttributesIndexedDB = () => {
-        IDBTransactionAddAttributes({
-            strength: { ...characterAttributes }.strength,
-            constitution: { ...characterAttributes }.constitution,
-            maxConstitution: { ...characterAttributes }.constitution,
-            intelligence: { ...characterAttributes }.intelligence,
-            maxIntelligence: { ...characterAttributes }.intelligence
-        })
-    }
 
     return (
         <div className="animate__animated animate__fadeIn" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column", padding: 10, marginTop: 10 }}>

@@ -7,6 +7,7 @@ import warrior_presentation from "../assets/videos/warrior_presentation.mp4";
 import wizard_presentation from "../assets/videos/wizard_presentation.mp4";
 import paladin_presentation from "../assets/videos/paladin_presentation.mp4";
 import AudioController from "../components/AudioController";
+import { IDBTransactionAddAttributes, IDBTransactionAddCharacter } from "../IndexedDB/CRUD";
 
 const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
     const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
@@ -17,6 +18,22 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
         else
             setIsContinueBtnDisabled(false);
     }, [userName, userClass, points]);
+
+    const indexedDBInput = () => {
+        IDBTransactionAddCharacter({ Name: userName, Class: userClass })
+        addAttributesIndexedDB()
+        setCharacterCreated(true)
+    }
+
+    const addAttributesIndexedDB = () => {
+        IDBTransactionAddAttributes({
+            strength: { ...characterAttributes }.strength,
+            constitution: { ...characterAttributes }.constitution,
+            maxConstitution: { ...characterAttributes }.constitution,
+            intelligence: { ...characterAttributes }.intelligence,
+            maxIntelligence: { ...characterAttributes }.intelligence
+        })
+    }
 
     const handleDescription = () => {
         if (userClass === "warrior") {
@@ -36,7 +53,7 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
         <div style={{ display: "flex", width: "30%", margin: "auto", flexDirection: "column" }}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
             <NameSelection setUserName={setUserName} />
-            <ClassSelection userName={userName} userClass={userClass} setUserClass={setUserClass} />
+            <ClassSelection setUserClass={setUserClass} />
             <div style={{ display: "flex", margin: 20, flexDirection: "row" }}>
                 <div style={{ display: "flex", flex: 2, flexDirection: "column", lineHeight: 2, marginRight: 5 }}>
                     <p style={{ color: "white", fontSize: 24 }}>{userName}</p>
@@ -55,9 +72,8 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
                 </div>
             </div>
             <FirstAttributesAssignment userClass={userClass} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
-            <CharacterStatus characterStatuses={characterStatuses} />
             <div style={{ display: "flex", justifyContent: "center", marginTop: "16px" }}>
-                <button disabled={isContinueBtnDisabled} style={{ color: isContinueBtnDisabled ? "grey" : 'white', fontSize: 32, border: "1px solid white", padding: "8px 16px" }} onClick={() => setCharacterCreated(true)}>Continue</button>
+                <button disabled={isContinueBtnDisabled} style={{ color: isContinueBtnDisabled ? "grey" : 'white', fontSize: 32, border: "1px solid white", padding: "8px 16px" }} onClick={() => indexedDBInput()}>Continue</button>
             </div>
         </div>
     )

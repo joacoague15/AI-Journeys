@@ -62,6 +62,7 @@ export const IDBTransactionGetAll = (collection) =>
         .then(db => new Promise((resolve, reject) => {
             const transaction = db.transaction(collection, "readwrite")
             const store = transaction.objectStore(collection)
+
             store.getAll().onsuccess = ({ target }) => {
                 resolve(target.result)
             }

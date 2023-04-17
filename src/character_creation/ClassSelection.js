@@ -7,7 +7,7 @@ import { useState } from "react";
 import { warriorSelected, wizardSelected, paladinSelected } from "../constants";
 import { hover } from "../constants";
 
-const ClassSelection = ({ userName, setUserClass }) => {
+const ClassSelection = ({ setUserClass }) => {
     const [isWarriorHovering, setIsWarriorHovering] = useState(false);
     const [isWizardHovering, setIsWizardHovering] = useState(false);
     const [isPaladinHovering, setIsPaladinHovering] = useState(false);
@@ -16,36 +16,31 @@ const ClassSelection = ({ userName, setUserClass }) => {
     const [isWizardSelected, setIsWizardSelected] = useState(false);
     const [isPaladinSelected, setIsPaladinSelected] = useState(false);
 
-    const indexedDBInput = (classChoice) => {
-        IDBTransactionAddCharacter({ Name: userName, Class: classChoice })
-        setUserClass(classChoice)
-    }
 
-    const selectClass = (indexDBInput) => {
-        if (indexDBInput === 'warrior') {
+    const selectClass = (classSelection) => {
+        if (classSelection === 'warrior') {
             !isWarriorSelected && warriorSelected.play()
             setIsWarriorSelected(true);
             setIsWizardSelected(false);
             setIsPaladinSelected(false);
+            setUserClass(classSelection)
         }
 
-        if (indexDBInput === 'wizard') {
+        if (classSelection === 'wizard') {
             !isWizardSelected && wizardSelected.play()
             setIsWizardSelected(true);
             setIsWarriorSelected(false);
             setIsPaladinSelected(false);
+            setUserClass(classSelection)
         }
 
-        if (indexDBInput === 'paladin') {
+        if (classSelection === 'paladin') {
             !isPaladinSelected && paladinSelected.play()
             setIsPaladinSelected(true);
             setIsWarriorSelected(false);
             setIsWizardSelected(false);
+            setUserClass(classSelection)
         }
-
-        setTimeout(() => {
-            indexedDBInput(indexDBInput)
-        }, 1000)
     }
 
     return (

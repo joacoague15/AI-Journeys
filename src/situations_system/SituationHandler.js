@@ -9,6 +9,7 @@ const SituationHandler = ({ situation, setSituation, characterStatuses, setChara
 
     useEffect(() => {
         sound.fade(1, 0, 1)
+        cave.play()
         cave.mute(muted)
         setChangeSound(true)
     }, [])

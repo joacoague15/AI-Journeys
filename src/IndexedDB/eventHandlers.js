@@ -5,6 +5,4 @@ export const onUpgradeNeeded = (event) => {
 
     if (!db.objectStoreNames.contains('attributes')) db.createObjectStore('attributes', { keyPath: 'Id' })
 
-    if (!db.objectStoreNames.contains('inventory')) db.createObjectStore('inventory', { keyPath: 'Id' })
-
 }
