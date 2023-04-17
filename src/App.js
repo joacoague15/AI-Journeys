@@ -19,7 +19,6 @@ function App() {
     const [chatGPTresponse, setChatGPTresponse] = useState(''); // This is where we will store all the chatGPT responses
     const [characterName, setCharacterName] = useState(''); // This is where we will store the character name
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
-    const [characterRace, setCharacterRace] = useState(''); // This is where we will store the character race
     const [characterAttributes, setCharacterAttributes] = useState({
         strength: 1,
         constitution: 1,
@@ -110,7 +109,7 @@ function App() {
         <div style={{ height: '100vh', position: 'relative' }}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
-                <CharacterStatus characterStatuses={characterStatuses} />
+                <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
             <StoryText chatGPTresponse={chatGPTresponse} />
             {/*<History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />*/}
