@@ -80,4 +80,4 @@ export const attackSpell = new Howl({
     volume: 0.7,
 })
 
-export const all = [hover, attackSpell, attackSword, footstep, paladinSelected, warriorSelected, wizardSelected]
+export const SoundFX = [hover, attackSpell, attackSword, footstep, paladinSelected, warriorSelected, wizardSelected]

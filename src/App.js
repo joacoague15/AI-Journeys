@@ -12,7 +12,7 @@ import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
-import { all, cave, sound } from "./constants";
+import { SoundFX, cave, sound } from "./constants";
 import AudioController from "./components/AudioController";
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
     }
 
     const mutedFX = () => {
-        all.forEach(x => {
+        SoundFX.forEach(x => {
             x.mute(!FXmuted)
         });
         setFXMuted(!FXmuted)
