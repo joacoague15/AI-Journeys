@@ -15,7 +15,7 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses }) => {
                 maxMana: data[0]?.maxIntelligence,
             });
         })
-    }, []);
+    }, [setCharacterStatuses]);
 
     useEffect(() => {
         setPercentageHealth((characterStatuses.health / characterStatuses.maxHealth) * 100);

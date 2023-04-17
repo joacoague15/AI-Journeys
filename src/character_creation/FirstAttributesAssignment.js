@@ -26,7 +26,7 @@ const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacte
                 intelligence: 7
             })
         }
-    }, [userClass]);
+    }, [userClass, setCharacterAttributes]);
 
 
     return (
