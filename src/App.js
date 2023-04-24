@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-//import History from "./components/History";
 import './assets/base.css'
 import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
-// import Inventory from "./components/Inventory"
 import { resolverIDB } from "./IndexedDB/registerDB.js"
 import CharacterStatus from "./CharacterStatus";
 import SituationHandler from "./situations_system/SituationHandler";
-import Attributes from "./components/Attributes";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
@@ -112,15 +109,10 @@ function App() {
                 <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
             <StoryText chatGPTresponse={chatGPTresponse} />
-            {/*<History userResponses={userResponses} chatGPTresponses={chatGPTresponses} />*/}
             <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
-            <div style={{ position: "absolute", bottom: 40, right: 40 }}>
-                <Attributes characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} />
-            </div>
-            {/*<Inventory />*/}
         </div>
     )
 }

@@ -4,9 +4,9 @@ import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
 import spell from "./assets/sounds/spell.wav"
-import warrior_selected from "./assets/sounds/warrior_selected.wav"
-import wizard_selected from "./assets/sounds/wizard_selected.wav"
-import paladin_selected from "./assets/sounds/paladin_selected.wav"
+import warrior_presenting_herself from "./assets/sounds/warriorPresentingHerself.mp3"
+import wizard_presenting_himself from "./assets/sounds/wizardPresentingHimself.mp3"
+import paladin_presenting_himself from "./assets/sounds/paladinPresentingHimself.mp3"
 import darkCave from "./assets/sounds/darkCave.mp3"
 
 import { Howl } from 'howler';
@@ -25,7 +25,7 @@ export const sound = new Howl({
     src: [songInicio],
     html5: true,
     loop: true,
-    volume: 0.5,
+    volume: 0.4,
 })
 
 export const cave = new Howl({
@@ -35,25 +35,25 @@ export const cave = new Howl({
     volume: 0.1
 })
 
-export const warriorSelected = new Howl({
-    src: [warrior_selected],
+export const warriorPresentingHerself = new Howl({
+    src: [warrior_presenting_herself],
     html5: true,
     loop: false,
-    volume: 0.3,
+    volume: 0.6,
 })
 
-export const wizardSelected = new Howl({
-    src: [wizard_selected],
+export const wizardPresentingHimself = new Howl({
+    src: [wizard_presenting_himself],
     html5: true,
     loop: false,
-    volume: 0.3,
+    volume: 0.6,
 })
 
-export const paladinSelected = new Howl({
-    src: [paladin_selected],
+export const paladinPresentingHimself = new Howl({
+    src: [paladin_presenting_himself],
     html5: true,
     loop: false,
-    volume: 0.3,
+    volume: 0.6,
 })
 
 export const hover = new Howl({
@@ -65,7 +65,7 @@ export const hover = new Howl({
 export const footstep = new Howl({
     src: [footsteps],
     html5: true,
-    volume: 0.7,
+    volume: 0.8,
 })
 
 export const attackSword = new Howl({
@@ -77,7 +77,7 @@ export const attackSword = new Howl({
 export const attackSpell = new Howl({
     src: [spell],
     html5: true,
-    volume: 0.7,
+    volume: 0.5,
 })
 
-export const SoundFX = [hover, attackSpell, attackSword, footstep, paladinSelected, warriorSelected, wizardSelected]
+export const SoundFX = [hover, attackSpell, attackSword, footstep, paladinPresentingHimself, warriorPresentingHerself, wizardPresentingHimself]

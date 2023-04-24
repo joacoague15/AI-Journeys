@@ -1,10 +1,12 @@
-import { IDBTransactionAddCharacter } from "../IndexedDB/CRUD"
-
 import warriorClassImg from "../assets/images/warrior_class.jpg";
 import wizardClassImg from "../assets/images/wizard_class.png";
 import paladinClassImg from "../assets/images/paladin_class.jpg";
 import { useState } from "react";
-import { warriorSelected, wizardSelected, paladinSelected } from "../constants";
+import {
+    wizardPresentingHimself,
+    paladinPresentingHimself,
+    warriorPresentingHerself,
+} from "../constants";
 import { hover } from "../constants";
 
 const ClassSelection = ({ setUserClass }) => {
@@ -19,7 +21,7 @@ const ClassSelection = ({ setUserClass }) => {
 
     const selectClass = (classSelection) => {
         if (classSelection === 'warrior') {
-            !isWarriorSelected && warriorSelected.play()
+            !isWarriorSelected && warriorPresentingHerself.play()
             setIsWarriorSelected(true);
             setIsWizardSelected(false);
             setIsPaladinSelected(false);
@@ -27,7 +29,7 @@ const ClassSelection = ({ setUserClass }) => {
         }
 
         if (classSelection === 'wizard') {
-            !isWizardSelected && wizardSelected.play()
+            !isWizardSelected && wizardPresentingHimself.play()
             setIsWizardSelected(true);
             setIsWarriorSelected(false);
             setIsPaladinSelected(false);
@@ -35,7 +37,7 @@ const ClassSelection = ({ setUserClass }) => {
         }
 
         if (classSelection === 'paladin') {
-            !isPaladinSelected && paladinSelected.play()
+            !isPaladinSelected && paladinPresentingHimself.play()
             setIsPaladinSelected(true);
             setIsWarriorSelected(false);
             setIsWizardSelected(false);
