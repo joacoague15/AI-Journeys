@@ -1,7 +1,6 @@
 import ClassSelection from "./ClassSelection";
 import NameSelection from "./NameSelection";
 import FirstAttributesAssignment from "./FirstAttributesAssignment";
-import CharacterStatus from "../CharacterStatus";
 import { useEffect, useState } from "react";
 import warrior_presentation from "../assets/videos/warrior_presentation.mp4";
 import wizard_presentation from "../assets/videos/wizard_presentation.mp4";
@@ -27,11 +26,11 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
 
     const addAttributesIndexedDB = () => {
         IDBTransactionAddAttributes({
-            strength: { ...characterAttributes }.strength,
-            constitution: { ...characterAttributes }.constitution,
-            maxConstitution: { ...characterAttributes }.constitution,
-            intelligence: { ...characterAttributes }.intelligence,
-            maxIntelligence: { ...characterAttributes }.intelligence
+            strength: { ...characterAttributes }.strength * 10,
+            constitution: { ...characterAttributes }.constitution * 10,
+            maxConstitution: { ...characterAttributes }.constitution * 10,
+            intelligence: { ...characterAttributes }.intelligence * 10,
+            maxIntelligence: { ...characterAttributes }.intelligence * 10,
         })
     }
 

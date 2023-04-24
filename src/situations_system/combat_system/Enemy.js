@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import {enemyAttackDuration} from "../../constants";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, enemyName, isEnemyHit, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, enemyName, isEnemyHit, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
             setIsEnemyAttacking(true);
             setTimeout(() => {
-                setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - 1 });
+                setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - enemyAttack });
                 setIsEnemyAttacking(false);
                 setTurn('player');
             }, enemyAttackDuration);

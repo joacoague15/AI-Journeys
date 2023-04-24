@@ -1,10 +1,12 @@
 import { attackSpell, attackSword, playerAttackDuration } from "../../constants";
 
 const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, isEnemySpelled, setIsEnemySpelled }) => {
+    const SPEELL_COST = 30;
+
     const useMagic = () => {
         attackSpell.play()
-        setEnemyCurrentHealth(enemyCurrentHealth - 3);
-        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana - 3 });
+        setEnemyCurrentHealth(enemyCurrentHealth - (SPEELL_COST * 4));
+        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana - SPEELL_COST });
         setIsEnemySpelled(true);
         setTimeout(() => {
             setIsEnemySpelled(false);
@@ -14,7 +16,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
 
     const attack = () => {
         attackSword.play()
-        setEnemyCurrentHealth(enemyCurrentHealth - 1);
+        setEnemyCurrentHealth(enemyCurrentHealth - characterStatuses.attack);
         setIsEnemyHit(true);
         setTimeout(() => {
             setIsEnemyHit(false);

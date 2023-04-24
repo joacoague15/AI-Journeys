@@ -2,7 +2,7 @@ import AttributesHelp from "./AttributesHelp";
 import Attributes from "../components/Attributes";
 import { useEffect } from "react";
 
-const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacterAttributes, addAttributesIndexedDB }) => {
+const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacterAttributes, setCharacterStatuses }) => {
 
     useEffect(() => {
         if (userClass === 'warrior') {
@@ -28,6 +28,15 @@ const FirstAttributesAssignment = ({ userClass, characterAttributes, setCharacte
         }
     }, [userClass, setCharacterAttributes]);
 
+    useEffect(() => {
+        setCharacterStatuses({
+            health: characterAttributes.constitution * 10,
+            maxHealth: characterAttributes.constitution * 10,
+            attack: characterAttributes.strength * 10,
+            mana: characterAttributes.intelligence * 10,
+            maxMana: characterAttributes.intelligence * 10,
+        })
+        }, [characterAttributes, setCharacterStatuses]);
 
     return (
         <div className="animate__animated animate__fadeIn" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column", padding: 10, marginTop: 10 }}>

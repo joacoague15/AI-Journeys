@@ -26,7 +26,7 @@ const Attributes = ({characterAttributes, userClass}) => {
 
                 <div style={{ margin: 'auto',  paddingTop: 20, width: '100%', display: "flex", flexDirection: "row" }}>
                     <i style={{ marginRight: 10, fontSize: 16 }} className="fa-solid fa-khanda"></i>
-                    <div style={{ width: (characterAttributes.strength * 10) + "%", backgroundColor: "white" }} className="progress-bar progress-bar-striped progress" role="progressbar"
+                    <div style={{ width: (characterAttributes.strength * 100) + "%", backgroundColor: "white" }} className="progress-bar progress-bar-striped progress" role="progressbar"
                          aria-valuenow={characterAttributes.strength} aria-valuemin="0" aria-valuemax="10">
                     </div>
                 </div>

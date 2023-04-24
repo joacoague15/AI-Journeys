@@ -10,29 +10,29 @@ export const Enemies = {
         {
             name: "Goblin",
             video: goblin,
-            health: 2,
-            attack: 1,
+            health: 200,
+            attack: 10,
             experienceEnemyGives: 15,
         },
         {
             name: "Orc",
             video: orc,
-            health: 3,
-            attack: 1,
+            health: 300,
+            attack: 10,
             experienceEnemyGives: 20,
         },
         {
             name: "Troll",
             video: troll,
-            health: 4,
-            attack: 1,
+            health: 400,
+            attack: 10,
             experienceEnemyGives: 25,
         },
         {
             name: "Ogre",
             video: ogre,
-            health: 5,
-            attack: 2,
+            health: 500,
+            attack: 20,
             experienceEnemyGives: 30,
         },
         // {
@@ -52,8 +52,8 @@ export const Enemies = {
         {
             name: "Cultist",
             video: cultist,
-            health: 5,
-            attack: 2,
+            health: 300 ,
+            attack: 20,
             experienceEnemyGives: 45,
         },
         // {
