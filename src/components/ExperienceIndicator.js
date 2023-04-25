@@ -15,7 +15,7 @@ const ExperienceIndicator = ({experience, setPoints, currentLevel, setCurrentLev
             setInterval(() => {
                 setLevelUpAnimation(false);
             }, 1000);
-            setPoints(points => points + (2 * (level - currentLevel)));
+            setPoints(points => points + 1);
             setCurrentLevel(level);
         }
     }, [currentLevel, level, setPoints])

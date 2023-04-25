@@ -96,6 +96,15 @@
     z-index: -1;
 }
 
+.buttonToUpgrade {
+    margin: 20px;
+    border: none;
+}
+
+.buttonToUpgrade:hover {
+    opacity: 0.6;
+}
+
 @keyframes option {
     0% {
         transform: rotate(0deg);

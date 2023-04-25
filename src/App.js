@@ -11,6 +11,7 @@ import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
 import { SoundFX, cave, sound } from "./constants";
 import AudioController from "./components/AudioController";
+import LevelUpModal from "./components/LevelUpModal";
 
 function App() {
     const [chatGPTresponse, setChatGPTresponse] = useState(''); // This is where we will store all the chatGPT responses
@@ -30,7 +31,7 @@ function App() {
     });
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
-    const [points, setPoints] = useState(5);
+    const [points, setPoints] = useState(0);
     const [currentLevel, setCurrentLevel] = useState(1);
     const [experience, setExperience] = useState(1);
     const [newGame, setNewGame] = useState(true)
@@ -113,6 +114,9 @@ function App() {
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
+            {points > 0 && <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", width: "100vw", height: "100vh", zIndex: 3 }}>
+                <LevelUpModal points={points} setPoints={setPoints} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} />}
+            </div>}
         </div>
     )
 }
