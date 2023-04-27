@@ -74,6 +74,10 @@ function App() {
     }, [])
 
     useEffect(() => {
+        console.log("Character status: ", characterStatuses)
+    }, [characterStatuses])
+
+    useEffect(() => {
         if (situation === 'walking')
             setChatGPTresponse(textExamples.walkingText[Math.floor(Math.random() * textExamples.walkingText.length)]);
         if (situation === 'combat')
@@ -93,6 +97,15 @@ function App() {
 
     if (!characterCreated)
         return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} setCharacterCreated={setCharacterCreated} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
+
+    if (points > 0) {
+        return (
+            <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", width: "100vw", height: "100vh", zIndex: 3 }}>
+                <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
+            </div>
+        )
+    }
+
 
     if (characterStatuses.health <= 0) {
         return <DeadScreen />
@@ -114,9 +127,6 @@ function App() {
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
-            {points > 0 && <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", width: "100vw", height: "100vh", zIndex: 3 }}>
-                <LevelUpModal points={points} setPoints={setPoints} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} />}
-            </div>}
         </div>
     )
 }

@@ -2,15 +2,15 @@ import heartIcon from '../assets/images/heart_icon.jpg';
 import swordIcon from '../assets/images/sword_icon.jpg';
 import wandIcon from '../assets/images/wand_icon.jpg';
 
-const LevelUpModal = ({ points, setPoints, characterAttributes, setCharacterAttributes }) => {
-    const {constitution, intelligence, strength} = characterAttributes;
+const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatuses }) => {
+    const {health, mana, attack} = characterStatuses;
 
-    const upgradeAttribute = (attribute) => {
+    const upgradeStatuses = (status, amount) => {
         if (points > 0) {
             setPoints(points - 1);
-            setCharacterAttributes({
-                ...characterAttributes,
-                [attribute]: characterAttributes[attribute] + 1,
+            setCharacterStatuses({
+                ...characterStatuses,
+                [status]: characterStatuses[status] + amount,
             });
         }
     }
@@ -18,16 +18,16 @@ const LevelUpModal = ({ points, setPoints, characterAttributes, setCharacterAttr
     return (
         <div style={{ display: "flex", width: "50vw", justifyItems: "center", height: "90vh", margin: "auto" }}>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={() => upgradeAttribute(constitution)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+1 Constitution</p>
+                <button onClick={() => upgradeStatuses(health, 30)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>
+                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+30 Health</p>
             </div>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={() => upgradeAttribute(intelligence)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+1 Intelligence</p>
+                <button onClick={() => upgradeStatuses(mana, 30)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
+                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+30 Mana</p>
             </div>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={() => upgradeAttribute(strength)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+1 Strength </p>
+                <button onClick={() => upgradeStatuses(attack, 1)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
+                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+1 Attack</p>
             </div>
         </div>
     )
