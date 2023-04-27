@@ -1,4 +1,6 @@
-import welcomeVoice from "./assets/sounds/welcomeToMyPlace.wav"
+import presentationAudio from "./assets/sounds/presentation.mp3"
+import classPresentationAudio from "./assets/sounds/classPresentation.mp3"
+import entranceAudio from "./assets/sounds/entrance.mp3"
 import songInicio from "./assets/sounds/songInicio.mp3"
 import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
@@ -14,8 +16,22 @@ import { Howl } from 'howler';
 export const playerAttackDuration = 500;
 export const enemyAttackDuration = 1000;
 
-export const welcome = new Howl({
-    src: [welcomeVoice],
+export const presentation = new Howl({
+    src: [presentationAudio],
+    html5: true,
+    loop: false,
+    volume: 1,
+})
+
+export const classPresentation = new Howl({
+    src: [classPresentationAudio],
+    html5: true,
+    loop: false,
+    volume: 1,
+})
+
+export const entrance = new Howl({
+    src: [entranceAudio],
     html5: true,
     loop: false,
     volume: 1,
@@ -39,21 +55,21 @@ export const warriorPresentingHerself = new Howl({
     src: [warrior_presenting_herself],
     html5: true,
     loop: false,
-    volume: 0.6,
+    volume: 0.5,
 })
 
 export const wizardPresentingHimself = new Howl({
     src: [wizard_presenting_himself],
     html5: true,
     loop: false,
-    volume: 0.6,
+    volume: 0.5,
 })
 
 export const paladinPresentingHimself = new Howl({
     src: [paladin_presenting_himself],
     html5: true,
     loop: false,
-    volume: 0.6,
+    volume: 0.5,
 })
 
 export const hover = new Howl({
@@ -79,5 +95,7 @@ export const attackSpell = new Howl({
     html5: true,
     volume: 0.5,
 })
+
+export const storyTexts = ["Our hero stands before the ominous entrance of the dungeon. Shadows dance and flicker at the edges of their vision, teasing the sinister darkness that lies just beyond the threshold."]
 
 export const SoundFX = [hover, attackSpell, attackSword, footstep, paladinPresentingHimself, warriorPresentingHerself, wizardPresentingHimself]

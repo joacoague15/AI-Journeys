@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { IDBDeleteDB, IDBTransactionGetAll } from "./IndexedDB/CRUD"
-import { hover, sound, welcome } from "./constants";
+import { hover, sound, presentation } from "./constants";
 import 'animate.css';
 import madameVideo from "./assets/videos/madame.mp4";
 import AudioController from "./components/AudioController";
@@ -23,7 +23,7 @@ const Initial = ({ setCharacterCreated, setNewGame, changeRangeVolume, mutedFX, 
     }
 
     const welcomeModal = () => {
-        welcome.play()
+        presentation.play()
         sound.play()
         setInitialModal(false)
     }
@@ -31,6 +31,7 @@ const Initial = ({ setCharacterCreated, setNewGame, changeRangeVolume, mutedFX, 
     const newGameStart = () => {
         IDBDeleteDB()
         setAnimation(true)
+        presentation.stop()
         setTimeout(() => {
             setNewGame(false)
             setCharacterCreated(false)

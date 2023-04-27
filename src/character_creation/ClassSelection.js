@@ -1,11 +1,11 @@
 import warriorClassImg from "../assets/images/warrior_class.jpg";
 import wizardClassImg from "../assets/images/wizard_class.png";
 import paladinClassImg from "../assets/images/paladin_class.jpg";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import {
     wizardPresentingHimself,
     paladinPresentingHimself,
-    warriorPresentingHerself,
+    warriorPresentingHerself, classPresentation
 } from "../constants";
 import { hover } from "../constants";
 
@@ -17,6 +17,10 @@ const ClassSelection = ({ setUserClass }) => {
     const [isWarriorSelected, setIsWarriorSelected] = useState(false);
     const [isWizardSelected, setIsWizardSelected] = useState(false);
     const [isPaladinSelected, setIsPaladinSelected] = useState(false);
+
+    useEffect(() => {
+        classPresentation.play();
+    }, [])
 
 
     const selectClass = (classSelection) => {
@@ -33,7 +37,7 @@ const ClassSelection = ({ setUserClass }) => {
             setIsWizardSelected(true);
             setIsWarriorSelected(false);
             setIsPaladinSelected(false);
-            setUserClass(classSelection)
+            setUserClass(classSelection);
         }
 
         if (classSelection === 'paladin') {
@@ -41,7 +45,7 @@ const ClassSelection = ({ setUserClass }) => {
             setIsPaladinSelected(true);
             setIsWarriorSelected(false);
             setIsWizardSelected(false);
-            setUserClass(classSelection)
+            setUserClass(classSelection);
         }
     }
 

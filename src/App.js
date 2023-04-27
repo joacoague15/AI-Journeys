@@ -7,14 +7,13 @@ import SituationHandler from "./situations_system/SituationHandler";
 import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
-import { textExamples } from "./HardCodedData";
 import StoryText from "./components/StoryText";
-import { SoundFX, cave, sound } from "./constants";
+import {SoundFX, cave, sound, storyTexts} from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 
 function App() {
-    const [chatGPTresponse, setChatGPTresponse] = useState(''); // This is where we will store all the chatGPT responses
+    const [text, setText] = useState(storyTexts[0]);
     const [characterName, setCharacterName] = useState(''); // This is where we will store the character name
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
     const [characterAttributes, setCharacterAttributes] = useState({
@@ -69,22 +68,10 @@ function App() {
 
         setMuted(!muted)
     }
+
     useEffect(() => {
         new Promise(resolverIDB)
     }, [])
-
-    useEffect(() => {
-        console.log("Character status: ", characterStatuses)
-    }, [characterStatuses])
-
-    useEffect(() => {
-        if (situation === 'walking')
-            setChatGPTresponse(textExamples.walkingText[Math.floor(Math.random() * textExamples.walkingText.length)]);
-        if (situation === 'combat')
-            setChatGPTresponse(textExamples.fightText[Math.floor(Math.random() * textExamples.fightText.length)]);
-        if (situation === 'loot')
-            setChatGPTresponse(textExamples.lootText[Math.floor(Math.random() * textExamples.lootText.length)]);
-    }, [situation])
 
     const audioPlayGameSound = () => {
         const audio = document.getElementById('backSound')
@@ -122,8 +109,8 @@ function App() {
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
-            <StoryText chatGPTresponse={chatGPTresponse} />
-            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} />
+            <StoryText text={text} />
+            <SituationHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>

@@ -1,9 +1,9 @@
 import CombatHandler from "./combat_system/CombatHandler";
 import Walking from "./Walking";
 import { useEffect } from "react";
-import { cave, sound } from "../constants";
+import {cave, entrance, sound} from "../constants";
 
-const SituationHandler = ({ situation, setSituation, characterStatuses, setCharacterStatuses, experience, setExperience, currentLevel, healPerRoom, muted, setChangeSound }) => {
+const SituationHandler = ({ situation, setSituation, characterStatuses, setCharacterStatuses, experience, setExperience, currentLevel, healPerRoom, muted, setChangeSound, characterClass }) => {
 
 
     useEffect(() => {
@@ -11,11 +11,12 @@ const SituationHandler = ({ situation, setSituation, characterStatuses, setChara
         cave.play()
         cave.mute(muted)
         setChangeSound(true)
+        entrance.play()
     }, [])
 
     if (situation === 'walking') return <Walking setSituation={setSituation} setCharacterStatuses={setCharacterStatuses} characterStatuses={characterStatuses} healPerRoom={healPerRoom} />
 
-    if (situation === 'combat') return <CombatHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} />
+    if (situation === 'combat') return <CombatHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} characterClass={characterClass} />
 }
 
 export default SituationHandler;

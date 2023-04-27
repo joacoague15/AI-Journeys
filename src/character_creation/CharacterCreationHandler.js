@@ -7,6 +7,7 @@ import wizard_presentation from "../assets/videos/wizard_presentation.mp4";
 import paladin_presentation from "../assets/videos/paladin_presentation.mp4";
 import AudioController from "../components/AudioController";
 import { IDBTransactionAddAttributes, IDBTransactionAddCharacter } from "../IndexedDB/CRUD";
+import {classPresentation} from "../constants";
 
 const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
     const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
@@ -48,6 +49,11 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
         }
     }
 
+    const onHandleContinue = () => {
+        indexedDBInput();
+        classPresentation.stop();
+    }
+
     return (
         <div style={{ display: "flex", width: "30%", margin: "auto", flexDirection: "column" }}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
@@ -72,7 +78,7 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
             </div>
             <FirstAttributesAssignment userClass={userClass} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
             <div style={{ display: "flex", justifyContent: "center", marginTop: "16px" }}>
-                <button disabled={isContinueBtnDisabled} style={{ color: isContinueBtnDisabled ? "grey" : 'white', fontSize: 32, border: "1px solid white", padding: "8px 16px" }} onClick={() => indexedDBInput()}>Continue</button>
+                <button disabled={isContinueBtnDisabled} style={{ color: isContinueBtnDisabled ? "grey" : 'white', fontSize: 32, border: "1px solid white", padding: "8px 16px" }} onClick={onHandleContinue}>Continue</button>
             </div>
         </div>
     )
