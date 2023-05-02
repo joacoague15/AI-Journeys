@@ -4,6 +4,8 @@ import troll from "./assets/videos/troll.mp4";
 import ogre from "./assets/videos/ogre.mp4";
 import cultist from "./assets/videos/cultist.mp4";
 
+import hallway1 from "./assets/images/hallway1.jpg";
+
 
 export const Enemies = {
     lowLevel: [
@@ -337,14 +339,12 @@ export const LootInventory = {
     }]
 }
 
-export const textExamples = {
-    walkingText: [
-        "Navigating through a dense forest, with thick underbrush and towering trees blocking the sunlight. The party must watch out for hidden pitfalls, quicksand, and other natural hazards.",
-        "Walking through a dark, winding cave system with only a few torches to light the way. The sound of dripping water echoes off the stone walls and the air is damp and musty.",
-        "Traversing a rocky mountain pass with steep cliffs and narrow paths. The wind is howling and the air is thin, making it difficult to breathe. One misstep could send the party plummeting to their doom.",
-        "Crossing a rickety rope bridge suspended over a deep, dark chasm. The bridge sways and creaks underfoot, and there are signs that it has been damaged by previous adventurers or creatures.",
-        "Walking along a narrow, winding path carved into the side of a sheer cliff face. The path is slick with rain and the party must be careful not to slip or be knocked off by gusts of wind.",
-        "Wading through a murky swamp with thick, sucking mud and dangerous creatures lurking just beneath the surface. The party must watch out for quicksand, leeches, and other hazards.",
+export const Scenarios = {
+    walking: [
+        {
+            text: "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead",
+            img: hallway1,
+        }
     ],
     fightText: [
         "A group of goblins ambushes the party as they travel through a narrow mountain pass. The goblins attack from above with rocks and arrows while others charge in with crude weapons.",
