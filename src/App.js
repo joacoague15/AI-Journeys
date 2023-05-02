@@ -22,9 +22,9 @@ function App() {
         intelligence: 1,
     });
     const [characterStatuses, setCharacterStatuses] = useState({
-        health: 10,
-        maxHealth: 10,
-        attack: 1,
+        health: 0,
+        maxHealth: 0,
+        attack: 0,
         mana: 0,
         maxMana: 0,
     });
@@ -68,6 +68,10 @@ function App() {
 
         setMuted(!muted)
     }
+
+    useEffect(() => {
+        console.log("characterStatuses", characterStatuses)
+    }, []);
 
     useEffect(() => {
         new Promise(resolverIDB)

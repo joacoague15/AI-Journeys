@@ -19,15 +19,15 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
         <div style={{ display: "flex", width: "50vw", justifyItems: "center", height: "90vh", margin: "auto" }}>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
                 <button onClick={() => upgradeStatuses(health, 30)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+30 Health</p>
+                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+Health</p>
             </div>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
                 <button onClick={() => upgradeStatuses(mana, 30)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+30 Mana</p>
+                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+Mana</p>
             </div>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={() => upgradeStatuses(attack, 1)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+1 Attack</p>
+                <button onClick={() => upgradeStatuses(attack, 15)} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
+                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+Attack</p>
             </div>
         </div>
     )

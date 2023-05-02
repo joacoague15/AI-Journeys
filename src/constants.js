@@ -96,6 +96,7 @@ export const attackSpell = new Howl({
     volume: 0.5,
 })
 
-export const storyTexts = ["Our hero stands before the ominous entrance of the dungeon. Shadows dance and flicker at the edges of their vision, teasing the sinister darkness that lies just beyond the threshold."]
+export const storyTexts = [
+    "Our hero stands before the ominous entrance of the dungeon. Shadows dance and flicker at the edges of their vision, teasing the sinister darkness that lies just beyond the threshold."]
 
 export const SoundFX = [hover, attackSpell, attackSword, footstep, paladinPresentingHimself, warriorPresentingHerself, wizardPresentingHimself]

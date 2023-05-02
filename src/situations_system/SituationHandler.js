@@ -14,7 +14,7 @@ const SituationHandler = ({ situation, setSituation, characterStatuses, setChara
         entrance.play()
     }, [])
 
-    if (situation === 'walking') return <Walking setSituation={setSituation} setCharacterStatuses={setCharacterStatuses} characterStatuses={characterStatuses} healPerRoom={healPerRoom} />
+    if (situation === 'walking') return <Walking setSituation={setSituation} healPerRoom={healPerRoom} />
 
     if (situation === 'combat') return <CombatHandler characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} characterClass={characterClass} />
 }
