@@ -1,15 +1,15 @@
 import ClassSelection from "./ClassSelection";
 import NameSelection from "./NameSelection";
-import FirstAttributesAssignment from "./FirstAttributesAssignment";
+import FirstStatusesAssignment from "./FirstStatusesAssignment";
 import { useEffect, useState } from "react";
 import warrior_presentation from "../assets/videos/warrior_presentation.mp4";
 import wizard_presentation from "../assets/videos/wizard_presentation.mp4";
 import paladin_presentation from "../assets/videos/paladin_presentation.mp4";
 import AudioController from "../components/AudioController";
-import { IDBTransactionAddAttributes, IDBTransactionAddCharacter } from "../IndexedDB/CRUD";
+import { IDBTransactionAddStatuses, IDBTransactionAddCharacter } from "../IndexedDB/CRUD";
 import {classPresentation} from "../constants";
 
-const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserName, characterAttributes, setCharacterAttributes, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
+const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserName, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
     const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
 
     useEffect(() => {
@@ -21,17 +21,15 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
 
     const indexedDBInput = () => {
         IDBTransactionAddCharacter({ Name: userName, Class: userClass })
-        addAttributesIndexedDB()
+        addStatusesIndexedDB()
         setCharacterCreated(true)
     }
 
-    const addAttributesIndexedDB = () => {
-        IDBTransactionAddAttributes({
-            strength: { ...characterAttributes }.strength * 10,
-            constitution: { ...characterAttributes }.constitution * 10,
-            maxConstitution: { ...characterAttributes }.constitution * 10,
-            intelligence: { ...characterAttributes }.intelligence * 10,
-            maxIntelligence: { ...characterAttributes }.intelligence * 10,
+    const addStatusesIndexedDB = () => {
+        IDBTransactionAddStatuses({
+            health: { ...characterStatuses }.health,
+            attack: { ...characterStatuses }.attack,
+            mana: { ...characterStatuses }.mana,
         })
     }
 
@@ -76,7 +74,7 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
                     </video>
                 </div>
             </div>
-            <FirstAttributesAssignment userClass={userClass} characterAttributes={characterAttributes} setCharacterAttributes={setCharacterAttributes} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
+            <FirstStatusesAssignment userClass={userClass} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
             <div style={{ display: "flex", justifyContent: "center", marginTop: "16px" }}>
                 <button disabled={isContinueBtnDisabled} style={{ color: isContinueBtnDisabled ? "grey" : 'white', fontSize: 32, border: "1px solid white", padding: "8px 16px" }} onClick={onHandleContinue}>Continue</button>
             </div>

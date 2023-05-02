@@ -8,11 +8,11 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses }) => {
     useEffect(() => {
         IDBTransactionGetAll('attributes').then((data) => {
             setCharacterStatuses({
-                health: data[0]?.constitution,
-                maxHealth: data[0]?.maxConstitution,
-                attack: data[0]?.strength,
-                mana: data[0]?.intelligence,
-                maxMana: data[0]?.maxIntelligence,
+                health: data[0].constitution,
+                maxHealth: data[0].maxHealth,
+                attack: data[0].strength,
+                mana: data[0].intelligence,
+                maxMana: data[0].maxMana,
             });
         })
     }, [setCharacterStatuses]);
