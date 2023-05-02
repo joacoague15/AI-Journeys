@@ -19,12 +19,12 @@ export const IDBTransactionAddCharacter = async (character) => {
     }))
 }
 
-export const IDBTransactionAddStatuses = (attributes) =>
+export const IDBTransactionAddStatuses = (statuses) =>
     new Promise(resolverIDB).then(db => new Promise((resolve, reject) => {
         const transaction = db.transaction(['statuses'], 'readwrite')
         const store = transaction.objectStore('statuses')
 
-        store.add({ ...attributes, Id: 1 })
+        store.add({ ...statuses, Id: 1 })
 
         transaction.oncomplete = event => {
             resolve(event)

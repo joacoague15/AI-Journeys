@@ -26,6 +26,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
     function attack(attackType) {
         // Determine hit chance based on attack type
         let hitChance;
+
         if (attackType === "light") {
             hitChance = LIGHT_ATTACK_CHANCE;
         } else if (attackType === "medium") {

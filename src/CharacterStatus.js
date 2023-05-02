@@ -6,12 +6,12 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses }) => {
     const [percentageHealth, setPercentageHealth] = useState()
 
     useEffect(() => {
-        IDBTransactionGetAll('attributes').then((data) => {
+        IDBTransactionGetAll('statuses').then((data) => {
             setCharacterStatuses({
-                health: data[0].constitution,
+                health: data[0].health,
                 maxHealth: data[0].maxHealth,
-                attack: data[0].strength,
-                mana: data[0].intelligence,
+                attack: data[0].attack,
+                mana: data[0].mana,
                 maxMana: data[0].maxMana,
             });
         })

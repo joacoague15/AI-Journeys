@@ -11,7 +11,7 @@ const Initial = ({ setCharacterCreated, setNewGame, changeRangeVolume, mutedFX, 
     const [modal, setModal] = useState(false)
 
     const indexedDB = async () => {
-        setData(await IDBTransactionGetAll('attributes'))
+        setData(await IDBTransactionGetAll('statuses'))
     }
 
     const continueGame = () => {
