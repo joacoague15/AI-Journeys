@@ -93,13 +93,14 @@ function App() {
     if (!characterCreated)
         return <CharacterCreationHandler userClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
 
-    if (points > 0) {
-        return (
-            <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", width: "100vw", height: "100vh", zIndex: 3 }}>
-                <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
-            </div>
-        )
-    }
+    // Comentado hasta que encuentre una forma de hacerlo funcionar
+    // if (points > 0) {
+    //     return (
+    //         <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", width: "100vw", height: "100vh", zIndex: 3 }}>
+    //             <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
+    //         </div>
+    //     )
+    // }
 
 
     if (characterStatuses.health <= 0) {
