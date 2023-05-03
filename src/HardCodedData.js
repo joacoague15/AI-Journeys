@@ -5,6 +5,11 @@ import ogre from "./assets/videos/ogre.mp4";
 import cultist from "./assets/videos/cultist.mp4";
 
 import hallway1 from "./assets/images/hallway1.jpg";
+import hallway2 from "./assets/images/hallway2.jpg";
+import hallway3 from "./assets/images/hallway3.jpg";
+import hallway4 from "./assets/images/hallway4.jpg";
+import hallway5 from "./assets/images/hallway5.jpg";
+import hallway6 from "./assets/images/hallway6.jpg";
 
 
 export const Enemies = {
@@ -344,7 +349,27 @@ export const Scenarios = {
         {
             text: "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead",
             img: hallway1,
-        }
+        },
+        {
+            text: "In the dungeon's eerie hallway, the hero crept cautiously, senses heightened, as unseen malevolence whispered chilling threats from the encroaching shadows",
+            img: hallway2,
+        },
+        {
+            text: "The hero ventured into the dungeon's sinister hallway, shrouded in darkness and dread, every step echoing with the whispers of lurking, maleficent forces",
+            img: hallway3,
+        },
+        {
+            text: "The hero cautiously traversed the dungeon's oppressive hallway, each step shrouded in a heavy darkness that concealed the sinister whispers of unseen entities, poised to challenge the hero's every move",
+            img: hallway4,
+        },
+        {
+            text: "The hero inched through the dungeon's shadowy corridor, alert to the chilling presence of hidden malevolence lurking nearby",
+            img: hallway5,
+        },
+        {
+            text: "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within",
+            img: hallway6,
+        },
     ],
     fightText: [
         "A group of goblins ambushes the party as they travel through a narrow mountain pass. The goblins attack from above with rocks and arrows while others charge in with crude weapons.",
