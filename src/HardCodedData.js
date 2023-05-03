@@ -11,6 +11,14 @@ import hallway4 from "./assets/images/hallway4.jpg";
 import hallway5 from "./assets/images/hallway5.jpg";
 import hallway6 from "./assets/images/hallway6.jpg";
 
+import hallwaySound1 from "./assets/sounds/hallway1.mp3";
+import hallwaySound2 from "./assets/sounds/hallway2.mp3";
+import hallwaySound3 from "./assets/sounds/hallway3.mp3";
+import hallwaySound4 from "./assets/sounds/hallway4.mp3";
+import hallwaySound5 from "./assets/sounds/hallway5.mp3";
+import hallwaySound6 from "./assets/sounds/hallway6.mp3";
+
+
 
 export const Enemies = {
     lowLevel: [
@@ -349,26 +357,32 @@ export const Scenarios = {
         {
             text: "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead",
             img: hallway1,
+            speak: hallwaySound1,
         },
         {
             text: "In the dungeon's eerie hallway, the hero crept cautiously, senses heightened, as unseen malevolence whispered chilling threats from the encroaching shadows",
             img: hallway2,
+            speak: hallwaySound2,
         },
         {
             text: "The hero ventured into the dungeon's sinister hallway, shrouded in darkness and dread, every step echoing with the whispers of lurking, maleficent forces",
             img: hallway3,
+            speak: hallwaySound3,
         },
         {
             text: "The hero cautiously traversed the dungeon's oppressive hallway, each step shrouded in a heavy darkness that concealed the sinister whispers of unseen entities, poised to challenge the hero's every move",
             img: hallway4,
+            speak: hallwaySound4,
         },
         {
             text: "The hero inched through the dungeon's shadowy corridor, alert to the chilling presence of hidden malevolence lurking nearby",
             img: hallway5,
+            speak: hallwaySound5,
         },
         {
             text: "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within",
             img: hallway6,
+            speak: hallwaySound6,
         },
     ],
     fightText: [

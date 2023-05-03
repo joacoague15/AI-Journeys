@@ -8,7 +8,7 @@ import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import StoryText from "./components/StoryText";
-import {SoundFX, cave, sound, storyTexts, presentation} from "./constants";
+import {SoundFX, cave, sound, storyTexts} from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 
@@ -69,7 +69,6 @@ function App() {
     }, [])
 
     useEffect(() => {
-        presentation.play()
         sound.play()
     }, [])
 

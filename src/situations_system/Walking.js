@@ -1,6 +1,7 @@
 import { footstep } from "../constants";
 import {useEffect, useState} from "react";
 import {Scenarios} from "../HardCodedData";
+import {Howl} from "howler";
 
 const Walking = ({ setSituation, healPerRoom, setText }) => {
     const [img, setImg] = useState();
@@ -15,6 +16,16 @@ const Walking = ({ setSituation, healPerRoom, setText }) => {
         const randomScenario = Scenarios.walking[Math.floor(Math.random() * Scenarios.walking.length)];
         setText(randomScenario.text);
         setImg(randomScenario.img);
+
+        const sound = new Howl({
+            src: [randomScenario.speak],
+            html5: true,
+            loop: false,
+            volume: 1,
+        })
+
+        sound.play()
+
     }, []);
 
     return (
