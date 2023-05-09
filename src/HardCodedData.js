@@ -11,6 +11,16 @@ import hallway4 from "./assets/images/hallway4.jpg";
 import hallway5 from "./assets/images/hallway5.jpg";
 import hallway6 from "./assets/images/hallway6.jpg";
 
+import npc1Sound from "./assets/sounds/npc1.mp3";
+import npc2Sound from "./assets/sounds/npc2.mp3";
+import npc3Sound from "./assets/sounds/npc3.mp3";
+import npc4Sound from "./assets/sounds/npc4.mp3";
+
+import np1Image from "./assets/images/npc1.jpg";
+import npc2Image from "./assets/images/npc2.jpg";
+import npc3Image from "./assets/images/npc3.jpg";
+import npc4Image from "./assets/images/npc4.jpg";
+
 import hallwaySound1 from "./assets/sounds/hallway1.mp3";
 import hallwaySound2 from "./assets/sounds/hallway2.mp3";
 import hallwaySound3 from "./assets/sounds/hallway3.mp3";
@@ -383,6 +393,26 @@ export const Scenarios = {
             text: "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within",
             img: hallway6,
             speak: hallwaySound6,
+        },
+        {
+            text: "Heed my words, for beyond this point lie treacherous trials that shall test the very limits of your courage and cunning!",
+            img: np1Image,
+            speak: npc1Sound,
+        },
+        {
+            text: "The path ahead is hard. Yet, in your eyes, I discern a spark of greatness that sets you apart.",
+            img: npc2Image,
+            speak: npc2Sound,
+        },
+        {
+            text: "If you wish to escape, you must embrace the necessity of combat, as I did. Stay vigilant. And may fortune guide your blade.",
+            img: npc3Image,
+            speak: npc3Sound,
+        },
+        {
+            text: "I can tell you're nervous. But don't worry. It makes things more interesting. So go on, keep moving forward and face those challenges head-on. You might just surprise yourself!",
+            img: npc4Image,
+            speak: npc4Sound,
         },
     ],
     fightText: [
