@@ -15,11 +15,13 @@ import npc1Sound from "./assets/sounds/npc1.mp3";
 import npc2Sound from "./assets/sounds/npc2.mp3";
 import npc3Sound from "./assets/sounds/npc3.mp3";
 import npc4Sound from "./assets/sounds/npc4.mp3";
+import npc5Sound from "./assets/sounds/npc5.mp3";
 
 import np1Image from "./assets/images/npc1.jpg";
 import npc2Image from "./assets/images/npc2.jpg";
 import npc3Image from "./assets/images/npc3.jpg";
 import npc4Image from "./assets/images/npc4.jpg";
+import npc5Image from "./assets/images/npc5.jpg";
 
 import hallwaySound1 from "./assets/sounds/hallway1.mp3";
 import hallwaySound2 from "./assets/sounds/hallway2.mp3";
@@ -413,6 +415,11 @@ export const Scenarios = {
             text: "I can tell you're nervous. But don't worry. It makes things more interesting. So go on, keep moving forward and face those challenges head-on. You might just surprise yourself!",
             img: npc4Image,
             speak: npc4Sound,
+        },
+        {
+            text: "I can't continue. This is too much for me! I've decided to stop trying. But maybe you still have the strength to carry on.",
+            img: npc5Image,
+            speak: npc5Sound,
         },
     ],
     fightText: [
