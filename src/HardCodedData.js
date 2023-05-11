@@ -16,12 +16,14 @@ import npc2Sound from "./assets/sounds/npc2.mp3";
 import npc3Sound from "./assets/sounds/npc3.mp3";
 import npc4Sound from "./assets/sounds/npc4.mp3";
 import npc5Sound from "./assets/sounds/npc5.mp3";
+import npc6Sound from "./assets/sounds/npc6.mp3";
 
 import np1Image from "./assets/images/npc1.jpg";
 import npc2Image from "./assets/images/npc2.jpg";
 import npc3Image from "./assets/images/npc3.jpg";
 import npc4Image from "./assets/images/npc4.jpg";
 import npc5Image from "./assets/images/npc5.jpg";
+import npc6Image from "./assets/images/npc6.jpg";
 
 import hallwaySound1 from "./assets/sounds/hallway1.mp3";
 import hallwaySound2 from "./assets/sounds/hallway2.mp3";
@@ -420,6 +422,11 @@ export const Scenarios = {
             text: "I can't continue. This is too much for me! I've decided to stop trying. But maybe you still have the strength to carry on.",
             img: npc5Image,
             speak: npc5Sound,
+        },
+        {
+            text: "Well, well, well! Look who's stumbled into my dungeon. The so-called hero! You're out of your league here. Have you not seen my biceps? Have you not witnessed my brilliant mind at work? Just give up already!",
+            img: npc6Image,
+            speak: npc6Sound,
         },
     ],
     fightText: [

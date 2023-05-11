@@ -40,18 +40,18 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
     }
 
     return (
-        <div style={{ display: "flex", width: "50%", justifyItems: "center", height: "100%", margin: "auto" }}>
+        <div className="animate__animated animate__fadeInRight" style={{ display: "flex", position: "absolute", width: "20vw", height: "60vh", flexDirection: "column", right: 10, top: "20%" }}>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={upgradeHealth} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+ Health</p>
+                <button onClick={upgradeHealth} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>
+                <p style={{ color: "white", fontSize: 26, textAlign: "center" }}>+ Health</p>
             </div>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={upgradeMana} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+ Mana</p>
+                <button onClick={upgradeMana} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
+                <p style={{ color: "white", fontSize: 26, textAlign: "center" }}>+ Mana</p>
             </div>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                <button onClick={upgradeAttack} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
-                <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+ Attack</p>
+                <button onClick={upgradeAttack} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
+                <p style={{ color: "white", fontSize: 26, textAlign: "center" }}>+ Attack</p>
             </div>
         </div>
     )

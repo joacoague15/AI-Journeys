@@ -108,9 +108,7 @@ function App() {
                 <p style={{ color: "white", fontSize: 28, marginTop: "20ppx" }}>Stage {stages}</p>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
-            {points > 0 && <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", top: 0, width: "100%", height: "100%", zIndex: 3 }}>
-                <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
-            </div>}
+            {points > 0 && <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
         </div>
     )
 }

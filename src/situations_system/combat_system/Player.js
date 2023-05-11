@@ -1,5 +1,5 @@
 import { attackSpell, attackSword, missing, playerAttackDuration } from "../../constants";
-import { useEffect } from "react";
+import { handleAttackResult } from "../../Handlers";
 
 const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass }) => {
     const SPEELL_COST = 30;
@@ -7,10 +7,6 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
     const LIGHT_ATTACK_CHANCE = 0.8;
     const MEDIUM_ATTACK_CHANCE = 0.6;
     const HEAVY_ATTACK_CHANCE = 0.5;
-
-    useEffect(() => {
-        console.log("STATUS: ", characterStatuses)
-    }, [characterStatuses])
 
     const useMagic = () => {
         attackSpell.play()
@@ -63,18 +59,18 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         if (attackType === "light") {
             setIsEnemyHit(true);
             attackSword.play()
-            setEnemyCurrentHealth(enemyCurrentHealth - (characterStatuses.attack / 3));
-            console.log(`Dealt ${characterStatuses.attack / 3} damage!`);
+            const attackResult = handleAttackResult(characterStatuses.attack / 3);
+            setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
         } else if (attackType === "medium") {
             setIsEnemyHit(true);
-            attackSword.play()
-            setEnemyCurrentHealth(enemyCurrentHealth - (characterStatuses.attack / 2));
-            console.log(`Dealt ${characterStatuses.attack / 2} damage!`);
+            attackSword.play();
+            const attackResult = handleAttackResult(characterStatuses.attack / 2);
+            setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
         } else if (attackType === "heavy") {
             setIsEnemyHit(true);
-            attackSword.play()
-            setEnemyCurrentHealth(enemyCurrentHealth - characterStatuses.attack);
-            console.log(`Dealt ${characterStatuses.attack} damage!`);
+            attackSword.play();
+            const attackResult = handleAttackResult(characterStatuses.attack);
+            setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
         }
 
         setTimeout(() => {
