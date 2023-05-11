@@ -26,6 +26,9 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
         return '';
     }
 
+    const minAttack = Math.floor(enemyAttack / 1.5);
+    const maxAttack = Math.floor(enemyAttack * 1.5);
+
     return (
         <div style={{ position: "relative", width: "100%", textAlign: "center" }}>
             <div style={{ display: "flex", flexDirection: "row" }}>
@@ -38,7 +41,7 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
                     {Math.ceil(enemyCurrentHealth)}
                 </h2>
                 <h2 style={{ color: "white", fontSize: 32, textAlign: "center", marginBottom: 10, marginLeft: 20, letterSpacing: 10 }}>
-                    <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>{enemyAttack}
+                    <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>{minAttack}-{maxAttack}
                 </h2>
             </div>
             <div style={{ display: "inline-block", position: "relative" }}>
