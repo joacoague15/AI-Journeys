@@ -40,7 +40,7 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
     }
 
     return (
-        <div style={{ display: "flex", width: "50vw", justifyItems: "center", height: "90vh", margin: "auto" }}>
+        <div style={{ display: "flex", width: "50%", justifyItems: "center", height: "100%", margin: "auto" }}>
             <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
                 <button onClick={upgradeHealth} className="buttonToUpgrade" style={{ margin: 20, border: "none" }}><img style={{ width: 300, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>
                 <p style={{ color: "white", fontSize: 32, textAlign: "center" }}>+ Health</p>

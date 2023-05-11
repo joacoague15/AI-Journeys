@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Player from "./Player";
 import { Enemies } from "../../HardCodedData";
 
-const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass }) => {
+const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setStages, stages }) => {
 
     const [enemyName, setEnemyName] = useState("");
     const [enemyTotalHealth, setEnemyTotalHealth] = useState(null);
@@ -22,6 +22,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
         if (enemyCurrentHealth <= 0 && enemyTotalHealth !== null) {
             setEnemyTotalHealth(null);
             setExperience(experience + 50);
+            setStages(stages + 1)
             setSituation('walking');
         }
     }, [enemyCurrentHealth])

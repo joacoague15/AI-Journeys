@@ -8,7 +8,7 @@ import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import StoryText from "./components/StoryText";
-import {SoundFX, cave, sound, storyTexts} from "./constants";
+import { SoundFX, cave, sound, storyTexts } from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 
@@ -32,6 +32,7 @@ function App() {
     const [muted, setMuted] = useState(false)
     const [FXmuted, setFXMuted] = useState(false)
     const [initialModal, setInitialModal] = useState(true)
+    const [stages, setStages] = useState(1)
     const [changeSound, setChangeSound] = useState(false)
     const changeRangeVolume = (e) => {
         sound.volume(e.target.value / 100)
@@ -79,6 +80,7 @@ function App() {
         }, 1)
     }
 
+
     if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} setInitialModal={setInitialModal} initialModal={initialModal} />
 
     if (!characterCreated)
@@ -97,16 +99,17 @@ function App() {
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", zIndex: 12, position: 'relative' }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
             <StoryText text={text} />
-            <SituationHandler setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} />
-            <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
+            <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} />
+            <div style={{ position: "absolute", top: 10, right: 140, width: "20%", zIndex: 10 }}>
+                <p style={{ color: "white", fontSize: 28, marginTop: "20ppx" }}>Stage {stages}</p>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
-            {points > 0 && <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", width: "90vw", height: "90vh", zIndex: 3 }}>
-                <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
+            {points > 0 && <div className="animate__animated animate__fadeIn animate__faster" style={{ position: "absolute", top: 0, width: "100%", height: "100%", zIndex: 3 }}>
+                <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>}
         </div>
     )
