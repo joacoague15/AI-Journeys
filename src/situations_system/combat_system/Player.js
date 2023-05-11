@@ -1,5 +1,5 @@
-import { attackSpell, attackSword, playerAttackDuration } from "../../constants";
-import {useEffect} from "react";
+import { attackSpell, attackSword, missing, playerAttackDuration } from "../../constants";
+import { useEffect } from "react";
 
 const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass }) => {
     const SPEELL_COST = 30;
@@ -23,6 +23,12 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         }, playerAttackDuration);
     }
 
+    function getRandomNumber() {
+        const random = Math.round(Math.random() * 4);
+        missing[random].play()
+        return
+    }
+
     function attack(attackType) {
         // Determine hit chance based on attack type
         let hitChance;
@@ -39,6 +45,8 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         const isHit = randomNum < hitChance;
 
         if (!isHit) {
+            getRandomNumber()
+
             // miss sound
             setEnemyDodge(true);
 
@@ -102,10 +110,10 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
                     <i style={{ color: "white" }} className="fa-solid fa-bolt-lightning"></i>
                 </button>
                 <button disabled={turn === 'enemy' || characterStatuses.mana < 6 || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={useMagic} type="button" className="btn btn-light">
-                    <i style={{ color: "white" }} className="fa-solid fa-bolt-lightning"></i>
+                    <i style={{ color: "white" }} className="fa-solid fa-fire"></i>
                 </button>
                 <button disabled={turn === 'enemy' || characterStatuses.mana < 3 || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={useMagic} type="button" className="btn btn-light">
-                    <i style={{ color: "white" }} className="fa-solid fa-bolt-lightning"></i>
+                    <i style={{ color: "white" }} className="fa-sharp fa-solid fa-book-medical"></i>
                 </button>
             </div>
         )
