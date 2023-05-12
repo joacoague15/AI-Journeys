@@ -1,4 +1,4 @@
-import { attackSpell, attackSword, playerAttackDuration } from "../../constants";
+import {attackMissed, attackSpell, attackSword, playerAttackDuration} from "../../constants";
 import {handleAttackResult} from "../../Handlers";
 
 const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass }) => {
@@ -19,7 +19,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         }, playerAttackDuration);
     }
 
-    function attack(attackType) {
+    const attack = (attackType) => {
         // Determine hit chance based on attack type
         let hitChance;
 
@@ -35,7 +35,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         const isHit = randomNum < hitChance;
 
         if (!isHit) {
-            // miss sound
+            attackMissed.play()
             setEnemyDodge(true);
 
             setTimeout(() => {
