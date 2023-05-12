@@ -4,3 +4,8 @@ export const handleAttackResult = (attack) => {
 
     return Math.floor(Math.random() * (maxAttack - minAttack)  + minAttack);
 }
+
+export const handleBlockResult = () => {
+    const randomNumber = Math.random();
+    return randomNumber <= 0.2;
+}

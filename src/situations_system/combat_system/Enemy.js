@@ -1,13 +1,20 @@
 import { useEffect } from "react";
-import {enemyAttackDuration} from "../../constants";
+import {attackBlocked, enemyAttackDuration} from "../../constants";
+import {handleBlockResult} from "../../Handlers";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, enemyName, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
             setIsEnemyAttacking(true);
             setTimeout(() => {
-                setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - enemyAttack });
+                const playerBlocks = handleBlockResult();
+
+                if (playerBlocks)
+                    attackBlocked.play();
+                else
+                    setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - enemyAttack });
+
                 setIsEnemyAttacking(false);
                 setTurn('player');
             }, enemyAttackDuration);

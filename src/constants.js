@@ -6,6 +6,7 @@ import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
 import spell from "./assets/sounds/spell.wav"
+import block from "./assets/sounds/block.wav"
 import warrior_presenting_herself from "./assets/sounds/warriorPresentingHerself.mp3"
 import wizard_presenting_himself from "./assets/sounds/wizardPresentingHimself.mp3"
 import paladin_presenting_himself from "./assets/sounds/paladinPresentingHimself.mp3"
@@ -94,6 +95,12 @@ export const attackSpell = new Howl({
     src: [spell],
     html5: true,
     volume: 0.5,
+})
+
+export const attackBlocked = new Howl({
+    src: [block],
+    html5: true,
+    volume: 1,
 })
 
 export const storyTexts = [
