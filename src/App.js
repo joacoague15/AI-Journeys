@@ -11,9 +11,11 @@ import StoryText from "./components/StoryText";
 import {SoundFX, cave, sound, storyTexts} from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
+import LastAction from "./components/LastAction";
 
 function App() {
     const [text, setText] = useState(storyTexts[0]);
+    const [lastAction, setLastAction] = useState('');
     const [characterName, setCharacterName] = useState(''); // This is where we will store the character name
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
     const [characterStatuses, setCharacterStatuses] = useState({
@@ -100,8 +102,9 @@ function App() {
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
+            <LastAction lastAction={lastAction} />
             <StoryText text={text} />
-            <SituationHandler setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} />
+            <SituationHandler setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>

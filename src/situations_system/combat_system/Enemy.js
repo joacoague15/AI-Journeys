@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import {attackBlocked, enemyAttackDuration} from "../../constants";
 import {handleBlockResult} from "../../Handlers";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking}) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction }) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
@@ -10,10 +10,14 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
             setTimeout(() => {
                 const playerBlocks = handleBlockResult();
 
-                if (playerBlocks)
+                if (playerBlocks) {
+                    setLastAction('Enemy attack blocked!');
                     attackBlocked.play();
-                else
+                }
+                else {
+                    setLastAction(`Enemy dealt ${enemyAttack} damage!`);
                     setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - enemyAttack });
+                }
 
                 setIsEnemyAttacking(false);
                 setTurn('player');

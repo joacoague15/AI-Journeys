@@ -1,7 +1,7 @@
 import {attackMissed, attackSpell, attackSword, playerAttackDuration} from "../../constants";
 import {handleAttackResult} from "../../Handlers";
 
-const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass }) => {
+const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass, setLastAction }) => {
     const SPEELL_COST = 30;
 
     const LIGHT_ATTACK_CHANCE = 0.8;
@@ -37,6 +37,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         if (!isHit) {
             attackMissed.play()
             setEnemyDodge(true);
+            setLastAction('You missed!');
 
             setTimeout(() => {
                 setIsEnemyHit(false);
@@ -50,19 +51,22 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         // Otherwise, calculate the damage based on the attack type
         if (attackType === "light") {
             setIsEnemyHit(true);
-            attackSword.play()
+            attackSword.play();
             const attackResult = handleAttackResult(characterStatuses.attack / 3);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
+            setLastAction(`You hit for ${attackResult} damage!`);
         } else if (attackType === "medium") {
             setIsEnemyHit(true);
             attackSword.play();
             const attackResult = handleAttackResult(characterStatuses.attack / 2);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
+            setLastAction(`You hit for ${attackResult} damage!`);
         } else if (attackType === "heavy") {
             setIsEnemyHit(true);
             attackSword.play();
             const attackResult = handleAttackResult(characterStatuses.attack);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
+            setLastAction(`You hit for ${attackResult} damage!`);
         }
 
         setTimeout(() => {
