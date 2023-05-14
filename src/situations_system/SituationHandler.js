@@ -12,9 +12,9 @@ const SituationHandler = ({ situation, setSituation, characterStatuses, setChara
         setChangeSound(true)
     }, [])
 
-    if (situation === 'walking') return <Walking stages={stages} setStages={setStages} setSituation={setSituation} healPerRoom={healPerRoom} setText={setText} />
+    if (situation === 'walking') return <Walking stages={stages} setStages={setStages} setSituation={setSituation} setText={setText} />
 
-    if (situation === 'combat') return <CombatHandler stages={stages} setStages={setStages} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} characterClass={characterClass} setLastAction={setLastAction} />
+    if (situation === 'combat') return <CombatHandler stages={stages} setStages={setStages} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} characterClass={characterClass} setLastAction={setLastAction} healPerRoom={healPerRoom} />
 }
 
 export default SituationHandler;

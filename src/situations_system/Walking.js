@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import { Scenarios } from "../HardCodedData";
 import { Howl } from "howler";
 
-const Walking = ({ setSituation, healPerRoom, setText, setStages, stages }) => {
+const Walking = ({ setSituation, setText, setStages, stages }) => {
     const [img, setImg] = useState();
 
     const situationHandler = (place) => {
         setStages(stages + 1)
-        healPerRoom()
         footstep.play()
         setSituation(place)
     }

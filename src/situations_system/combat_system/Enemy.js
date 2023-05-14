@@ -8,10 +8,10 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
             setIsEnemyAttacking(true);
             setTimeout(() => {
-                const playerBlocks = handleBlockResult();
+                const playerBlocks = handleBlockResult(characterStatuses.dodge);
 
                 if (playerBlocks) {
-                    setLastAction('Enemy attack blocked!');
+                    setLastAction('You dodge the attack!');
                     attackBlocked.play();
                 }
                 else {

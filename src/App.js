@@ -95,7 +95,7 @@ function App() {
     }
 
     const healPerRoom = () => {
-        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + 20 })
+        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + 10 })
         setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 10 })
     }
 

@@ -9,7 +9,7 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
             setCharacterStatuses(
                 {
                     ...characterStatuses,
-                    health: characterStatuses.health + 20,
+                    health: characterStatuses.health + 40,
                 }
             )
         }
