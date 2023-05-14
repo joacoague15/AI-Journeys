@@ -8,7 +8,7 @@ import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import StoryText from "./components/StoryText";
-import {SoundFX, cave, sound, storyTexts} from "./constants";
+import { SoundFX, cave, sound, storyTexts } from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
@@ -34,6 +34,7 @@ function App() {
     const [muted, setMuted] = useState(false)
     const [FXmuted, setFXMuted] = useState(false)
     const [initialModal, setInitialModal] = useState(true)
+    const [stages, setStages] = useState(1)
     const [changeSound, setChangeSound] = useState(false)
     const changeRangeVolume = (e) => {
         sound.volume(e.target.value / 100)
@@ -104,7 +105,7 @@ function App() {
             </div>
             <LastAction lastAction={lastAction} />
             <StoryText text={text} />
-            <SituationHandler setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
+            <SituationHandler  stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>

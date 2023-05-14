@@ -4,7 +4,7 @@ import Player from "./Player";
 import { Enemies } from "../../HardCodedData";
 import {handleAttackResult} from "../../Handlers";
 
-const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setLastAction }) => {
+const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setLastAction, setStages, stages }) => {
 
     const [enemyName, setEnemyName] = useState("");
     const [enemyTotalHealth, setEnemyTotalHealth] = useState(null);
@@ -23,6 +23,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
         if (enemyCurrentHealth <= 0 && enemyTotalHealth !== null) {
             setEnemyTotalHealth(null);
             setExperience(experience + 50);
+            setStages(stages + 1);
             setLastAction('You defeated the enemy!');
             setSituation('walking');
         }
