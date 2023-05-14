@@ -7,7 +7,7 @@ import wizard_presentation from "../assets/videos/wizard_presentation.mp4";
 import paladin_presentation from "../assets/videos/paladin_presentation.mp4";
 import AudioController from "../components/AudioController";
 import { IDBTransactionAddStatuses, IDBTransactionAddCharacter } from "../IndexedDB/CRUD";
-import {classPresentation} from "../constants";
+import { classPresentation } from "../constants";
 
 const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserName, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
     const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
@@ -28,10 +28,11 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
     const addStatusesIndexedDB = () => {
         IDBTransactionAddStatuses({
             health: { ...characterStatuses }.health,
-            maxHealth: { ...characterStatuses }.maxHealth,
             attack: { ...characterStatuses }.attack,
             mana: { ...characterStatuses }.mana,
-            maxMana: { ...characterStatuses }.maxMana,
+            dodge: { ...characterStatuses }.dodge,
+            critChance: { ...characterStatuses }.critChance,
+            critDmg: { ...characterStatuses }.critDmg
         })
     }
 
