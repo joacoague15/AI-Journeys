@@ -1,32 +1,29 @@
 import { footstep } from "../constants";
 import { useEffect, useState } from "react";
 import { Scenarios } from "../HardCodedData";
-import { Howl } from "howler";
+import ReactHowler from 'react-howler';
 
 const Walking = ({ setSituation, healPerRoom, setText, setStages, stages }) => {
     const [img, setImg] = useState();
+    const [playing, setPlaying] = useState(false);
+    const [randomScenario, _] = useState(Scenarios.walking[Math.floor(Math.random() * Scenarios.walking.length)]);
+
 
     const situationHandler = (place) => {
+        setText('');
         setStages(stages + 1)
         healPerRoom()
+        setPlaying(false);
         footstep.play()
         setSituation(place)
     }
 
     useEffect(() => {
-        const randomScenario = Scenarios.walking[Math.floor(Math.random() * Scenarios.walking.length)];
         setText(randomScenario.text);
         setImg(randomScenario.img);
 
-        const sound = new Howl({
-            src: [randomScenario.speak],
-            html5: true,
-            loop: false,
-            volume: 1,
-        })
 
-        sound.play()
-
+        setPlaying(true);
     }, []);
 
     return (
@@ -36,6 +33,10 @@ const Walking = ({ setSituation, healPerRoom, setText, setStages, stages }) => {
                 {/*<button style={{ fontSize: 100, backgroundColor: "transparent", border: "none", zIndex: 10 }} onClick={() => situationHandler('combat')} type="button" className="btn btn-light">*/}
                 {/*    <i style={{ color: "white", backgroundColor: "transparent" }} className="fa-solid fa-arrow-left"></i>*/}
                 {/*</button>*/}
+                <ReactHowler
+                    src={randomScenario.speak}
+                    playing={playing}
+                />
                 <button style={{ fontSize: 100, backgroundColor: "transparent", border: "none", zIndex: 10 }} onClick={() => situationHandler('combat')} type="button" className="btn btn-light">
                     <i style={{ color: "white", backgroundColor: "transparent" }} className="fa-solid fa-arrow-up"></i>
                 </button>
