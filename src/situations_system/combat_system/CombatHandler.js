@@ -4,7 +4,7 @@ import Player from "./Player";
 import { Enemies } from "../../HardCodedData";
 import { handleAttackResult } from "../../Handlers";
 
-const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setLastAction, setStages, stages }) => {
+const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setLastAction, setStages, stages, healPerRoom }) => {
 
     const [enemyName, setEnemyName] = useState("");
     const [enemyTotalHealth, setEnemyTotalHealth] = useState(null);
@@ -24,7 +24,11 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setEnemyTotalHealth(null);
             setExperience(experience + 50);
             setStages(stages + 1);
-            setLastAction('');
+            setTimeout(() => {
+                setLastAction('');
+            }, 1000)
+            setLastAction('Healed 10 and restore 10 mana');
+            healPerRoom()
             setSituation('walking');
         }
     }, [enemyCurrentHealth])
@@ -37,9 +41,8 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setEnemyCurrentHealth(randomEnemy.health);
             setEnemyVideo(randomEnemy.video);
             setLastAction('Combat started!');
-
             const attackResult = handleAttackResult(randomEnemy.attack, 1, 0);
-            setEnemyAttack(attackResult);
+            setEnemyAttack(attackResult[0]);
         }
     }, [enemyTotalHealth])
 

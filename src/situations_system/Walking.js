@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Scenarios } from "../HardCodedData";
 import ReactHowler from 'react-howler';
 
-const Walking = ({ setSituation, healPerRoom, setText, setStages, stages }) => {
+const Walking = ({ setSituation, setText, setStages, stages }) => {
     const [img, setImg] = useState();
     const [playing, setPlaying] = useState(false);
     const [randomScenario, _] = useState(Scenarios.walking[Math.floor(Math.random() * Scenarios.walking.length)]);
@@ -12,8 +12,6 @@ const Walking = ({ setSituation, healPerRoom, setText, setStages, stages }) => {
     const situationHandler = (place) => {
         setText('');
         setStages(stages + 1)
-        healPerRoom()
-        setPlaying(false);
         footstep.play()
         setSituation(place)
     }
