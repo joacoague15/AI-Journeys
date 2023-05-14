@@ -16,6 +16,7 @@ import miss1 from "./assets/sounds/miss1.mp3"
 import miss2 from "./assets/sounds/miss2.mp3"
 import miss3 from "./assets/sounds/miss3.mp3"
 import miss4 from "./assets/sounds/miss4.mp3"
+import bestAttack from "./assets/sounds/bestAttack.mp3"
 import { Howl } from 'howler';
 
 export const playerAttackDuration = 500;
@@ -43,7 +44,7 @@ export const entrance = new Howl({
 })
 
 export const sound = new Howl({
-    src: [songInicio],
+    src: [bestAttack],
     html5: true,
     loop: true,
     volume: 0.4,

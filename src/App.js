@@ -12,6 +12,7 @@ import { SoundFX, cave, sound, storyTexts } from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
+import PlayerStats from "./components/PlayerStats";
 
 function App() {
     const [text, setText] = useState(storyTexts[0]);
@@ -20,10 +21,11 @@ function App() {
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
     const [characterStatuses, setCharacterStatuses] = useState({
         health: 0,
-        maxHealth: 0,
         attack: 0,
         mana: 0,
-        maxMana: 0,
+        dodge: 0,
+        critChance: 0,
+        critDmg: 0,
     });
     const [characterCreated, setCharacterCreated] = useState(false);
     const [situation, setSituation] = useState('walking');
@@ -93,8 +95,8 @@ function App() {
     }
 
     const healPerRoom = () => {
-        if (characterStatuses.health < characterStatuses.maxHealth) setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + 20 })
-        if (characterStatuses.mana < characterStatuses.maxMana) setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 1 })
+        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + 20 })
+        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 10 })
     }
 
     return (
@@ -105,11 +107,13 @@ function App() {
             </div>
             <LastAction lastAction={lastAction} />
             <StoryText text={text} />
-            <SituationHandler  stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
+            <PlayerStats userClass={characterClass} characterStatuses={characterStatuses} />
+            <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
+                <h3 style={{ color: 'white' }}>Stage {stages}</h3>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
-            {points > 0 && <LevelUpModal points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
+            {points > 0 && <LevelUpModal userClass={characterClass} points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}
         </div>
     )
 }

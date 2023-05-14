@@ -1,5 +1,5 @@
-import {attackMissed, attackSpell, attackSword, playerAttackDuration} from "../../constants";
-import {handleAttackResult} from "../../Handlers";
+import { attackMissed, attackSpell, attackSword, playerAttackDuration } from "../../constants";
+import { handleAttackResult } from "../../Handlers";
 
 const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass, setLastAction }) => {
     const SPEELL_COST = 30;
@@ -7,6 +7,10 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
     const LIGHT_ATTACK_CHANCE = 0.8;
     const MEDIUM_ATTACK_CHANCE = 0.6;
     const HEAVY_ATTACK_CHANCE = 0.5;
+
+    const restoreMagic = () => {
+        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 20 })
+    }
 
     const useMagic = () => {
         attackSpell.play()
@@ -105,7 +109,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
                     <i style={{ color: "white" }} className="fa-solid fa-fire"></i>
                 </button>
                 <button disabled={turn === 'enemy' || characterStatuses.mana < 3 || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={useMagic} type="button" className="btn btn-light">
-                    <i style={{ color: "white" }} className="fa-sharp fa-solid fa-book-medical"></i>
+                    <i style={{ color: "white" }} className="fa-sharp fa-solid fa-hand-sparkles"></i>
                 </button>
             </div>
         )

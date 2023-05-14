@@ -2,7 +2,7 @@ import Enemy from "./Enemy";
 import { useEffect, useState } from "react";
 import Player from "./Player";
 import { Enemies } from "../../HardCodedData";
-import {handleAttackResult} from "../../Handlers";
+import { handleAttackResult } from "../../Handlers";
 
 const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setLastAction, setStages, stages }) => {
 
@@ -38,7 +38,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setEnemyVideo(randomEnemy.video);
             setLastAction('Combat started!');
 
-            const attackResult = handleAttackResult(randomEnemy.attack);
+            const attackResult = handleAttackResult(randomEnemy.attack, 1, 0);
             setEnemyAttack(attackResult);
         }
     }, [enemyTotalHealth])

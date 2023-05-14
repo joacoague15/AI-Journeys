@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import {attackBlocked, enemyAttackDuration} from "../../constants";
-import {handleBlockResult} from "../../Handlers";
+import { attackBlocked, enemyAttackDuration } from "../../constants";
+import { handleBlockResult } from "../../Handlers";
 
 const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction }) => {
-
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
             setIsEnemyAttacking(true);
@@ -45,9 +44,9 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
             <div style={{ display: "flex", flexDirection: "row" }}>
                 <h2 style={{ color: "white", fontSize: 32, textAlign: "center", marginBottom: 10, letterSpacing: 10 }}>
                     <svg style={{ marginRight: 10 }} xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                         className="bi bi-heart-fill" viewBox="0 0 16 16">
+                        className="bi bi-heart-fill" viewBox="0 0 16 16">
                         <path fillRule="evenodd"
-                              d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                     </svg>
                     {Math.ceil(enemyCurrentHealth)}
                 </h2>
@@ -64,7 +63,7 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
                     borderRadius: "0 0 5px 5px"
                 }}>
                     <div style={{ width: ((enemyCurrentHealth * 100) / enemyTotalHealth) + '%', backgroundColor: "white" }} className="progress-bar progress-bar-striped" role="progressbar"
-                         aria-valuenow={enemyCurrentHealth} aria-valuemin="0" aria-valuemax={enemyTotalHealth}>
+                        aria-valuenow={enemyCurrentHealth} aria-valuemin="0" aria-valuemax={enemyTotalHealth}>
                     </div>
                 </div>
             </div>
