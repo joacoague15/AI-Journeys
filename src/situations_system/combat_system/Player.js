@@ -56,19 +56,19 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         if (attackType === "light") {
             setIsEnemyHit(true);
             attackSword.play();
-            const attackResult = handleAttackResult(characterStatuses.attack / 3);
+            const attackResult = handleAttackResult(Math.floor(characterStatuses.attack / 3), characterStatuses.critChance, characterStatuses.critDmg);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
             setLastAction(`You hit for ${attackResult} damage!`);
         } else if (attackType === "medium") {
             setIsEnemyHit(true);
             attackSword.play();
-            const attackResult = handleAttackResult(characterStatuses.attack / 2);
+            const attackResult = handleAttackResult(Math.floor(characterStatuses.attack / 2), characterStatuses.critChance, characterStatuses.critDmg);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
             setLastAction(`You hit for ${attackResult} damage!`);
         } else if (attackType === "heavy") {
             setIsEnemyHit(true);
             attackSword.play();
-            const attackResult = handleAttackResult(characterStatuses.attack);
+            const attackResult = handleAttackResult(characterStatuses.attack, characterStatuses.critChance, characterStatuses.critDmg);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult);
             setLastAction(`You hit for ${attackResult} damage!`);
         }

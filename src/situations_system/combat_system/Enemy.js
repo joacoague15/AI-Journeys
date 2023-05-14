@@ -3,6 +3,7 @@ import { attackBlocked, enemyAttackDuration } from "../../constants";
 import { handleBlockResult } from "../../Handlers";
 
 const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction }) => {
+
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
             setIsEnemyAttacking(true);
@@ -22,6 +23,7 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
                 setTurn('player');
             }, enemyAttackDuration);
         }
+
     }, [turn]);
 
     const handleAnimation = () => {
@@ -40,7 +42,7 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
     const maxAttack = Math.floor(enemyAttack * 1.5);
 
     return (
-        <div style={{ position: "relative", width: "100%", textAlign: "center" }}>
+        <div style={{ position: "relative", width: "85%", textAlign: "center", margin: 'auto' }}>
             <div style={{ display: "flex", flexDirection: "row" }}>
                 <h2 style={{ color: "white", fontSize: 32, textAlign: "center", marginBottom: 10, letterSpacing: 10 }}>
                     <svg style={{ marginRight: 10 }} xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"

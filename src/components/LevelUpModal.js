@@ -91,7 +91,7 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
                 {userClass === 'warrior' &&
                     <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
                         <button onClick={upgradeAttack} className="buttonToUpgrade" style={{ border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={swordIcon} alt="sword-icon" /></button>
-                        <p style={{ color: "white", fontSize: 26, textAlign: "center" }}>+ Attack</p>
+                        <p style={{ color: "white", fontSize: 26, textAlign: "center" }}>Attack<br />(+10%)</p>
                     </div>
                 }
             </div>

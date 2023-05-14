@@ -105,8 +105,8 @@ function App() {
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
                 <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
-            <LastAction lastAction={lastAction} />
             <StoryText text={text} />
+            <LastAction lastAction={lastAction} />
             <PlayerStats userClass={characterClass} characterStatuses={characterStatuses} />
             <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
