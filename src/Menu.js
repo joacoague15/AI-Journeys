@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { IDBDeleteDB, IDBTransactionGetAll } from "./IndexedDB/CRUD"
-import { hover, presentation, sound } from "./constants";
+import { hover, sound } from "./constants";
 import 'animate.css';
 import madameVideo from "./assets/videos/madame.mp4";
 import AudioController from "./components/AudioController";
@@ -26,7 +26,6 @@ const Initial = ({ setCharacterCreated, setNewGame, changeRangeVolume, mutedFX, 
         IDBDeleteDB()
         sound.play()
         setAnimation(true)
-        presentation.play()
         setTimeout(() => {
             setNewGame(false)
             setCharacterCreated(false)
