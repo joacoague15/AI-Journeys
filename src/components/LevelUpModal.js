@@ -9,7 +9,7 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
             setCharacterStatuses(
                 {
                     ...characterStatuses,
-                    health: characterStatuses.health + 40,
+                    health: characterStatuses.health + 20,
                 }
             )
         }
@@ -33,7 +33,8 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
             setCharacterStatuses(
                 {
                     ...characterStatuses,
-                    attack: characterStatuses.attack + (characterStatuses.attack * 0.1),
+                    attackMin: characterStatuses.attackMin + (characterStatuses.attackMin * 0.1),
+                    attackMax: characterStatuses.attackMax + (characterStatuses.attackMax * 0.1),
                 }
             )
         }
@@ -84,7 +85,7 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
                 </div>
                 {userClass === 'wizard' &&
                     <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
-                        <button onClick={upgradeMana} className="buttonToUpgrade" style={{ border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
+                        <button onClick={upgradeAttack} className="buttonToUpgrade" style={{ border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={wandIcon} alt="wand-icon" /></button>
                         <p style={{ color: "white", fontSize: 26, textAlign: "center" }}>Magic attack<br />(+10%)</p>
                     </div>
                 }

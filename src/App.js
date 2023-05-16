@@ -13,6 +13,7 @@ import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
 import PlayerStats from "./components/PlayerStats";
+import { IDBDeleteDB } from "./IndexedDB/CRUD"
 
 function App() {
     const [text, setText] = useState(storyTexts[0]);
@@ -21,7 +22,8 @@ function App() {
     const [characterClass, setCharacterClass] = useState(''); // This is where we will store the character class
     const [characterStatuses, setCharacterStatuses] = useState({
         health: 0,
-        attack: 0,
+        attackMin: 0,
+        attackMax: 0,
         mana: 0,
         dodge: 0,
         critChance: 0,
@@ -91,13 +93,17 @@ function App() {
 
 
     if (characterStatuses.health <= 0) {
+        IDBDeleteDB()
         return <DeadScreen />
     }
 
+    //Heal per room
+
     const healPerRoom = () => {
-        setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health + 10 })
+        setCharacterStatuses({...characterStatuses,health: characterStatuses.health + 10})
         setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 10 })
     }
+    
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
@@ -108,7 +114,7 @@ function App() {
             <StoryText text={text} />
             <LastAction lastAction={lastAction} />
             <PlayerStats userClass={characterClass} characterStatuses={characterStatuses} />
-            <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} healPerRoom={healPerRoom} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
+            <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <h3 style={{ color: 'white' }}>Stage {stages}</h3>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />

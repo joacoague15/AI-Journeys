@@ -28,7 +28,8 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
     const addStatusesIndexedDB = () => {
         IDBTransactionAddStatuses({
             health: { ...characterStatuses }.health,
-            attack: { ...characterStatuses }.attack,
+            attackMin: { ...characterStatuses }.attackMin,
+            attackMax: {...characterStatuses }.attackMax,
             mana: { ...characterStatuses }.mana,
             dodge: { ...characterStatuses }.dodge,
             critChance: { ...characterStatuses }.critChance,

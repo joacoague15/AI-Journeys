@@ -12,7 +12,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
     const [enemyVideo, setEnemyVideo] = useState("");
     const [enemyCurrentHealth, setEnemyCurrentHealth] = useState(enemyTotalHealth);
     const [turn, setTurn] = useState('player');
-
+    const [enemy, setEnemy] = useState(Enemies.lowLevel[Math.floor(Math.random() * Enemies.lowLevel.length)])
     // Animation states
     const [isEnemyHit, setIsEnemyHit] = useState(false);
     const [enemyDodge, setEnemyDodge] = useState(false);
@@ -28,27 +28,25 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
                 setLastAction('');
             }, 1000)
             setLastAction('Healed 10 and restore 10 mana');
-            healPerRoom()
             setSituation('walking');
         }
     }, [enemyCurrentHealth])
 
     useEffect(() => {
         if (enemyTotalHealth === null) {
-            const randomEnemy = Enemies.lowLevel[Math.floor(Math.random() * Enemies.lowLevel.length)];
-            setEnemyName(randomEnemy.name);
-            setEnemyTotalHealth(randomEnemy.health);
-            setEnemyCurrentHealth(randomEnemy.health);
-            setEnemyVideo(randomEnemy.video);
+            setEnemyName(enemy.name);
+            setEnemyTotalHealth(enemy.health);
+            setEnemyCurrentHealth(enemy.health);
+            setEnemyVideo(enemy.video);
             setLastAction('Combat started!');
-            const attackResult = handleAttackResult(randomEnemy.attack, 1, 0);
+            const attackResult = handleAttackResult(enemy.attackMin, enemy.attackMax , enemy.critChance, enemy.critDmg);
             setEnemyAttack(attackResult[0]);
         }
     }, [enemyTotalHealth])
 
     return (
         <div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
-            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} setEnemyTotalHealth={setEnemyTotalHealth} enemyAttack={enemyAttack} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyVideo={enemyVideo} enemyName={enemyName} isEnemyHit={isEnemyHit} enemyDodge={enemyDodge} isEnemySpelled={isEnemySpelled} isEnemyAttacking={isEnemyAttacking} setIsEnemyAttacking={setIsEnemyAttacking} setLastAction={setLastAction} />
+            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} enemyAttackMin= {enemy.attackMin} enemyAttackMax= {enemy.attackMax} setEnemyTotalHealth={setEnemyTotalHealth} enemyAttack={enemyAttack} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyVideo={enemyVideo} enemyName={enemyName} isEnemyHit={isEnemyHit} enemyDodge={enemyDodge} isEnemySpelled={isEnemySpelled} isEnemyAttacking={isEnemyAttacking} setIsEnemyAttacking={setIsEnemyAttacking} setLastAction={setLastAction} />
             <Player enemyCurrentHealth={enemyCurrentHealth} setEnemyCurrentHealth={setEnemyCurrentHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyDodge={enemyDodge} setEnemyDodge={setEnemyDodge} isEnemyHit={isEnemyHit} setIsEnemyHit={setIsEnemyHit} isEnemySpelled={isEnemySpelled} setIsEnemySpelled={setIsEnemySpelled} setIsEnemyAttacking={setIsEnemyAttacking} characterClass={characterClass} setLastAction={setLastAction} />
         </div>
     )
