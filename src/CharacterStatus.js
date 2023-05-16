@@ -9,7 +9,8 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses }) => {
         IDBTransactionGetAll('statuses').then((data) => {
             setCharacterStatuses({
                 health: data[0].health,
-                attack: data[0].attack,
+                attackMin: data[0].attackMin,
+                attackMax: data[0].attackMax,
                 mana: data[0].mana,
                 dodge: data[0].dodge,
                 critChance: data[0].critChance,

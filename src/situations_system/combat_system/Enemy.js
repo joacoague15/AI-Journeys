@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { attackBlocked, enemyAttackDuration } from "../../constants";
 import { handleBlockResult } from "../../Handlers";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction }) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction, enemyAttackMin, enemyAttackMax }) => {
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
@@ -38,9 +38,6 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
         return '';
     }
 
-    const minAttack = Math.floor(enemyAttack / 1.5);
-    const maxAttack = Math.floor(enemyAttack * 1.5);
-
     return (
         <div style={{ position: "relative", width: "85%", textAlign: "center", margin: 'auto' }}>
             <div style={{ display: "flex", flexDirection: "row" }}>
@@ -53,7 +50,7 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
                     {Math.ceil(enemyCurrentHealth)}
                 </h2>
                 <h2 style={{ color: "white", fontSize: 32, textAlign: "center", marginBottom: 10, marginLeft: 20, letterSpacing: 10 }}>
-                    <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>{minAttack}-{maxAttack}
+                    <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>{enemyAttackMin}-{enemyAttackMax}
                 </h2>
             </div>
             <div style={{ display: "inline-block", position: "relative" }}>

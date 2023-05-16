@@ -1,8 +1,7 @@
-export const handleAttackResult = (attack, critChance, critDmg) => {
-    const minAttack = Math.floor(attack / 1.5);
-    const maxAttack = Math.floor(attack * 1.5);
-    const finalAttack = Math.floor(Math.random() * (maxAttack - minAttack) + minAttack);
+export const handleAttackResult = (attackMin, attackMax, critChance, critDmg) => {
+    const finalAttack = Math.floor(Math.random() * (attackMin - attackMax) + attackMax);
     const probability = Math.floor(Math.random() * (100))
+
     if (critChance < probability) return [finalAttack];
     return [Math.floor(finalAttack * (1 + (critDmg / 100))), 'crit']
 }

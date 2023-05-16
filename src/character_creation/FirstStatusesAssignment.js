@@ -9,7 +9,8 @@ const FirstStatusesAssignment = ({ userClass, characterStatuses, setCharacterSta
             setCharacterStatuses({
                 health: 100,
                 //maxHealth: 100,
-                attack: 100,
+                attackMin: 70,
+                attackMax: 100,
                 mana: 0,
                 dodge: 10,
                 critChance: 5,
@@ -21,7 +22,8 @@ const FirstStatusesAssignment = ({ userClass, characterStatuses, setCharacterSta
             setCharacterStatuses({
                 health: 60,
                 //maxHealth: 70,
-                attack: 80,
+                attackMin: 50,
+                attackMax: 80,
                 mana: 100,
                 dodge: 10,
                 critChance: 2,
