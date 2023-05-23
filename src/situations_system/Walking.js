@@ -17,11 +17,8 @@ const Walking = ({ setSituation, setText, setStages, stages }) => {
     }
 
     useEffect(() => {
-        
-        const randomScenario = Scenarios.walking[Math.floor(Math.random() * Scenarios.walking.length)];
         setText(randomScenario.text);
         setImg(randomScenario.img);
-
 
         setPlaying(true);
     }, []);

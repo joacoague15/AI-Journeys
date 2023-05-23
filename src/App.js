@@ -97,14 +97,6 @@ function App() {
         return <DeadScreen />
     }
 
-    //Heal per room
-
-    const healPerRoom = () => {
-        setCharacterStatuses({...characterStatuses,health: characterStatuses.health + 10})
-        setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 10 })
-    }
-    
-
     return (
         <div style={{ height: '100vh', position: 'relative' }}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
