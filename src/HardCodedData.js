@@ -10,6 +10,12 @@ import hallway3 from "./assets/images/hallway3.jpg";
 import hallway4 from "./assets/images/hallway4.jpg";
 import hallway5 from "./assets/images/hallway5.jpg";
 import hallway6 from "./assets/images/hallway6.jpg";
+import hallway7 from "./assets/images/hallway7.png";
+import hallway8 from "./assets/images/hallway8.png";
+import hallway9 from "./assets/images/hallway9.png";
+import hallway10 from "./assets/images/hallway10.png";
+import hallway11 from "./assets/images/hallway11.png";
+import hallway12 from "./assets/images/hallway12.png";
 
 import npc1Sound from "./assets/sounds/npc1.mp3";
 import npc2Sound from "./assets/sounds/npc2.mp3";
@@ -31,8 +37,12 @@ import hallwaySound3 from "./assets/sounds/hallway3.mp3";
 import hallwaySound4 from "./assets/sounds/hallway4.mp3";
 import hallwaySound5 from "./assets/sounds/hallway5.mp3";
 import hallwaySound6 from "./assets/sounds/hallway6.mp3";
-
-
+import hallwaySound7 from "./assets/sounds/hallway7.mp3";
+import hallwaySound8 from "./assets/sounds/hallway8.mp3";
+import hallwaySound9 from "./assets/sounds/hallway9.mp3";
+import hallwaySound10 from "./assets/sounds/hallway10.mp3";
+import hallwaySound11 from "./assets/sounds/hallway11.mp3";
+import hallwaySound12 from "./assets/sounds/hallway12.mp3";
 
 export const Enemies = {
     lowLevel: [
@@ -384,34 +394,64 @@ export const LootInventory = {
 export const Scenarios = {
     walking: [
         {
-            text: "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead",
+            text: "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead.",
             img: hallway1,
             speak: hallwaySound1,
         },
         {
-            text: "In the dungeon's eerie hallway, the hero crept cautiously, senses heightened, as unseen malevolence whispered chilling threats from the encroaching shadows",
+            text: "In the dungeon's eerie hallway, the hero crept cautiously, senses heightened, as unseen malevolence whispered chilling threats from the encroaching shadows.",
             img: hallway2,
             speak: hallwaySound2,
         },
         {
-            text: "The hero ventured into the dungeon's sinister hallway, shrouded in darkness and dread, every step echoing with the whispers of lurking, maleficent forces",
+            text: "The hero ventured into the dungeon's sinister hallway, shrouded in darkness and dread, every step echoing with the whispers of lurking, maleficent forces.",
             img: hallway3,
             speak: hallwaySound3,
         },
         {
-            text: "The hero cautiously traversed the dungeon's oppressive hallway, each step shrouded in a heavy darkness that concealed the sinister whispers of unseen entities, poised to challenge the hero's every move",
+            text: "The hero cautiously traversed the dungeon's oppressive hallway, each step shrouded in a heavy darkness that concealed the sinister whispers of unseen entities, poised to challenge the hero's every move.",
             img: hallway4,
             speak: hallwaySound4,
         },
         {
-            text: "The hero inched through the dungeon's shadowy corridor, alert to the chilling presence of hidden malevolence lurking nearby",
+            text: "The hero inched through the dungeon's shadowy corridor, alert to the chilling presence of hidden malevolence lurking nearby.",
             img: hallway5,
             speak: hallwaySound5,
         },
         {
-            text: "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within",
+            text: "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within.",
             img: hallway6,
             speak: hallwaySound6,
+        },
+        {
+            text: "Venturing through nature's decaying catacomb, the hero navigated a riotous disarray of lush and rot.",
+            img: hallway7,
+            speak: hallwaySound7,
+        },
+        {
+            text: "In the colossal hallway of overgrown decay, the hero paced carefully. The air, thick with humidity, carried the scent of rich loam and rot.",
+            img: hallway8,
+            speak: hallwaySound8,
+        },
+        {
+            text: "Navigating through the skeletal remains of the hallway, the hero stepped cautiously. Sunlight stabbed through gaping holes in the ruined ceiling, spotlighting the decayed grandeur below.",
+            img: hallway9,
+            speak: hallwaySound9,
+        },
+        {
+            text: "Traversing the dilapidated hallway, the hero paused at the sight of diverging staircases, each fading into darkness. Far ahead, hallway morphed abruptly. A stark silhouette against the backdrop of decay.",
+            img: hallway10,
+            speak: hallwaySound10,
+        },
+        {
+            text: "Stepping cautiously through the sepulchral hallway, the hero's senses were assaulted by an air thick with dust and forgotten epochs. The damp chill seemed to seep from the very stone, and shadows danced eerily across tomb-like alcoves.",
+            img: hallway11,
+            speak: hallwaySound11,
+        },
+        {
+            text: "Striding through the monolithic hallway, the hero was dwarfed by towering pillars, their stone bodies scarred by time and veiled in a patina of lichen. Each massive sentinel stood as a testament to the grandeur that once was.",
+            img: hallway12,
+            speak: hallwaySound12,
         },
         {
             text: "Heed my words, for beyond this point lie treacherous trials that shall test the very limits of your courage and cunning!",
