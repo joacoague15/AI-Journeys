@@ -9,18 +9,18 @@ import AudioController from "../components/AudioController";
 import { IDBTransactionAddStatuses, IDBTransactionAddCharacter } from "../IndexedDB/CRUD";
 import { classPresentation } from "../constants";
 
-const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserName, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
+const CharacterCreationHandler = ({ characterClass, setUserClass, userName, setUserName, setCharacterCreated, characterStatuses, setCharacterStatuses, points, setPoints, characterCreated, audioPlayGameSound, changeRangeVolume, mutedFX, changeVolume, muted, FXmuted, initialModal }) => {
     const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
 
     useEffect(() => {
-        if (userName.length < 4 || userClass === "")
+        if (userName.length < 4 || characterClass === "")
             setIsContinueBtnDisabled(true);
         else
             setIsContinueBtnDisabled(false);
-    }, [userName, userClass, points]);
+    }, [userName, characterClass, points]);
 
     const indexedDBInput = () => {
-        IDBTransactionAddCharacter({ Name: userName, Class: userClass })
+        IDBTransactionAddCharacter({ Name: userName, Class: characterClass })
         addStatusesIndexedDB()
         setCharacterCreated(true)
     }
@@ -50,16 +50,16 @@ const CharacterCreationHandler = ({ userClass, setUserClass, userName, setUserNa
             <div style={{ display: "flex", margin: 20, flexDirection: "row" }}>
                 <div style={{ display: "flex", flex: 2, flexDirection: "column", lineHeight: 2, marginRight: 5 }}>
                     <p style={{ color: "white", fontSize: 24 }}>{userName}</p>
-                    <FirstStatusesAssignment userClass={userClass} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
+                    <FirstStatusesAssignment characterClass={characterClass} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} />
                 </div>
                 <div style={{ display: "flex", flex: 2 }}>
-                    <video src={warrior_presentation} style={{ width: 400, objectFit: "cover", borderRadius: 20, display: userClass === "warrior" ? "flex" : "none" }} autoPlay muted={true} loop={true}>
+                    <video src={warrior_presentation} style={{ width: 400, objectFit: "cover", borderRadius: 20, display: characterClass === "warrior" ? "flex" : "none" }} autoPlay muted={true} loop={true}>
                         Tu navegador no admite el elemento <code>video</code>.
                     </video>
-                    <video src={wizard_presentation} style={{ width: 400, objectFit: "cover", borderRadius: 20, display: userClass === "wizard" ? "flex" : "none" }} autoPlay muted={true} loop={true}>
+                    <video src={wizard_presentation} style={{ width: 400, objectFit: "cover", borderRadius: 20, display: characterClass === "wizard" ? "flex" : "none" }} autoPlay muted={true} loop={true}>
                         Tu navegador no admite el elemento <code>video</code>.
                     </video>
-                    <video src={paladin_presentation} style={{ width: 400, objectFit: "cover", borderRadius: 180, display: userClass === "paladin" ? "flex" : "none" }} autoPlay muted={true} loop={true}>
+                    <video src={paladin_presentation} style={{ width: 400, objectFit: "cover", borderRadius: 180, display: characterClass === "paladin" ? "flex" : "none" }} autoPlay muted={true} loop={true}>
                         Tu navegador no admite el elemento <code>video</code>.
                     </video>
                 </div>

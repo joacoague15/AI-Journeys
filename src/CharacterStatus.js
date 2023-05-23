@@ -20,10 +20,6 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses }) => {
 
     }, [setCharacterStatuses]);
 
-    /*useEffect(() => {
-        setPercentageHealth((characterStatuses.health / characterStatuses.maxHealth) * 100);
-    }, [percentageHealth, characterStatuses.health, characterStatuses.maxHealth]);
-*/
     if (health >= 60) {
         return (
             <div className="animate__animated animate__flipInX" style={{ position: "absolute", display: "flex", top: 10, left: 10 }}>

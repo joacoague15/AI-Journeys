@@ -2,10 +2,10 @@ import AttributesHelp from "./AttributesHelp";
 import Attributes from "../components/Attributes";
 import { useEffect } from "react";
 
-const FirstStatusesAssignment = ({ userClass, characterStatuses, setCharacterStatuses }) => {
+const FirstStatusesAssignment = ({ characterClass, characterStatuses, setCharacterStatuses }) => {
 
     useEffect(() => {
-        if (userClass === 'warrior') {
+        if (characterClass === 'warrior') {
             setCharacterStatuses({
                 health: 100,
                 //maxHealth: 100,
@@ -18,7 +18,7 @@ const FirstStatusesAssignment = ({ userClass, characterStatuses, setCharacterSta
                 //maxMana: 0,
             })
         }
-        if (userClass === 'wizard') {
+        if (characterClass === 'wizard') {
             setCharacterStatuses({
                 health: 60,
                 //maxHealth: 70,
@@ -31,7 +31,7 @@ const FirstStatusesAssignment = ({ userClass, characterStatuses, setCharacterSta
                 //maxMana: 100,
             })
         }
-        if (userClass === 'paladin') {
+        if (characterClass === 'paladin') {
             setCharacterStatuses({
                 health: 80,
                 //maxHealth: 90,
@@ -43,11 +43,11 @@ const FirstStatusesAssignment = ({ userClass, characterStatuses, setCharacterSta
                 //maxMana: 60,
             })
         }
-    }, [userClass, setCharacterStatuses]);
+    }, [characterClass, setCharacterStatuses]);
 
     return (
         <div className="animate__animated animate__fadeIn" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column", padding: 10, marginTop: 10 }}>
-            <Attributes characterStatuses={characterStatuses} userClass={userClass} />
+            <Attributes characterStatuses={characterStatuses} characterClass={characterClass} />
             <AttributesHelp />
         </div>
     );
