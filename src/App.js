@@ -101,11 +101,11 @@ function App() {
         <div style={{ height: '100vh', position: 'relative' }}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
-                <CharacterStatus characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
+                <CharacterStatus characterClass={characterClass} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
             <StoryText text={text} />
             <LastAction lastAction={lastAction} />
-            <PlayerStats userClass={characterClass} characterStatuses={characterStatuses} />
+            <PlayerStats characterClass={characterClass} characterStatuses={characterStatuses} />
             <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
                 <h3 style={{ color: 'white' }}>Stage {stages}</h3>
