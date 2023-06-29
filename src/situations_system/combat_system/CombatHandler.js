@@ -27,7 +27,6 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setTimeout(() => {
                 setLastAction('');
             }, 1000)
-            setLastAction('Healed 10 and restore 10 mana');
             setSituation('walking');
         }
     }, [enemyCurrentHealth])
@@ -38,7 +37,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setEnemyTotalHealth(enemy.health);
             setEnemyCurrentHealth(enemy.health);
             setEnemyVideo(enemy.video);
-            setLastAction('Combat started!');
+            setLastAction('Be ready...');
             const attackResult = handleAttackResult(enemy.attackMin, enemy.attackMax , enemy.critChance, enemy.critDmg);
             setEnemyAttack(attackResult[0]);
         }
@@ -46,7 +45,7 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
 
     return (
         <div style={{ width: '35%', position: 'absolute', left: '50%', bottom: 10, transform: 'translate(-50%)', height: '80%' }}>
-            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} enemyAttackMin= {enemy.attackMin} enemyAttackMax= {enemy.attackMax} setEnemyTotalHealth={setEnemyTotalHealth} enemyAttack={enemyAttack} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyVideo={enemyVideo} enemyName={enemyName} isEnemyHit={isEnemyHit} enemyDodge={enemyDodge} isEnemySpelled={isEnemySpelled} isEnemyAttacking={isEnemyAttacking} setIsEnemyAttacking={setIsEnemyAttacking} setLastAction={setLastAction} />
+            <Enemy enemyCurrentHealth={enemyCurrentHealth} enemyTotalHealth={enemyTotalHealth} enemyAttackMin= {enemy.attackMin} enemyAttackMax= {enemy.attackMax} setEnemyTotalHealth={setEnemyTotalHealth} enemyAttack={enemyAttack} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyVideo={enemyVideo} enemyName={enemyName} isEnemyHit={isEnemyHit} enemyDodge={enemyDodge} isEnemySpelled={isEnemySpelled} isEnemyAttacking={isEnemyAttacking} setIsEnemyAttacking={setIsEnemyAttacking} setLastAction={setLastAction} characterClass={characterClass} />
             <Player enemyCurrentHealth={enemyCurrentHealth} setEnemyCurrentHealth={setEnemyCurrentHealth} turn={turn} setTurn={setTurn} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} enemyDodge={enemyDodge} setEnemyDodge={setEnemyDodge} isEnemyHit={isEnemyHit} setIsEnemyHit={setIsEnemyHit} isEnemySpelled={isEnemySpelled} setIsEnemySpelled={setIsEnemySpelled} setIsEnemyAttacking={setIsEnemyAttacking} characterClass={characterClass} setLastAction={setLastAction} />
         </div>
     )

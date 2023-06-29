@@ -6,9 +6,9 @@ function PlayerStats({ characterClass, characterStatuses }) {
             <h2 style={{ marginLeft: '30px' }}>Stats</h2>
             <ul style={{ listStyle: 'none', fontSize: '20px' }}>
                 <li>{characterClass === 'wizard' && 'Magic '}Attack: {characterStatuses.attackMin} - {characterStatuses.attackMax}</li>
-                <li>Dodge: {characterStatuses.dodge}%</li>
-                <li>Crit dmg: {characterStatuses.critDmg}%</li>
-                <li>Crit chance: {characterStatuses.critChance}%</li>
+                {/*{characterClass === 'wizard' ? <li>Dodge: {characterStatuses.dodge}%</li> : <li>Parry: {characterStatuses.dodge}%</li>}*/}
+                {/*<li>Crit dmg: {characterStatuses.critDmg}%</li>*/}
+                {/*<li>Crit chance: {characterStatuses.critChance}%</li>*/}
             </ul>
         </div>
     )

@@ -1,8 +1,19 @@
 import { useEffect } from "react";
-import { attackBlocked, enemyAttackDuration } from "../../constants";
+import {attackBlocked, attackMissed, attackSword, enemyAttackDuration} from "../../constants";
 import { handleBlockResult } from "../../Handlers";
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction, enemyAttackMin, enemyAttackMax }) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction, enemyAttackMin, enemyAttackMax, characterClass }) => {
+
+    const blockEffectDependingOnClass = () => {
+            if (characterClass === 'warrior') {
+                setLastAction('You blocked the attack!');
+                attackBlocked.play();
+            }
+            else if (characterClass === 'wizard') {
+                setLastAction('You dodged the attack!');
+                attackMissed.play();
+            }
+    }
 
     useEffect(() => {
         if (turn === 'enemy' && enemyCurrentHealth > 0) {
@@ -11,12 +22,12 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
                 const playerBlocks = handleBlockResult(characterStatuses.dodge);
 
                 if (playerBlocks) {
-                    setLastAction('You dodge the attack!');
-                    attackBlocked.play();
+                    blockEffectDependingOnClass();
                 }
                 else {
                     setLastAction(`Enemy dealt ${enemyAttack} damage!`);
                     setCharacterStatuses({ ...characterStatuses, health: characterStatuses.health - enemyAttack });
+                    attackSword.play();
                 }
 
                 setIsEnemyAttacking(false);

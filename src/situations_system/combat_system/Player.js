@@ -48,20 +48,24 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
 
         if (attackType === "lightning") {
             setIsEnemyHit(true);
-            //attackSword.play();
             const attackResult = handleAttackResult(characterStatuses.attackMin, characterStatuses.attackMax, characterStatuses.critChance, characterStatuses.critDmg);
             setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana - SPEELL_COST_LIGHTNING })
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult[0]);
-            if (attackResult[1]) setLastAction(`You crit for ${attackResult[0]}!`);
-            else setLastAction(`You zap for ${attackResult[0]} damage!`);
+
+            if (attackResult[1])
+                setLastAction(`You crit for ${attackResult[0]}!`);
+            else
+                setLastAction(`You zap for ${attackResult[0]} damage!`);
         } else if (attackType === "fire") {
             setIsEnemyHit(true);
-            //attackSword.play();
             const attackResult = handleAttackResult(characterStatuses.attackMin, characterStatuses.attackMax, characterStatuses.critChance, characterStatuses.critDmg);
             setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana - SPEELL_COST_fIRE })
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult[0]);
-            if (attackResult[1]) setLastAction(`You crit for ${attackResult[0]}!`);
-            else setLastAction(`You burn for ${attackResult[0]} damage!`);
+
+            if (attackResult[1])
+                setLastAction(`You crit for ${attackResult[0]}!`);
+            else
+                setLastAction(`You burn for ${attackResult[0]} damage!`);
         } else if (attackType === "meditate") {
             setLastAction(`You restore 20 mana!`);
             setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 20 })
@@ -125,14 +129,14 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         } else if (attackType === "medium") {
             setIsEnemyHit(true);
             attackSword.play();
-            const attackResult = handleAttackResult(characterStatuses.attackMin +10 , characterStatuses.attackMax -10, characterStatuses.critChance, characterStatuses.critDmg);
+            const attackResult = handleAttackResult(characterStatuses.attackMin + 10 , characterStatuses.attackMax - 10, characterStatuses.critChance, characterStatuses.critDmg);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult[0]);
             if (attackResult[1]) setLastAction(`You crit for ${attackResult[0]}!`);
             else setLastAction(`You hit for ${attackResult[0]} damage!`);
         } else if (attackType === "heavy") {
             setIsEnemyHit(true);
             attackSword.play();
-            const attackResult = handleAttackResult(characterStatuses.attackMax -10, characterStatuses.attackMax, characterStatuses.critChance, characterStatuses.critDmg);
+            const attackResult = handleAttackResult(characterStatuses.attackMax - 10, characterStatuses.attackMax, characterStatuses.critChance, characterStatuses.critDmg);
             setEnemyCurrentHealth(enemyCurrentHealth - attackResult[0]);
             if (attackResult[1]) setLastAction(`You crit for ${attackResult[0]}!`);
             else setLastAction(`You hit for ${attackResult[0]} damage!`);

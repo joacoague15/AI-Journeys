@@ -7,40 +7,34 @@ const FirstStatusesAssignment = ({ characterClass, characterStatuses, setCharact
     useEffect(() => {
         if (characterClass === 'warrior') {
             setCharacterStatuses({
-                health: 100,
-                //maxHealth: 100,
+                health: 140,
                 attackMin: 70,
                 attackMax: 100,
                 mana: 0,
-                dodge: 10,
-                critChance: 5,
-                critDmg: 4,
-                //maxMana: 0,
+                dodge: 25,
+                critChance: 20,
+                critDmg: 10,
             })
         }
         if (characterClass === 'wizard') {
             setCharacterStatuses({
-                health: 60,
-                //maxHealth: 70,
+                health: 100,
                 attackMin: 50,
                 attackMax: 80,
                 mana: 100,
-                dodge: 10,
-                critChance: 2,
+                dodge: 15,
+                critChance: 10,
                 critDmg: 20,
-                //maxMana: 100,
             })
         }
         if (characterClass === 'paladin') {
             setCharacterStatuses({
                 health: 80,
-                //maxHealth: 90,
                 attack: 60,
                 mana: 60,
                 dodge: 10,
                 critChance: 0,
                 critDmg: 0,
-                //maxMana: 60,
             })
         }
     }, [characterClass, setCharacterStatuses]);
