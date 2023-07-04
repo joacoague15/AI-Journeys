@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { IDBTransactionGetAll } from "./IndexedDB/CRUD";
 
 const CharacterStatus = ({ characterStatuses, setCharacterStatuses, characterClass }) => {
-    const { health, mana } = characterStatuses;
+    const { health, mana, attackMin, attackMax } = characterStatuses;
 
     useEffect(() => {
         IDBTransactionGetAll('statuses').then((data) => {
@@ -34,6 +34,18 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses, characterCla
         }
     }
 
+    const attackDisplay = () => {
+        return (
+            <div style={{ margin: 15 }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="50" height="50" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 1v6m0 0v6m0 0v10l4-4-4-4-4 4 4 4"></path>
+                    <path d="M8 7l8-2-2 8"></path>
+                </svg>
+                <p style={{ color: "white", fontSize: 28 }}>{attackMin} - {attackMax}</p>
+            </div>
+        )
+    }
+
     if (health >= 60) {
         return (
             <div className="animate__animated animate__flipInX" style={{ position: "absolute", display: "flex", top: 10, left: 10 }}>
@@ -47,6 +59,7 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses, characterCla
                     <p style={{ color: "white", fontSize: 28 }}>{health} </p>
                 </div>
                 {manaDisplay()}
+                {attackDisplay()}
             </div>
         )
     }
@@ -63,6 +76,7 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses, characterCla
                     <p style={{ color: "white", fontSize: 28 }}>{health} </p>
                 </div>
                 {manaDisplay()}
+                {attackDisplay()}
             </div>
         )
     }
@@ -79,6 +93,7 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses, characterCla
                     <p style={{ color: "white", fontSize: 28 }}>{health} </p>
                 </div>
                 {manaDisplay()}
+                {attackDisplay()}
             </div>
         )
     }
@@ -94,6 +109,7 @@ const CharacterStatus = ({ characterStatuses, setCharacterStatuses, characterCla
                 <p style={{ color: "white", fontSize: 28 }}>{health} </p>
             </div>
             {manaDisplay()}
+            {attackDisplay()}
         </div>
     )
 }

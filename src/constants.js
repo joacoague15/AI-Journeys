@@ -21,6 +21,8 @@ import { Howl } from 'howler';
 export const playerAttackDuration = 500;
 export const enemyAttackDuration = 1000;
 
+export const bossStage = 50;
+
 export const presentation = new Howl({
     src: [presentationAudio],
     html5: true,

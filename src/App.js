@@ -8,11 +8,10 @@ import ExperienceIndicator from "./components/ExperienceIndicator";
 import DeadScreen from "./components/DeadScreen";
 import Initial from "./Menu";
 import StoryText from "./components/StoryText";
-import { SoundFX, cave, sound, storyTexts } from "./constants";
+import {SoundFX, cave, sound, storyTexts, bossStage} from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
-import PlayerStats from "./components/PlayerStats";
 import { IDBDeleteDB } from "./IndexedDB/CRUD"
 
 function App() {
@@ -105,10 +104,11 @@ function App() {
             </div>
             <StoryText text={text} />
             <LastAction lastAction={lastAction} />
-            <PlayerStats characterClass={characterClass} characterStatuses={characterStatuses} />
             <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
+            <div style={{ position: 'absolute', bottom: '2%', color: 'white' }}>
+                <h3 style={{ color: 'white', marginLeft: '30px' }}>STAGE {stages} / {bossStage}</h3>
+            </div>
             <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
-                <h3 style={{ color: 'white' }}>Stage {stages}</h3>
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
             {points > 0 && <LevelUpModal userClass={characterClass} points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}

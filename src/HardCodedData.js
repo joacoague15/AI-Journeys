@@ -22,7 +22,12 @@ import npc2Sound from "./assets/sounds/npc2.mp3";
 import npc3Sound from "./assets/sounds/npc3.mp3";
 import npc4Sound from "./assets/sounds/npc4.mp3";
 import npc5Sound from "./assets/sounds/npc5.mp3";
-import npc6Sound from "./assets/sounds/npc6.mp3";
+
+
+import npc6Sound1 from "./assets/sounds/npc6.mp3";
+import npc6Sound2 from "./assets/sounds/npc6_2.mp3";
+import npc6Sound3 from "./assets/sounds/npc6_3.mp3";
+import npc6Sound4 from "./assets/sounds/npc6_4.mp3";
 
 import np1Image from "./assets/images/npc1.jpg";
 import npc2Image from "./assets/images/npc2.jpg";
@@ -394,94 +399,172 @@ export const LootInventory = {
 export const Scenarios = {
     walking: [
         {
-            text: "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead.",
+            text: [
+                "The hero traversed the shadowy dungeon hallway, deftly navigating hidden perils to confront the unknown evils lurking ahead.",
+            ],
             img: hallway1,
-            speak: hallwaySound1,
+            speak: [
+                hallwaySound1
+            ],
         },
         {
-            text: "In the dungeon's eerie hallway, the hero crept cautiously, senses heightened, as unseen malevolence whispered chilling threats from the encroaching shadows.",
+            text: [
+                "In the dungeon's eerie hallway, the hero crept cautiously, senses heightened, as unseen malevolence whispered chilling threats from the encroaching shadows.",
+            ],
             img: hallway2,
-            speak: hallwaySound2,
+            speak: [
+                hallwaySound2,
+            ],
         },
         {
-            text: "The hero ventured into the dungeon's sinister hallway, shrouded in darkness and dread, every step echoing with the whispers of lurking, maleficent forces.",
+            text: [
+                "The hero ventured into the dungeon's sinister hallway, shrouded in darkness and dread, every step echoing with the whispers of lurking, maleficent forces.",
+            ],
             img: hallway3,
-            speak: hallwaySound3,
+            speak: [
+                hallwaySound3,
+            ]
         },
         {
-            text: "The hero cautiously traversed the dungeon's oppressive hallway, each step shrouded in a heavy darkness that concealed the sinister whispers of unseen entities, poised to challenge the hero's every move.",
+            text: [
+                "The hero cautiously traversed the dungeon's oppressive hallway, each step shrouded in a heavy darkness that concealed the sinister whispers of unseen entities, poised to challenge the hero's every move.",
+            ],
             img: hallway4,
-            speak: hallwaySound4,
+            speak: [
+                hallwaySound4,
+            ],
         },
         {
-            text: "The hero inched through the dungeon's shadowy corridor, alert to the chilling presence of hidden malevolence lurking nearby.",
+            text: [
+                "The hero inched through the dungeon's shadowy corridor, alert to the chilling presence of hidden malevolence lurking nearby.",
+            ],
             img: hallway5,
-            speak: hallwaySound5,
+            speak: [
+                hallwaySound5,
+            ]
         },
         {
-            text: "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within.",
+            text: [
+                "In the dungeon's gloomy passage, the hero braved the unsettling quiet, prepared to confront the concealed terrors veiled within.",
+            ],
             img: hallway6,
-            speak: hallwaySound6,
+            speak: [
+                hallwaySound6,
+            ],
         },
         {
-            text: "Venturing through nature's decaying catacomb, the hero navigated a riotous disarray of lush and rot.",
+            text: [
+                "Venturing through nature's decaying catacomb, the hero navigated a riotous disarray of lush and rot.",
+            ],
             img: hallway7,
-            speak: hallwaySound7,
+            speak: [
+                hallwaySound7,
+            ],
         },
         {
-            text: "In the colossal hallway of overgrown decay, the hero paced carefully. The air, thick with humidity, carried the scent of rich loam and rot.",
+            text: [
+                "In the colossal hallway of overgrown decay, the hero paced carefully. The air, thick with humidity, carried the scent of rich loam and rot.",
+            ],
             img: hallway8,
-            speak: hallwaySound8,
+            speak: [
+                hallwaySound8
+            ],
         },
         {
-            text: "Navigating through the skeletal remains of the hallway, the hero stepped cautiously. Sunlight stabbed through gaping holes in the ruined ceiling, spotlighting the decayed grandeur below.",
+            text: [
+                "Navigating through the skeletal remains of the hallway, the hero stepped cautiously. Sunlight stabbed through gaping holes in the ruined ceiling, spotlighting the decayed grandeur below.",
+            ],
             img: hallway9,
-            speak: hallwaySound9,
+            speak: [
+                hallwaySound9,
+            ],
         },
         {
-            text: "Traversing the dilapidated hallway, the hero paused at the sight of diverging staircases, each fading into darkness. Far ahead, hallway morphed abruptly. A stark silhouette against the backdrop of decay.",
+            text: [
+                "Traversing the dilapidated hallway, the hero paused at the sight of diverging staircases, each fading into darkness. Far ahead, hallway morphed abruptly. A stark silhouette against the backdrop of decay.",
+            ],
             img: hallway10,
-            speak: hallwaySound10,
+            speak: [
+                hallwaySound10,
+            ],
         },
         {
-            text: "Stepping cautiously through the sepulchral hallway, the hero's senses were assaulted by an air thick with dust and forgotten epochs. The damp chill seemed to seep from the very stone, and shadows danced eerily across tomb-like alcoves.",
+            text: [
+                "Stepping cautiously through the sepulchral hallway, the hero's senses were assaulted by an air thick with dust and forgotten epochs. The damp chill seemed to seep from the very stone, and shadows danced eerily across tomb-like alcoves.",
+            ],
             img: hallway11,
-            speak: hallwaySound11,
+            speak: [
+                hallwaySound11,
+            ],
         },
         {
-            text: "Striding through the monolithic hallway, the hero was dwarfed by towering pillars, their stone bodies scarred by time and veiled in a patina of lichen. Each massive sentinel stood as a testament to the grandeur that once was.",
+            text: [
+                "Striding through the monolithic hallway, the hero was dwarfed by towering pillars, their stone bodies scarred by time and veiled in a patina of lichen. Each massive sentinel stood as a testament to the grandeur that once was.",
+            ],
             img: hallway12,
-            speak: hallwaySound12,
+            speak: [
+                hallwaySound12,
+            ],
         },
         {
-            text: "Heed my words, for beyond this point lie treacherous trials that shall test the very limits of your courage and cunning!",
+            text: [
+                "Heed my words, for beyond this point lie treacherous trials that shall test the very limits of your courage and cunning!",
+            ],
             img: np1Image,
-            speak: npc1Sound,
+            speak: [
+                npc1Sound,
+            ],
         },
         {
-            text: "The path ahead is hard. Yet, in your eyes, I discern a spark of greatness that sets you apart.",
+            text: [
+                "The path ahead is hard. Yet, in your eyes, I discern a spark of greatness that sets you apart.",
+            ],
             img: npc2Image,
-            speak: npc2Sound,
+            speak: [
+                npc2Sound,
+            ],
         },
         {
-            text: "If you wish to escape, you must embrace the necessity of combat, as I did. Stay vigilant. And may fortune guide your blade.",
+            text: [
+                "If you wish to escape, you must embrace the necessity of combat, as I did. Stay vigilant. And may fortune guide your blade.",
+            ],
             img: npc3Image,
-            speak: npc3Sound,
+            speak: [
+                npc3Sound,
+            ],
         },
         {
-            text: "I can tell you're nervous. But don't worry. It makes things more interesting. So go on, keep moving forward and face those challenges head-on. You might just surprise yourself!",
+            text: [
+                "I can tell you're nervous. But don't worry. It makes things more interesting. So go on, keep moving forward and face those challenges head-on. You might just surprise yourself!",
+            ],
             img: npc4Image,
-            speak: npc4Sound,
+            speak: [
+                npc4Sound,
+            ],
         },
         {
-            text: "I can't continue. This is too much for me! I've decided to stop trying. But maybe you still have the strength to carry on.",
+            text: [
+                "I can't continue. This is too much for me! I've decided to stop trying. But maybe you still have the strength to carry on.",
+            ],
             img: npc5Image,
-            speak: npc5Sound,
+            speak: [
+                npc5Sound,
+            ],
         },
         {
-            text: "Well, well, well! Look who's stumbled into my dungeon. The so-called hero! You're out of your league here. Have you not seen my biceps? Have you not witnessed my brilliant mind at work? Just give up already!",
+            text: [
+                "Well, well, well! Look who's stumbled into my dungeon. The so-called hero! You're out of your league here. Have you not seen my biceps? Have you not witnessed my brilliant mind at work? Just give up already!",
+                "By the stones of my ancestors! You've got the gall to enter my dungeon? My axe is sharper than any wit, my courage as solid as the mountain rock. Your defeat is carved in stone!",
+                "Finally, a visitor in my dominion! Don't be fooled by my stature. I've wrestled giants and outsmarted wizards. My brawn and brains will surely impress you. Prepare to be scared!",
+                "These biceps, they've split stone and sundered iron! And my mind, it's a fortress of tactics and strategy. Beware, for underestimating either could be your downfall!"
+            ],
             img: npc6Image,
-            speak: npc6Sound,
+            speak: [
+                npc6Sound1,
+                npc6Sound2,
+                npc6Sound3,
+                npc6Sound4,
+            ]
         },
     ],
     fightText: [
