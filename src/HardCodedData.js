@@ -17,19 +17,26 @@ import hallway10 from "./assets/images/hallway10.png";
 import hallway11 from "./assets/images/hallway11.png";
 import hallway12 from "./assets/images/hallway12.png";
 
-import npc1Sound from "./assets/sounds/npc1.mp3";
+import npc1Sound1 from "./assets/sounds/npc1_1.mp3";
+import npc1Sound2 from "./assets/sounds/npc1_2.mp3";
+import npc1Sound3 from "./assets/sounds/npc1_3.mp3";
+import npc1Sound4 from "./assets/sounds/npc1_4.mp3";
+
+
+
+
 import npc2Sound from "./assets/sounds/npc2.mp3";
 import npc3Sound from "./assets/sounds/npc3.mp3";
 import npc4Sound from "./assets/sounds/npc4.mp3";
 import npc5Sound from "./assets/sounds/npc5.mp3";
 
 
-import npc6Sound1 from "./assets/sounds/npc6.mp3";
+import npc6Sound1 from "./assets/sounds/npc6_1.mp3";
 import npc6Sound2 from "./assets/sounds/npc6_2.mp3";
 import npc6Sound3 from "./assets/sounds/npc6_3.mp3";
 import npc6Sound4 from "./assets/sounds/npc6_4.mp3";
 
-import np1Image from "./assets/images/npc1.jpg";
+import npc1Image from "./assets/images/npc1.jpg";
 import npc2Image from "./assets/images/npc2.jpg";
 import npc3Image from "./assets/images/npc3.jpg";
 import npc4Image from "./assets/images/npc4.jpg";
@@ -509,15 +516,25 @@ export const Scenarios = {
         {
             text: [
                 "Heed my words, for beyond this point lie treacherous trials that shall test the very limits of your courage and cunning!",
+                "Inhale my threat, puny one! Past my den, dangers unheard of await, thirsty to drink your weak valor and cunning dry!",
+                "Smell the rot, weakling? That’s the perfume of adventurers past, those who thought they could conquer the maze. Will your scent join theirs, I wonder?",
+                "See the scratches on these walls? Each is a futile marker left by those who've wandered these paths before. Will you leave your own marks, or perish without a trace?"
             ],
-            img: np1Image,
+            img: npc1Image,
             speak: [
-                npc1Sound,
+                npc1Sound1,
+                npc1Sound2,
+                npc1Sound3,
+                npc1Sound4,
+
             ],
         },
         {
             text: [
                 "The path ahead is hard. Yet, in your eyes, I discern a spark of greatness that sets you apart.",
+                "There's an aura around you, an unmistakable shimmer of something exceptional.",
+                "In the core of your spirit resides something extraordinary. A quality that distinguishes you from the crowd, an essence that could change the fate of these ancient halls.",
+                "The murals here recount tales of legendary warriors. But in you, I see an untold epic, a saga that could eclipse even the greatest of these painted heroes.",
             ],
             img: npc2Image,
             speak: [

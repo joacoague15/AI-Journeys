@@ -39,7 +39,7 @@ const Initial = ({ setCharacterCreated, setNewGame, changeRangeVolume, mutedFX, 
     return (<>
         <div style={{ display: 'flex', height: '100vh', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className={!animation ? "animate__animated animate__fadeIn" : "animate__animated animate__fadeOut"}>
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
-            <h1 className="animate__animated animate__slideInDown" style={{ color: 'white', textAlign: 'center', cursor: 'default', letterSpacing: 20 }}>TYPING TALES</h1>
+            <h1 className="animate__animated animate__slideInDown" style={{ color: 'white', textAlign: 'center', cursor: 'default', letterSpacing: 20 }}>AI Journeys</h1>
             {modal && <div style={{ position: 'absolute', border: '1px white solid', top: '50%', left: '50%', borderRadius: '12px', transform: 'translate(-50%, -50%)', width: '25%', height: '20%', zIndex: 1 }} >
                 <p style={{ color: 'white', textAlign: 'center', margin: '20px auto auto auto', width: '90%' }}>Your previous run will be deleted</p>
                 <p style={{ color: 'white', textAlign: 'center', margin: '20px auto auto auto', width: '90%' }}>Do you want to start a new run?</p>
