@@ -12,7 +12,8 @@ import {SoundFX, cave, sound, storyTexts, bossStage} from "./constants";
 import AudioController from "./components/AudioController";
 import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
-import { IDBDeleteDB } from "./IndexedDB/CRUD"
+import { IDBDeleteDB } from "./IndexedDB/CRUD";
+import "./App.css";
 
 function App() {
     const [text, setText] = useState(storyTexts[0]);
@@ -97,18 +98,18 @@ function App() {
     }
 
     return (
-        <div style={{ height: '100vh', position: 'relative' }}>
+        <div id="id-container">
             <AudioController initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }} className="App">
+            <div className="App">
                 <CharacterStatus characterClass={characterClass} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />
             </div>
             <StoryText text={text} />
             <LastAction lastAction={lastAction} />
             <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
-            <div style={{ position: 'absolute', bottom: '2%', color: 'white' }}>
-                <h3 style={{ color: 'white', marginLeft: '30px' }}>STAGE {stages} / {bossStage}</h3>
+            <div id="stage-container" >
+                <h3>STAGE {stages} / {bossStage}</h3>
             </div>
-            <div style={{ position: "absolute", top: 10, right: 140, width: "20%" }}>
+            <div id="experience-indicator-container">
                 <ExperienceIndicator experience={experience} setPoints={setPoints} currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
             </div>
             {points > 0 && <LevelUpModal userClass={characterClass} points={points} setPoints={setPoints} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} />}

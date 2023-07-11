@@ -1,0 +1,19 @@
+.status-icon-container {
+    margin: 15px;
+}
+
+.status-value {
+    color: white;
+    font-size: 28px;
+}
+
+.statuses-wrapper {
+   position: absolute;
+   display: flex;
+   top: 10px;
+   left: 10px;
+}
+
+.health-wrapper {
+    margin: 15px;
+}

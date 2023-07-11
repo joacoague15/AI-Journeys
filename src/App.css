@@ -1,0 +1,30 @@
+#id-container {
+    height: 100vh;
+    position: relative;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#stage-container {
+    position: absolute;
+    bottom: 2%;
+    color: white;
+}
+
+h3 {
+    color: white;
+    margin-left: 30px;
+}
+
+#experience-indicator-container {
+    position: absolute;
+    top: 10px;
+    right: 140px;
+    width: 20%;
+}

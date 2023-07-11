@@ -1,0 +1,80 @@
+#menu-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#title {
+    color: white;
+    text-align: center;
+    cursor: default;
+    letter-spacing: 20px;
+}
+
+#modal-container {
+    position: absolute;
+    border: 1px white solid;
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 20%;
+    z-index: 1;
+}
+
+#confirmation-sentence {
+    color: white;
+    text-align: center;
+    margin: 20px auto auto auto;
+    width: 90%;
+}
+
+#options-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -14%);
+    gap: 20px;
+}
+
+.option {
+    width: 50%;
+    border: 1px white solid;
+    border-radius: 12px;
+    color: white;
+}
+
+#new-game-video-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#video-container {
+    display: flex;
+    flex: 1;
+    margin-right: 50px;
+}
+
+#madame-video {
+    border-radius: 5px;
+}
+
+#new-game-title {
+    display: flex;
+    cursor: pointer;
+    color: white;
+    font-size: 72px;
+    margin: 50px;
+}
+
+#new-game-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: auto;
+}
