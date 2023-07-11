@@ -22,13 +22,26 @@ import npc1Sound2 from "./assets/sounds/npc1_2.mp3";
 import npc1Sound3 from "./assets/sounds/npc1_3.mp3";
 import npc1Sound4 from "./assets/sounds/npc1_4.mp3";
 
+import npc2Sound1 from "./assets/sounds/npc2_1.mp3";
+import npc2Sound2 from "./assets/sounds/npc2_2.mp3";
+import npc2Sound3 from "./assets/sounds/npc2_3.mp3";
+import npc2Sound4 from "./assets/sounds/npc2_4.mp3";
+
+import npc3Sound1 from "./assets/sounds/npc3_1.mp3";
+import npc3Sound2 from "./assets/sounds/npc3_2.mp3";
+import npc3Sound3 from "./assets/sounds/npc3_3.mp3";
+import npc3Sound4 from "./assets/sounds/npc3_4.mp3";
 
 
+import npc4Sound1 from "./assets/sounds/npc4_1.mp3";
+import npc4Sound2 from "./assets/sounds/npc4_2.mp3";
+import npc4Sound3 from "./assets/sounds/npc4_3.mp3";
+import npc4Sound4 from "./assets/sounds/npc4_4.mp3";
 
-import npc2Sound from "./assets/sounds/npc2.mp3";
-import npc3Sound from "./assets/sounds/npc3.mp3";
-import npc4Sound from "./assets/sounds/npc4.mp3";
-import npc5Sound from "./assets/sounds/npc5.mp3";
+import npc5Sound1 from "./assets/sounds/npc5_1.mp3";
+import npc5Sound2 from "./assets/sounds/npc5_2.mp3";
+import npc5Sound3 from "./assets/sounds/npc5_3.mp3";
+import npc5Sound4 from "./assets/sounds/npc5_4.mp3";
 
 
 import npc6Sound1 from "./assets/sounds/npc6_1.mp3";
@@ -538,34 +551,55 @@ export const Scenarios = {
             ],
             img: npc2Image,
             speak: [
-                npc2Sound,
+                npc2Sound1,
+                npc2Sound2,
+                npc2Sound3,
+                npc2Sound4,
             ],
         },
         {
             text: [
                 "If you wish to escape, you must embrace the necessity of combat, as I did. Stay vigilant. And may fortune guide your blade.",
+                "Even in the heart of darkness, there is a path to the light. It is through conflict, a path I've walked countless times. Stay alert, stay alive. And may the gods favor your every strike.",
+                "Listen closely, in these forsaken depths, one must become a beast to defeat one. As I have. Stay on guard. Let fortune guide your blade in the shadows.",
+                "Wounded as I stand, I share this truth: to find your way out, you must become a storm in the midst of your enemies, just as I did. Even in the grip of pain, stay alert. May luck favor your every strike.",
             ],
             img: npc3Image,
             speak: [
-                npc3Sound,
+                npc3Sound1,
+                npc3Sound2,
+                npc3Sound3,
+                npc3Sound4,
             ],
         },
         {
             text: [
                 "I can tell you're nervous. But don't worry. It makes things more interesting. So go on, keep moving forward and face those challenges head-on. You might just surprise yourself!",
+                "Ah, that spark of determination. It's quite irresistible. It's a beacon in the darkness of this place. Push forward, darling. Who knows what secrets you might unravel?",
+                "This dungeon, darling, it's a living, breathing testament of time. Each stone, each crevice, has a tale to tell. Shall we decipher them together? You'll be amazed at what we might find.",
+                "This twisted labyrinth is not just stone and darkness. It's our home, mine and my demon love. Each corner holds a memory, a tale of passion and power. Let's stroll through these hallways together. You may discover a side of love that's as enchanting as it is terrifying.",
             ],
             img: npc4Image,
             speak: [
-                npc4Sound,
+                npc4Sound1,
+                npc4Sound2,
+                npc4Sound3,
+                npc4Sound4,
             ],
         },
         {
             text: [
                 "I can't continue. This is too much for me! I've decided to stop trying. But maybe you still have the strength to carry on.",
+                "Fear has claimed me, and I can't see the way forward. But you, you still shine amidst the darkness. Perhaps, in you, there's hope that this labyrinth can be conquered.",
+                "I've lost myself to the eternal gloom of this place. But in your eyes, I see a relentless determination. Perhaps it's you who can rise above the dungeon's despair.",
+                "The walls of this cursed place close in around me, and my courage fails. I surrender to the inevitable, but you... you are different. Your strength might be the key to piercing the darkness that envelopes this dungeon.",
             ],
             img: npc5Image,
             speak: [
-                npc5Sound,
+                npc5Sound1,
+                npc5Sound2,
+                npc5Sound3,
+                npc5Sound4,
             ],
         },
         {
