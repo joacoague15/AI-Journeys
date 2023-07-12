@@ -1,0 +1,31 @@
+.character-container {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.chance-indicator {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.action-button {
+    font-size: 100px;
+    background-color: black;
+    border: none;
+}
+
+.action-button:hover {
+    background-color: black;
+}
+
+.action-button:active {
+    background-color: black !important;
+}
+
+.action-button:disabled {
+    background-color: black;
+}

@@ -1,0 +1,39 @@
+#walking-container {
+    width: 35%;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%);
+    height: 80%;
+}
+
+#img-walking {
+    width: 700px;
+    left: 50%;
+    border: 1px solid white;
+    position: absolute;
+    transform: translate(-50%);
+    z-index: 1;
+}
+
+#actions-container {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+#action-button {
+    font-size: 100px;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+}
+
+.action-icon {
+    color: white;
+    background-color: transparent;
+}

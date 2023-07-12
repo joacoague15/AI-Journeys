@@ -1,0 +1,8 @@
+#handler-container {
+    width: 35%;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%);
+    height: 80%;
+}

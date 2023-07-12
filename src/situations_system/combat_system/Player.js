@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { attackMissed, attackSword, playerAttackDuration } from "../../constants";
+import {attackMissed, attackSword, fire, lighting, meditate, playerAttackDuration} from "../../constants";
 import { handleAttackResult } from "../../Handlers";
+import './Player.css';
 
 const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, characterStatuses, setCharacterStatuses, isEnemyHit, setIsEnemyHit, enemyDodge, setEnemyDodge, isEnemySpelled, setIsEnemySpelled, characterClass, setLastAction }) => {
     const SPEELL_COST_LIGHTNING = 30;
@@ -12,7 +13,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
 
     const FIRE_SPELL = 0.8;
     const LIGHTNING_SPELL = 0.5;
-    const MEDITATE = 0.8;
+    const MEDITATE = 1;
 
     const useMagic = (attackType) => {
         let hitChance;
@@ -47,6 +48,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
         }
 
         if (attackType === "lightning") {
+            lighting.play();
             setIsEnemyHit(true);
             const attackResult = handleAttackResult(characterStatuses.attackMin, characterStatuses.attackMax, characterStatuses.critChance, characterStatuses.critDmg);
             setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana - SPEELL_COST_LIGHTNING })
@@ -57,6 +59,7 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
             else
                 setLastAction(`You zap for ${attackResult[0]} damage!`);
         } else if (attackType === "fire") {
+            fire.play();
             setIsEnemyHit(true);
             const attackResult = handleAttackResult(characterStatuses.attackMin, characterStatuses.attackMax, characterStatuses.critChance, characterStatuses.critDmg);
             setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana - SPEELL_COST_fIRE })
@@ -67,8 +70,9 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
             else
                 setLastAction(`You burn for ${attackResult[0]} damage!`);
         } else if (attackType === "meditate") {
-            setLastAction(`You restore 20 mana!`);
-            setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 20 })
+            meditate.play();
+            setLastAction(`You restore 5 mana and 5 health!`);
+            setCharacterStatuses({ ...characterStatuses, mana: characterStatuses.mana + 5, health: characterStatuses.health + 5 })
         }
 
         setTimeout(() => {
@@ -151,18 +155,18 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
 
     if (characterClass === 'warrior') {
         return (
-            <div style={{ width: '100%', backgroundColor: 'transparent', display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={() => attack('light')} type="button" className="btn btn-light">
+            <div className="character-container">
+                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} onClick={() => attack('light')} type="button" className="btn btn-light action-button">
                     <i style={{ color: "grey" }} className="fa-solid fa-gavel"></i>
-                    <p style={{ color: "white", fontSize: 24, textAlign: "center" }}>{LIGHT_ATTACK_CHANCE * 100}%</p>
+                    <p className="chance-indicator">{LIGHT_ATTACK_CHANCE * 100}%</p>
                 </button>
-                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={() => attack('medium')} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} onClick={() => attack('medium')} type="button" className="btn btn-light action-button">
                     <i style={{ color: "wheat" }} className="fa-solid fa-gavel"></i>
-                    <p style={{ color: "white", fontSize: 24, textAlign: "center" }}>{MEDIUM_ATTACK_CHANCE * 100}%</p>
+                    <p className="chance-indicator">{MEDIUM_ATTACK_CHANCE * 100}%</p>
                 </button>
-                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={() => attack('heavy')} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} onClick={() => attack('heavy')} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>
-                    <p style={{ color: "white", fontSize: 24, textAlign: "center" }}>{HEAVY_ATTACK_CHANCE * 100}%</p>
+                    <p className="chance-indicator">{HEAVY_ATTACK_CHANCE * 100}%</p>
                 </button>
             </div>
         )
@@ -170,18 +174,18 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
 
     if (characterClass === 'wizard') {
         return (
-            <div style={{ width: '100%', backgroundColor: 'transparent', display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                <button disabled={turn === 'enemy' || characterStatuses.mana < SPEELL_COST_LIGHTNING || isEnemyHit || isEnemySpelled || enemyDodge} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={() => useMagic('fire')} type="button" className="btn btn-light">
+            <div className="character-container">
+                <button disabled={turn === 'enemy' || characterStatuses.mana < SPEELL_COST_LIGHTNING || isEnemyHit || isEnemySpelled || enemyDodge} onClick={() => useMagic('fire')} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-fire"></i>
-                    <p style={{ color: "white", fontSize: 24, textAlign: "center" }}>{FIRE_SPELL * 100}%</p>
+                    <p className="chance-indicator">{FIRE_SPELL * 100}%</p>
                 </button>
-                <button disabled={turn === 'enemy' || characterStatuses.mana < SPEELL_COST_LIGHTNING || isEnemyHit || isEnemySpelled || enemyDodge} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={() => useMagic('lightning')} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || characterStatuses.mana < SPEELL_COST_LIGHTNING || isEnemyHit || isEnemySpelled || enemyDodge} onClick={() => useMagic('lightning')} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-bolt-lightning"></i>
-                    <p style={{ color: "white", fontSize: 24, textAlign: "center" }}>{LIGHTNING_SPELL * 100}%</p>
+                    <p className="chance-indicator">{LIGHTNING_SPELL * 100}%</p>
                 </button>
-                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={() => useMagic('meditate')} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled || enemyDodge} onClick={() => useMagic('meditate')} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-sharp fa-solid fa-hand-sparkles"></i>
-                    <p style={{ color: "white", fontSize: 24, textAlign: "center" }}>{MEDITATE * 100}%</p>
+                    <p className="chance-indicator">{MEDITATE * 100}%</p>
                 </button>
             </div>
         )
@@ -189,17 +193,17 @@ const Player = ({ enemyCurrentHealth, setEnemyCurrentHealth, turn, setTurn, char
 
     if (characterClass === 'paladin') {
         return (
-            <div style={{ width: '100%', backgroundColor: 'transparent', display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={attack} type="button" className="btn btn-light">
+            <div className="character-container">
+                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled} onClick={attack} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>
                 </button>
-                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={attack} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || isEnemyHit || isEnemySpelled} onClick={attack} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-gavel"></i>
                 </button>
-                <button disabled={turn === 'enemy' || characterStatuses.mana < 3 || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={useMagic} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || characterStatuses.mana < 3 || isEnemyHit || isEnemySpelled} onClick={useMagic} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-bolt-lightning"></i>
                 </button>
-                <button disabled={turn === 'enemy' || characterStatuses.mana < 3 || isEnemyHit || isEnemySpelled} style={{ fontSize: 100, backgroundColor: "black", border: "none" }} onClick={useMagic} type="button" className="btn btn-light">
+                <button disabled={turn === 'enemy' || characterStatuses.mana < 3 || isEnemyHit || isEnemySpelled} onClick={useMagic} type="button" className="btn btn-light action-button">
                     <i style={{ color: "white" }} className="fa-solid fa-bolt-lightning"></i>
                 </button>
             </div>

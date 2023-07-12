@@ -5,7 +5,9 @@ import songInicio from "./assets/sounds/songInicio.mp3"
 import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
-import spell from "./assets/sounds/spell.wav"
+import fireSpell from "./assets/sounds/fire_spell.wav"
+import lightingSpell from "./assets/sounds/lighting_spell.wav"
+import meditationSound from "./assets/sounds/meditate.wav"
 import block from "./assets/sounds/block.wav"
 import miss from "./assets/sounds/miss.wav"
 import warrior_presenting_herself from "./assets/sounds/warriorPresentingHerself.mp3"
@@ -125,10 +127,22 @@ export const attackSword = new Howl({
     volume: 0.7,
 })
 
-export const attackSpell = new Howl({
-    src: [spell],
+export const fire = new Howl({
+    src: [fireSpell],
     html5: true,
     volume: 0.5,
+})
+
+export const lighting = new Howl({
+    src: [lightingSpell],
+    html5: true,
+    volume: 0.5,
+})
+
+export const meditate = new Howl({
+    src: [meditationSound],
+    html5: true,
+    volume: 1,
 })
 
 export const attackBlocked = new Howl({
@@ -146,6 +160,6 @@ export const attackMissed = new Howl({
 export const storyTexts = [
     "Our hero stands before the ominous entrance of the dungeon. Shadows dance and flicker at the edges of their vision, teasing the sinister darkness that lies just beyond the threshold."]
 
-export const SoundFX = [hover, attackSpell, attackSword, footstep, paladinPresentingHimself, warriorPresentingHerself, wizardPresentingHimself]
+export const SoundFX = [hover, fire, lighting, attackSword, footstep, paladinPresentingHimself, warriorPresentingHerself, wizardPresentingHimself]
 
 export const missing = [missing1, missing2, missing3, missing4]
