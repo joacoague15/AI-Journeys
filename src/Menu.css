@@ -81,16 +81,68 @@
 }
 
 @media screen and (max-width: 600px) {
+    #new-game-video-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #madame-video {
+        position: fixed;
+        display: flex;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    #new-game-container {
+        display: flex;
+        background-color: transparent;
+        flex-direction: column;
+        text-align: center;
+        z-index: 1;
+    }
+
+    #new-game-title {
+        font-size: 32px;
+    }
+
+    #title {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
 }
 
-@media screen and (min-width: 600px) {
-}
+/*@media screen and (min-width: 600px) {*/
+/*}*/
 
-@media screen and (min-width: 900px) {
-}
+/*@media screen and (min-width: 900px) {*/
+/*}*/
 
-@media screen and (min-width: 1200px) {
-}
+@media screen and (max-width: 1500px) {
+    #madame-video {
+        border-radius: 5px;
+        width: 60%;
+    }
 
-@media screen and (min-width: 1500px) {
+    #video-container {
+        display: flex;
+        margin-right: 0;
+    }
+
+    #new-game-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: auto;
+    }
+
+    #new-game-title {
+    }
+
+    #title {
+    }
 }

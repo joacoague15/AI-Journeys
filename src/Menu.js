@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { IDBDeleteDB, IDBTransactionGetAll } from "./IndexedDB/CRUD"
 import { hover, sound } from "./constants";
 import 'animate.css';
