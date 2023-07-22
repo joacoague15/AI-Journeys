@@ -1,6 +1,6 @@
 import warriorClassImg from "../assets/images/warrior_class.jpg";
 import wizardClassImg from "../assets/images/wizard_class.png";
-import paladinClassImg from "../assets/images/paladin_class.jpg";
+// import paladinClassImg from "../assets/images/paladin_class.jpg";
 import { useState } from "react";
 import {
     wizardPresentingHimself,
@@ -13,7 +13,7 @@ import './ClassSelection.css';
 const ClassSelection = ({ setUserClass }) => {
     const [isWarriorHovering, setIsWarriorHovering] = useState(false);
     const [isWizardHovering, setIsWizardHovering] = useState(false);
-    const [isPaladinHovering, setIsPaladinHovering] = useState(false);
+    // const [isPaladinHovering, setIsPaladinHovering] = useState(false);
 
     const [isWarriorSelected, setIsWarriorSelected] = useState(false);
     const [isWizardSelected, setIsWizardSelected] = useState(false);
@@ -60,10 +60,11 @@ const ClassSelection = ({ setUserClass }) => {
                      className={isWizardHovering || isWizardSelected ? 'hover-class-img' : 'default-class-img'}
                     src={wizardClassImg} alt="mage-img" />
             </button>
-            <button disabled={true} onMouseEnter={() => setIsPaladinHovering(true)}
-                onMouseLeave={() => setIsPaladinHovering(false)}
-                onClick={() => selectClass('paladin')} type="button" className="btn btn-light class-selection-button">
-                <img onMouseOver={() => { hover.play() }} className={isPaladinHovering || isPaladinSelected ? 'hover-class-img' : 'default-class-img'} src={paladinClassImg} alt="paladin-img" /></button>
+            {/*<button disabled={true} onMouseEnter={() => setIsPaladinHovering(true)}*/}
+            {/*    onMouseLeave={() => setIsPaladinHovering(false)}*/}
+            {/*    onClick={() => selectClass('paladin')} type="button" className="btn btn-light class-selection-button">*/}
+            {/*    <img onMouseOver={() => { hover.play() }} className={isPaladinHovering || isPaladinSelected ? 'hover-class-img' : 'default-class-img'} src={paladinClassImg} alt="paladin-img" />*/}
+            {/*</button>*/}
         </div>
     )
 }

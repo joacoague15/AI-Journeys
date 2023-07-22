@@ -1,5 +1,6 @@
 .class-container {
     text-align: center;
+    display: flex;
 }
 
 .class-selection-button {
@@ -33,13 +34,33 @@
 
 
 @media screen and (max-width: 600px) {
+    .hover-class-img {
+        margin-top: 10px;
+        width: 80px;
+        border: 2px solid white;
+        filter: none;
+        transition: filter 0.3s ease-in-out;
+    }
+
+    .default-class-img {
+        margin-top: 10px;
+        width: 80px;
+        border: 2px solid white;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease-in-out;
+    }
+
+    .class-container {
+        text-align: center;
+        display: flex;
+        margin: auto;
+    }
 }
 
-@media screen and (min-width: 600px) {
-}
-
-@media screen and (min-width: 900px) {
-}
-
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1500px) {
+    .class-container {
+        text-align: center;
+        display: flex;
+        margin: 15px auto;
+    }
 }
