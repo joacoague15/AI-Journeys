@@ -1,6 +1,7 @@
 import AttributesHelp from "./AttributesHelp";
 import Attributes from "../components/Attributes";
 import { useEffect } from "react";
+import './FirstStatusesAssignment.css';
 
 const FirstStatusesAssignment = ({ characterClass, characterStatuses, setCharacterStatuses }) => {
 
@@ -40,7 +41,7 @@ const FirstStatusesAssignment = ({ characterClass, characterStatuses, setCharact
     }, [characterClass, setCharacterStatuses]);
 
     return (
-        <div className="animate__animated animate__fadeIn" style={{ color: "white", textAlign: "center", display: "flex", flexDirection: "column", padding: 10, marginTop: 10 }}>
+        <div className="animate__animated animate__fadeIn first-statuses-container">
             <Attributes characterStatuses={characterStatuses} characterClass={characterClass} />
             <AttributesHelp />
         </div>

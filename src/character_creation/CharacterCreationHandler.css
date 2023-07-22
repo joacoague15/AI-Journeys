@@ -1,0 +1,59 @@
+#character-creation-container {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    flex-direction: column;
+}
+
+#character-info-container {
+    display: flex;
+    margin: 20px;
+    flex-direction: row;
+}
+
+#assignment-container {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    line-height: 2;
+    margin-right: 5px;
+}
+
+#user-name-input {
+    color: white;
+    font-size: 24px;
+}
+
+#videos-container {
+    display: flex;
+    flex: 2;
+}
+
+#continue-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.class-video-selected {
+    width: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: flex;
+}
+
+.class-video-not-selected {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (min-width: 900px) {
+}
+
+@media screen and (min-width: 1200px) {
+}

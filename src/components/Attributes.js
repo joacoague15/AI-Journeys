@@ -1,13 +1,9 @@
-import {useEffect} from "react";
+import './Attributes.css';
 
 const Attributes = ({characterStatuses, characterClass}) => {
-    useEffect(() => {
-        console.log(characterClass)
-    }, [characterClass]);
-
     if (characterClass) {
         return (
-            <div style={{ margin: 'auto', width: '100%', display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div id="attributes-container">
                 <div style={{ paddingTop: 20, width: '100%', display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <svg style={{ marginRight: 10 }} xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
                          className="bi bi-heart-fill" viewBox="0 0 16 16">

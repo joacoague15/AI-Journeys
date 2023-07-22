@@ -8,6 +8,7 @@ import {
     warriorPresentingHerself
 } from "../constants";
 import { hover } from "../constants";
+import './ClassSelection.css';
 
 const ClassSelection = ({ setUserClass }) => {
     const [isWarriorHovering, setIsWarriorHovering] = useState(false);
@@ -45,26 +46,24 @@ const ClassSelection = ({ setUserClass }) => {
     }
 
     return (
-        <div className={"animate__animated animate__fadeIn"} style={{ display: "flex", flexDirection: "row", width: "100%", marginTop: 20, justifyContent: "center", alignItems: "center", }}>
+        <div className={"animate__animated animate__fadeIn class-container"}>
             <button onMouseEnter={() => setIsWarriorHovering(true)}
                 onMouseLeave={() => setIsWarriorHovering(false)}
-                style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }}
-                onClick={() => selectClass('warrior')} type="button" className="btn btn-light">
-                <img onMouseOver={() => { hover.play() }}
-                    style={{ width: 300, border: "2px solid white", filter: isWarriorHovering || isWarriorSelected ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }}
+                onClick={() => selectClass('warrior')} type="button" className="btn btn-light class-selection-button">
+                <img onMouseOver={() => { hover.play() }} className={isWarriorHovering || isWarriorSelected ? 'hover-class-img' : 'default-class-img'}
                     src={warriorClassImg} alt="warrior-img" />
             </button>
             <button onMouseEnter={() => setIsWizardHovering(true)}
                 onMouseLeave={() => setIsWizardHovering(false)}
-                style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }}
-                onClick={() => selectClass('wizard')} type="button" className="btn btn-light">
+                onClick={() => selectClass('wizard')} type="button" className="btn btn-light class-selection-button">
                 <img onMouseOver={() => { hover.play() }}
-                    style={{ width: 300, border: "2px solid white", filter: isWizardHovering || isWizardSelected ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }}
+                     className={isWizardHovering || isWizardSelected ? 'hover-class-img' : 'default-class-img'}
                     src={wizardClassImg} alt="mage-img" />
             </button>
             <button disabled={true} onMouseEnter={() => setIsPaladinHovering(true)}
                 onMouseLeave={() => setIsPaladinHovering(false)}
-                style={{ fontSize: 48, backgroundColor: "black", border: "none", margin: "0 20px" }} onClick={() => selectClass('paladin')} type="button" className="btn btn-light"><img onMouseOver={() => { hover.play() }} style={{ width: 300, border: "2px solid white", filter: isPaladinHovering || isPaladinSelected ? "none" : "grayscale(100%)", transition: "filter 0.3s ease-in-out" }} src={paladinClassImg} alt="paladin-img" /></button>
+                onClick={() => selectClass('paladin')} type="button" className="btn btn-light class-selection-button">
+                <img onMouseOver={() => { hover.play() }} className={isPaladinHovering || isPaladinSelected ? 'hover-class-img' : 'default-class-img'} src={paladinClassImg} alt="paladin-img" /></button>
         </div>
     )
 }

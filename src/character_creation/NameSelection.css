@@ -1,0 +1,35 @@
+.name-selection-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#title {
+    font-size: 32px;
+    color: white;
+    border: none;
+}
+
+#name-input {
+    border: 1px solid white;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 42px;
+    letter-spacing: 16px;
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (min-width: 900px) {
+}
+
+@media screen and (min-width: 1200px) {
+}

@@ -1,0 +1,45 @@
+.class-container {
+    text-align: center;
+}
+
+.class-selection-button {
+    font-size: 48px;
+    background-color: black;
+    border: none;
+    margin: 0 20px;
+}
+
+.class-selection-button:hover {
+    background-color: black;
+}
+
+.class-selection-button:disabled {
+    background-color: black;
+}
+
+.hover-class-img {
+    width: 300px;
+    border: 2px solid white;
+    filter: none;
+    transition: filter 0.3s ease-in-out;
+}
+
+.default-class-img {
+    width: 300px;
+    border: 2px solid white;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+}
+
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (min-width: 900px) {
+}
+
+@media screen and (min-width: 1200px) {
+}

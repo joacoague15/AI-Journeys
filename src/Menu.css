@@ -62,6 +62,7 @@
 
 #madame-video {
     border-radius: 5px;
+    width: 100%;
 }
 
 #new-game-title {
@@ -77,4 +78,19 @@
     flex-direction: column;
     flex: 1;
     margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (min-width: 600px) {
+}
+
+@media screen and (min-width: 900px) {
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1500px) {
 }
