@@ -1,15 +1,56 @@
 #attributes-container {
     margin: auto;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.statuses-wrapper {
-    padding-top: 20px;
-    width: 100%;
+.attribute-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.icon {
+    margin-right: 10px;
+    width: 48px;
+    height: 48px;
+}
+
+#attack-icon {
+    margin-right: 10px;
+    font-size: 48px;
+}
+
+.attribute-value {
+    font-size: 28px;
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 1500px) {
+    #attributes-container {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    #attack-icon {
+        margin-right: 10px;
+        font-size: 32px;
+    }
+
+    .attribute-value {
+        font-size: 22px;
+    }
+}
+
+

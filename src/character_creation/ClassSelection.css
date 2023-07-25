@@ -10,14 +10,6 @@
     margin: 0 20px;
 }
 
-.class-selection-button:hover {
-    background-color: black;
-}
-
-.class-selection-button:disabled {
-    background-color: black;
-}
-
 .hover-class-img {
     width: 300px;
     border: 2px solid white;
@@ -62,5 +54,28 @@
         text-align: center;
         display: flex;
         margin: 15px auto;
+    }
+
+    .hover-class-img {
+        margin-top: 10px;
+        width: 120px;
+        border: 2px solid white;
+        filter: none;
+        transition: filter 0.3s ease-in-out;
+    }
+
+    .default-class-img {
+        margin-top: 10px;
+        width: 120px;
+        border: 2px solid white;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease-in-out;
+    }
+
+    .class-selection-button {
+        font-size: 12px;
+        background-color: black;
+        border: none;
+        margin: 0 20px;
     }
 }

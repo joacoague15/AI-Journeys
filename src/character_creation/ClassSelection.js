@@ -49,13 +49,13 @@ const ClassSelection = ({ setUserClass }) => {
         <div className={"animate__animated animate__fadeIn class-container"}>
             <button onMouseEnter={() => setIsWarriorHovering(true)}
                 onMouseLeave={() => setIsWarriorHovering(false)}
-                onClick={() => selectClass('warrior')} type="button" className="btn btn-light class-selection-button">
+                onClick={() => selectClass('warrior')} type="button" className="class-selection-button">
                 <img onMouseOver={() => { hover.play() }} className={isWarriorHovering || isWarriorSelected ? 'hover-class-img' : 'default-class-img'}
                     src={warriorClassImg} alt="warrior-img" />
             </button>
             <button onMouseEnter={() => setIsWizardHovering(true)}
                 onMouseLeave={() => setIsWizardHovering(false)}
-                onClick={() => selectClass('wizard')} type="button" className="btn btn-light class-selection-button">
+                onClick={() => selectClass('wizard')} type="button" className="class-selection-button">
                 <img onMouseOver={() => { hover.play() }}
                      className={isWizardHovering || isWizardSelected ? 'hover-class-img' : 'default-class-img'}
                     src={wizardClassImg} alt="mage-img" />
