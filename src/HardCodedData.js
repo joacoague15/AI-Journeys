@@ -4,6 +4,8 @@ import troll from "./assets/videos/troll.mp4";
 import ogre from "./assets/videos/ogre.mp4";
 import cultist from "./assets/videos/cultist.mp4";
 
+import firstBossVideo1 from "./assets/videos/firstBossVideo1.mp4";
+
 import hallway1 from "./assets/images/hallway1.jpg";
 import hallway2 from "./assets/images/hallway2.jpg";
 import hallway3 from "./assets/images/hallway3.jpg";
@@ -195,9 +197,21 @@ export const Enemies = {
             attack: 8,
             experienceEnemyGives: 500,
         }
+    ],
+    bosses: [
+        {
+            name: "Cerberus",
+            video: firstBossVideo1,
+            health: 500,
+            attackMin: 30,
+            attackMax: 60,
+            critChance: 10,
+            critDmg: 30,
+            attack: 40,
+            experienceEnemyGives: 300,
+        }
     ]
 }
-
 
 export const LootInventory = {
     weapons: [

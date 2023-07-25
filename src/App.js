@@ -14,6 +14,7 @@ import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
 import { IDBDeleteDB } from "./IndexedDB/CRUD";
 import "./App.css";
+import FirstBossFight from "./situations_system/combat_system/FirstBossFight";
 
 function App() {
     const [text, setText] = useState(storyTexts[0]);
@@ -90,7 +91,6 @@ function App() {
 
     if (!characterCreated)
         return <CharacterCreationHandler characterClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
-
 
     if (characterStatuses.health <= 0) {
         IDBDeleteDB()

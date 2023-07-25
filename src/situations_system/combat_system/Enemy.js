@@ -3,7 +3,7 @@ import {attackBlocked, attackMissed, attackSword, enemyAttackDuration} from "../
 import { handleBlockResult } from "../../Handlers";
 import './Enemy.css';
 
-const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction, enemyAttackMin, enemyAttackMax, characterClass }) => {
+const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTurn, characterStatuses, setCharacterStatuses, enemyVideo, isEnemyHit, enemyDodge, isEnemySpelled, isEnemyAttacking, setIsEnemyAttacking, setLastAction, enemyAttackMin, enemyAttackMax, characterClass, autoplay = true, muted = true, loop = true }) => {
 
     const blockEffectDependingOnClass = () => {
             if (characterClass === 'warrior') {
@@ -66,7 +66,7 @@ const Enemy = ({ enemyCurrentHealth, enemyTotalHealth, enemyAttack, turn, setTur
                 </h2>
             </div>
             <div id="enemy-display-container">
-                <video className={`animate__animated ${handleAnimation()} enemy-video`} src={enemyVideo} autoPlay muted={true} loop={true}>
+                <video className={`animate__animated ${handleAnimation()} enemy-video`} src={enemyVideo} autoPlay={autoplay} muted={muted} loop={loop}>
                     Tu navegador no admite el elemento <code>video</code>.
                 </video>
                 <div className="progress progress-container">
