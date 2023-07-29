@@ -5,10 +5,9 @@ import { handleAttackResult } from "../../Handlers";
 import { Enemies } from "../../HardCodedData";
 
 const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastAction, setSituation, characterStatuses, setCharacterStatuses, characterClass }) => {
-    const [bossCurrentHealth, setBossCurrentHealth] = useState(null);
-
     const [bossName, setBossName] = useState("");
     const [bossTotalHealth, setBossTotalHealth] = useState(null);
+    const [bossCurrentHealth, setBossCurrentHealth] = useState(null);
     const [bossAttack, setBossAttack] = useState(0);
     const [bossVideo, setBossVideo] = useState("");
     const [turn, setTurn] = useState('player');
@@ -37,12 +36,28 @@ const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastA
             setBossName(boss.name);
             setBossTotalHealth(boss.health);
             setBossCurrentHealth(boss.health);
-            setBossVideo(boss.video);
+            setBossVideo(boss.videos[0]);
             setLastAction('Be ready...');
             const attackResult = handleAttackResult(boss.attackMin, boss.attackMax , boss.critChance, boss.critDmg);
             setBossAttack(attackResult[0]);
         }
-    }, [bossTotalHealth])
+        if (bossCurrentHealth && bossCurrentHealth < 400) {
+            console.log(bossCurrentHealth);
+            setBossVideo(boss.videos[1]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 300) {
+            console.log(bossCurrentHealth);
+            setBossVideo(boss.videos[2]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 200) {
+            console.log(bossCurrentHealth);
+            setBossVideo(boss.videos[3]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 100) {
+            console.log(bossCurrentHealth);
+            setBossVideo(boss.videos[4]);
+        }
+    }, [boss.attackMax, boss.attackMin, boss.critChance, boss.critDmg, boss.health, boss.name, boss.videos, bossCurrentHealth, bossTotalHealth, setLastAction])
 
     return (
         <div id="handler-container">
