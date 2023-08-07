@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, createContext} from "react";
 import './assets/base.css'
 import CharacterCreationHandler from "./character_creation/CharacterCreationHandler";
 import { resolverIDB } from "./IndexedDB/registerDB.js"
@@ -14,7 +14,8 @@ import LevelUpModal from "./components/LevelUpModal";
 import LastAction from "./components/LastAction";
 import { IDBDeleteDB } from "./IndexedDB/CRUD";
 import "./App.css";
-import FirstBossFight from "./situations_system/combat_system/FirstBossFight";
+import VictoryContext from './contexts/VictoryContext';
+import VictoryScreen from "./components/VictoryScreen";
 
 function App() {
     const [text, setText] = useState(storyTexts[0]);
@@ -41,6 +42,9 @@ function App() {
     const [initialModal, setInitialModal] = useState(true)
     const [stages, setStages] = useState(1)
     const [changeSound, setChangeSound] = useState(false)
+
+    const [victory, setVictory] = React.useState(false);
+
     const changeRangeVolume = (e) => {
         sound.volume(e.target.value / 100)
         cave.volume(e.target.value / 100)
@@ -92,6 +96,10 @@ function App() {
     if (!characterCreated)
         return <CharacterCreationHandler characterClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
 
+    if (victory) {
+        return <VictoryScreen />
+    }
+
     if (characterStatuses.health <= 0) {
         IDBDeleteDB()
         return <DeadScreen />
@@ -105,8 +113,10 @@ function App() {
             </div>
             <StoryText text={text} />
             <LastAction lastAction={lastAction} />
-            <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
-            <div id="stage-container" >
+            <VictoryContext.Provider value={[ victory, setVictory ]}>
+                <SituationHandler stages={stages} setStages={setStages} setText={setText} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} situation={situation} setSituation={setSituation} experience={experience} setExperience={setExperience} currentLevel={currentLevel} setChangeSound={setChangeSound} muted={muted} characterClass={characterClass} setLastAction={setLastAction} />
+            </VictoryContext.Provider>
+                <div id="stage-container" >
                 <h3>STAGE {stages} / {bossStage}</h3>
             </div>
             <div id="experience-indicator-container">
