@@ -5,6 +5,10 @@ import ogre from "./assets/videos/ogre.mp4";
 import cultist from "./assets/videos/cultist.mp4";
 
 import firstBossVideo1 from "./assets/videos/firstBossVideo1.mp4";
+import firstBossVideo2 from "./assets/videos/firstBossVideo2.mp4";
+import firstBossVideo3 from "./assets/videos/firstBossVideo3.mp4";
+import firstBossVideo4 from "./assets/videos/firstBossVideo4.mp4";
+import firstBossVideo5 from "./assets/videos/firstBossVideo5.mp4";
 
 import hallway1 from "./assets/images/hallway1.jpg";
 import hallway2 from "./assets/images/hallway2.jpg";
@@ -201,7 +205,13 @@ export const Enemies = {
     bosses: [
         {
             name: "Cerberus",
-            video: firstBossVideo1,
+            videos: [
+                firstBossVideo1,
+                firstBossVideo2,
+                firstBossVideo3,
+                firstBossVideo4,
+                firstBossVideo5,
+            ],
             health: 500,
             attackMin: 30,
             attackMax: 60,

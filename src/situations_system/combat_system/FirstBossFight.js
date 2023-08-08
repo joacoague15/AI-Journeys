@@ -1,14 +1,14 @@
 import Enemy from "./Enemy";
 import Player from "./Player";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { handleAttackResult } from "../../Handlers";
 import { Enemies } from "../../HardCodedData";
+import VictoryContext from "../../contexts/VictoryContext";
 
 const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastAction, setSituation, characterStatuses, setCharacterStatuses, characterClass }) => {
-    const [bossCurrentHealth, setBossCurrentHealth] = useState(null);
-
     const [bossName, setBossName] = useState("");
     const [bossTotalHealth, setBossTotalHealth] = useState(null);
+    const [bossCurrentHealth, setBossCurrentHealth] = useState(null);
     const [bossAttack, setBossAttack] = useState(0);
     const [bossVideo, setBossVideo] = useState("");
     const [turn, setTurn] = useState('player');
@@ -18,6 +18,8 @@ const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastA
     const [bossDodge, setBossDodge] = useState(false);
     const [isBossSpelled, setIsBossSpelled] = useState(false);
     const [isBossAttacking, setIsBossAttacking] = useState(false);
+
+    const [, setVictory] = useContext(VictoryContext);
 
     useEffect(() => {
         if (bossCurrentHealth <= 0 && bossTotalHealth !== null) {
@@ -37,12 +39,32 @@ const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastA
             setBossName(boss.name);
             setBossTotalHealth(boss.health);
             setBossCurrentHealth(boss.health);
-            setBossVideo(boss.video);
+            setBossVideo(boss.videos[0]);
             setLastAction('Be ready...');
             const attackResult = handleAttackResult(boss.attackMin, boss.attackMax , boss.critChance, boss.critDmg);
             setBossAttack(attackResult[0]);
         }
-    }, [bossTotalHealth])
+        if (bossCurrentHealth && bossCurrentHealth < 400) {
+            // Boss is injured
+            setBossVideo(boss.videos[1]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 300) {
+            // Boss is starting to worry
+            setBossVideo(boss.videos[2]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 200) {
+            // Boss is furious
+            setBossVideo(boss.videos[3]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 100) {
+            // Boss is in agony
+            console.log(bossCurrentHealth);
+            setBossVideo(boss.videos[4]);
+        }
+        if (bossCurrentHealth && bossCurrentHealth < 1) {
+            setVictory(true);
+        }
+    }, [boss.attackMax, boss.attackMin, boss.critChance, boss.critDmg, boss.health, boss.name, boss.videos, bossCurrentHealth, bossTotalHealth, setLastAction, setVictory])
 
     return (
         <div id="handler-container">
