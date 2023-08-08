@@ -13,7 +13,7 @@ const SituationHandler = ({ situation, setSituation, characterStatuses, setChara
         setChangeSound(true)
     }, [])
 
-    if (stages > 3) {
+    if (stages > 49) {
         return <FirstBossFight stages={stages} setStages={setStages} experience={experience} setExperience={setExperience} setLastAction={setLastAction} setSituation={setSituation} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} characterClass={characterClass} />
     }
     else if (situation === 'walking') {

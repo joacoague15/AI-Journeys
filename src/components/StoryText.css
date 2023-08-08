@@ -1,0 +1,32 @@
+.story-container {
+    width: 25%;
+    color: white;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    font-size: 32px;
+    padding-top: 20px;
+    align-items: flex-end;
+}
+
+.story-container p {
+    border-radius: 1px;
+    width: 100%;
+    margin: auto;
+    font-size: 16px;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
+@media screen and (max-width: 1500px) {
+    .story-container {
+        width: 35%;
+        color: white;
+        display: flex;
+        text-align: center;
+        margin: auto;
+        font-size: 32px;
+        padding-top: 20px;
+        align-items: flex-end;
+    }
+}

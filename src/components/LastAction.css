@@ -1,0 +1,20 @@
+.text {
+    position: absolute;
+    width: 100%; color: white;
+    font-size: 32px;
+    top: 12%;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1500px) {
+    .text {
+        position: absolute;
+        color: grey;
+        background-color: black;
+        font-size: 24px;
+        top: 70%;
+        text-align: center;
+        z-index: 2;
+    }
+}

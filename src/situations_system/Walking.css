@@ -38,7 +38,23 @@
     background-color: transparent;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1500px) {
+    #img-walking {
+        width: 400px;
+        left: 50%;
+        top: 10%;
+        border: 1px solid white;
+        position: absolute;
+        transform: translate(-50%);
+        z-index: 1;
+    }
+
+    #action-button {
+        font-size: 70px;
+        background-color: transparent;
+        border: none;
+        z-index: 10;
+    }
 }
 
 @media screen and (min-width: 600px) {

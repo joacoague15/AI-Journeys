@@ -77,7 +77,7 @@ const LevelUpModal = ({ points, setPoints, characterStatuses, setCharacterStatus
     // }
 
     return (
-        <div className="animate__animated animate__fadeInRight" style={{ display: "flex", position: "absolute", width: "20vw", gap: '10px', height: "60vh", flexDirection: "column", right: 10, top: "20%" }}>
+        <div className="animate__animated animate__fadeInRight" style={{ display: "flex", position: "absolute", width: "20vw", gap: '10px', height: "60vh", flexDirection: "column", right: 10, top: "20%", zIndex: 10 }}>
             <div style={{ display: 'flex', flexDirection: "column" }}>
                 <div style={{ display: "flex", margin: "auto", flexDirection: "column" }}>
                     <button onClick={upgradeHealth} className="buttonToUpgrade" style={{ border: "none" }}><img style={{ width: 150, border: "1px solid white" }} src={heartIcon} alt="heart-icon" /></button>

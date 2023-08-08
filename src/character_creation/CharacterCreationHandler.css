@@ -73,10 +73,10 @@
 
     .class-video-selected {
         width: 220px;
-        height: 270px;
+        height: 350px;
         object-fit: cover;
         border-radius: 20px;
-        display: flex;
+        position: absolute;
     }
 
     #assignment-container {
@@ -89,6 +89,9 @@
 
     #continue-button-container {
         display: flex;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
         justify-content: center;
         margin-top: 10px;
         font-size: 128px;

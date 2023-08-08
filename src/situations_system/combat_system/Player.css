@@ -29,3 +29,17 @@
 .action-button:disabled {
     background-color: black;
 }
+
+@media screen and (max-width: 1500px) {
+    .action-button {
+        font-size: 40px;
+        background-color: black;
+        border: none;
+    }
+
+    .chance-indicator {
+        color: white;
+        font-size: 12px;
+        text-align: center;
+    }
+}

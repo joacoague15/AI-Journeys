@@ -1,8 +1,8 @@
 import React from "react";
+import './LastAction.css'
 
 const LastAction = ({ lastAction }) => {
-
-        return <p className="animate__animated animate__fadeInLeft" style={{ position: "absolute", width: '100%', color: "white", fontSize: 32, top: "12%", textAlign: 'center' }}>{lastAction}</p>
+        return <p className="animate__animated animate__fadeInLeft text">{lastAction}</p>
 }
 
 export default LastAction;
