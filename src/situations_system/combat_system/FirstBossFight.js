@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { handleAttackResult } from "../../Handlers";
 import { Enemies } from "../../HardCodedData";
 import VictoryContext from "../../contexts/VictoryContext";
+import {boss_battle} from "../../constants";
 
 const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastAction, setSituation, characterStatuses, setCharacterStatuses, characterClass }) => {
     const [bossName, setBossName] = useState("");
@@ -30,9 +31,14 @@ const FirstBossFight = ({ experience, setExperience, stages, setStages, setLastA
                 setLastAction('');
             }, 1000)
             // SET SITUATION T0 WIN
+            boss_battle.stop();
             setSituation('walking');
         }
     }, [bossCurrentHealth])
+
+    useEffect(() => {
+        boss_battle.play();
+    }, []);
 
     useEffect(() => {
         if (bossTotalHealth === null) {

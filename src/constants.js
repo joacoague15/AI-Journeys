@@ -2,6 +2,9 @@ import presentationAudio from "./assets/sounds/presentation.mp3"
 import classPresentationAudio from "./assets/sounds/classPresentation.mp3"
 import entranceAudio from "./assets/sounds/entrance.mp3"
 import songInicio from "./assets/sounds/songInicio.mp3"
+import battleBackground from "./assets/sounds/battle_background.wav";
+import boss_music from "./assets/sounds/boss_music.mp3";
+import walkBackground from "./assets/sounds/walk_background.wav";
 import footsteps from "./assets/sounds/footsteps.mp3"
 import hoverOption from "./assets/sounds/hoverOption.mp3"
 import sword from "./assets/sounds/sword.wav"
@@ -51,6 +54,27 @@ export const sound = new Howl({
     html5: true,
     loop: true,
     volume: 0.4,
+})
+
+export const walking_music = new Howl({
+    src: [walkBackground],
+    html5: true,
+    loop: true,
+    volume: 1,
+})
+
+export const boss_battle = new Howl({
+    src: [boss_music],
+    html5: true,
+    loop: true,
+    volume: 1,
+})
+
+export const battle_music = new Howl({
+    src: [battleBackground],
+    html5: true,
+    loop: true,
+    volume: 1,
 })
 
 export const cave = new Howl({

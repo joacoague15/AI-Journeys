@@ -4,6 +4,7 @@ import Player from "./Player";
 import { Enemies } from "../../HardCodedData";
 import { handleAttackResult } from "../../Handlers";
 import './CombatHandler.css';
+import { battle_music } from "../../constants";
 
 const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, experience, setExperience, characterClass, setLastAction, setStages, stages, healPerRoom }) => {
 
@@ -28,9 +29,14 @@ const CombatHandler = ({ characterStatuses, setCharacterStatuses, setSituation, 
             setTimeout(() => {
                 setLastAction('');
             }, 1000)
+            battle_music.stop();
             setSituation('walking');
         }
     }, [enemyCurrentHealth])
+
+    useEffect(() => {
+        battle_music.play();
+    }, [])
 
     useEffect(() => {
         if (enemyTotalHealth === null) {

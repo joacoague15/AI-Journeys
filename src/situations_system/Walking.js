@@ -1,4 +1,4 @@
-import { footstep } from "../constants";
+import {footstep, walking_music} from "../constants";
 import { useEffect, useState } from "react";
 import { Scenarios } from "../HardCodedData";
 import ReactHowler from 'react-howler';
@@ -15,9 +15,14 @@ const Walking = ({ setSituation, setText, setStages, stages }) => {
     const situationHandler = (place) => {
         setText('');
         setStages(stages + 1)
-        footstep.play()
+        walking_music.stop();
+        footstep.play();
         setSituation(place)
     }
+
+    useEffect(() => {
+        walking_music.play();
+    }, [])
 
     useEffect(() => {
         const randomSpeakAndDialog = Math.floor(Math.random() * randomScenario.text.length);

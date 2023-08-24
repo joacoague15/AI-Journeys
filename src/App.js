@@ -93,8 +93,10 @@ function App() {
 
     if (newGame) return <Initial setCharacterCreated={setCharacterCreated} setNewGame={setNewGame} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} setInitialModal={setInitialModal} initialModal={initialModal} />
 
-    if (!characterCreated)
+    if (!characterCreated) {
+        sound.stop();
         return <CharacterCreationHandler characterClass={characterClass} setUserClass={setCharacterClass} userName={characterName} setUserName={setCharacterName} setCharacterCreated={setCharacterCreated} characterStatuses={characterStatuses} setCharacterStatuses={setCharacterStatuses} points={points} setPoints={setPoints} characterCreated={characterCreated} audioPlayGameSound={audioPlayGameSound} initialModal={initialModal} changeRangeVolume={changeRangeVolume} mutedFX={mutedFX} changeVolume={changeVolume} muted={muted} FXmuted={FXmuted} />
+    }
 
     if (victory) {
         return <VictoryScreen />
